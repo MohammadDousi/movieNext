@@ -1,0 +1,11 @@
+.swiper-pagination {
+  @apply !absolute !w-full !h-[33rem] !px-20 flex !flex-col justify-center items-end gap-2;
+}
+
+.swiper-pagination-bullet {
+  @apply !size-2.5 !bg-white !left-0 !right-0;
+}
+
+.swiper-pagination-bullet-active-main {
+  @apply !size-2.5 !h-6 !rounded-3xl;
+}

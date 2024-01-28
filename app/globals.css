@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* 
-:root {
+@import "../components/trending/trendingStyle.css";
+@import "../components/boardSlider/BoardSlideStyle.css";
+  /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,14 +16,31 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 } */
+  @layer base {
+  * {
+    line-height: unset;
+    direction: ltr;
+    @apply p-0 m-0 box-border outline-0 no-underline list-none border-0 border-transparent;
+  }
+
+  body {
+    @apply w-screen h-full bg-primeryColor flex flex-col justify-center items-start overflow-auto;
+  }
+
+  main {
+    @apply w-screen;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1 h-full;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primeryColor;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondeColor/10 rounded-xl;
+  }
+}

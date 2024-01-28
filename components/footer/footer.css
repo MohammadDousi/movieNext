@@ -1,0 +1,13 @@
+footer {
+  @apply w-full px-20 py-5 flex flex-col justify-center items-center bg-primeryColorDarker border-t border-textColor/15;
+}
+
+.copyrightText {
+  @apply w-full capitalize
+         flex flex-col justify-start items-start gap-2
+         text-sm font-normal text-textColor/70;
+}
+
+.copyrightText > h1 > span {
+  @apply font-medium text-secondeColor ;
+}

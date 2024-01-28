@@ -4,7 +4,9 @@
 
 @import "../components/trending/trendingStyle.css";
 @import "../components/boardSlider/BoardSlideStyle.css";
-  /* :root {
+@import "../components/footer/footer.css";
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -17,7 +19,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
-  @layer base {
+@layer base {
   * {
     line-height: unset;
     direction: ltr;
@@ -25,15 +27,15 @@
   }
 
   body {
-    @apply w-screen h-full bg-primeryColor flex flex-col justify-center items-start overflow-auto;
+    @apply w-screen h-full bg-primeryColor flex flex-col justify-center items-start overflow-x-hidden;
   }
 
   main {
-    @apply w-screen;
+    @apply w-screen flex flex-col justify-start items-start overflow-x-hidden;
   }
 
   ::-webkit-scrollbar {
-    @apply w-1 h-full;
+    @apply w-1;
   }
 
   ::-webkit-scrollbar-track {
@@ -41,6 +43,10 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-secondeColor/10 rounded-xl;
+    @apply bg-textColor/15 rounded-xl;
+  }
+
+  .classButton {
+    @apply px-6 py-1.5 text-textColor text-sm font-medium bg-textColor/20 backdrop-blur-lg ring-1 ring-textColor/50 ring-offset-0 rounded-full;
   }
 }

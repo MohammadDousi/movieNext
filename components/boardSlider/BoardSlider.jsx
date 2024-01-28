@@ -34,7 +34,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 6));
+        setTrend(response.data.results.slice(0, 4));
       })
       .catch(function (error) {
         console.error(error);
@@ -43,7 +43,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-[35rem]"
+      className="!w-full h-[40rem] overflow-x-hidden"
       spaceBetween={0}
       speed={1500}
       slidesPerView={1}
@@ -52,7 +52,7 @@ export default function BoardSlider() {
       loop={true}
       lazy={true}
       autoplay={{
-        delay: 4000,
+        delay: 6000,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -75,12 +75,28 @@ export default function BoardSlider() {
       {trend &&
         trend.map((items) => (
           <SwiperSlide key={items?.id}>
-            <span className="w-full h-full absolute bg-gradient-to-b from-transparent to-primeryColor"></span>
+            <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
             <img
-              className="w-full h-full object-cover duration-300"
+              className="w-full h-full bg-bottom object-cover object-top duration-300"
               src={"https://image.tmdb.org/t/p/original/" + items.backdrop_path}
               alt={"https://image.tmdb.org/t/p/original/" + items.backdrop_path}
             />
+
+            <div className="w-full px-20 absolute bottom-20 flex flex-col justify-start items-start gap-3.5">
+              <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
+                {items.title ||
+                  items.original_title ||
+                  items.name ||
+                  items.original_name}
+              </h1>
+              <h3 className="w-1/2 pl-1 text-left text-lg text-textColor/70 leading-tight drop-shadow-lg">
+
+                {items?.overview.length >= 130
+                    ? `${items?.overview.slice(0, 130)}...`
+                    : items?.overview}
+
+              </h3>
+            </div>
           </SwiperSlide>
         ))}
     </Swiper>

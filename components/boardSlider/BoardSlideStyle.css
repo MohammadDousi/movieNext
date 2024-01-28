@@ -1,5 +1,5 @@
 .swiper-pagination {
-  @apply !absolute !w-full !h-[33rem] !px-20 flex !flex-col justify-center items-end gap-2;
+  @apply  !w-full !px-20 !absolute !bottom-[5.2rem] flex !flex-row justify-end items-center;
 }
 
 .swiper-pagination-bullet {
@@ -7,5 +7,5 @@
 }
 
 .swiper-pagination-bullet-active-main {
-  @apply !size-2.5 !h-6 !rounded-3xl;
+  @apply !size-2.5 !w-6 !rounded-3xl;
 }

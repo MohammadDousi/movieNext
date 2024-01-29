@@ -1,17 +1,17 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
-import ItemTrending from "./ItemTrending";
-import TitleContainer from "../title/TitleContainer";
 
-export default function Trending() {
-  const [trend, setTrend] = useState();
+import TitleContainer from "../title/TitleContainer";
+import ItemActor from "./ItemActor";
+
+export default function TrendingActor() {
+  const [actor, setActor] = useState();
 
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+    url : 'https://api.themoviedb.org/3/trending/person/day?language=en-US',
     headers: {
       accept: "application/json",
       Authorization:
@@ -23,7 +23,7 @@ export default function Trending() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 6));
+        setActor(response.data.results);
       })
       .catch(function (error) {
         console.error(error);
@@ -32,9 +32,9 @@ export default function Trending() {
 
   return (
     <section className="w-full flex flex-col justify-start items-start gap-5">
-      <TitleContainer title="trending" />
-      <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-        <ItemTrending data={trend} />
+      <TitleContainer title="trending people" href="#" />
+      <section className="w-full">
+        <ItemActor data={actor} />
       </section>
     </section>
   );

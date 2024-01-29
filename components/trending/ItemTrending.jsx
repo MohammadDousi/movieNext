@@ -5,8 +5,6 @@ import Image from "next/image";
 export default function ItemTrending({ data }) {
   return (
     <>
-      {console.log(data)}
-
       {data &&
         data.map((items) => (
           <div
@@ -15,12 +13,12 @@ export default function ItemTrending({ data }) {
           >
             <div className="w-full relative h-72 rounded-xl overflow-hidden">
               <img
-                className="w-full h-full object-cover duration-300 cursor-pointer lg:hover:blur-sm"
+                className="w-full h-full object-cover duration-300 cursor-pointer"
                 src={"https://image.tmdb.org/t/p/original/" + items.poster_path}
                 alt={"https://image.tmdb.org/t/p/original/" + items.poster_path}
               />
 
-              <div className="size-9 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor/100 ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
+              <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor/80 ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
                 {items.vote_average.toFixed(1)}
               </div>
             </div>

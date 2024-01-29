@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -34,7 +32,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 10));
+        setTrend(response.data.results.slice(0, 6));
       })
       .catch(function (error) {
         console.error(error);
@@ -50,7 +48,6 @@ export default function BoardSlider() {
       grabCursor={true}
       centeredSlides={true}
       loop={true}
-      lazy={true}
       autoplay={{
         delay: 6000,
         disableOnInteraction: false,
@@ -77,7 +74,7 @@ export default function BoardSlider() {
           <SwiperSlide key={items?.id}>
             <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
             <img
-              className="w-full h-full bg-bottom object-cover object-top duration-300"
+              className="w-full h-full  object-cover object-top duration-300"
               src={
                 "https://image.tmdb.org/t/p/original/" + items?.backdrop_path
               }

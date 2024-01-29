@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import TitleContainer from "../title/TitleContainer";
+import ItemNext from "./ItemNext";
 
 import axios from "axios";
-import ItemTrending from "./ItemTrending";
-import TitleContainer from "../title/TitleContainer";
+import { useState, useEffect } from "react";
 
-export default function Trending() {
-  const [trend, setTrend] = useState();
+export default function Next7DayOnAir() {
+  const [onAir, setOnAir] = useState();
 
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+    url: "https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1",
     headers: {
       accept: "application/json",
       Authorization:
@@ -23,7 +23,7 @@ export default function Trending() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 6));
+        setOnAir(response.data.results);
       })
       .catch(function (error) {
         console.error(error);
@@ -32,9 +32,9 @@ export default function Trending() {
 
   return (
     <section className="w-full flex flex-col justify-start items-start gap-5">
-      <TitleContainer title="trending" />
-      <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-        <ItemTrending data={trend} />
+      <TitleContainer title="next 7 days on air" />
+      <section className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
+        {(onAir !== null || "") && <ItemNext data={onAir} />}
       </section>
     </section>
   );

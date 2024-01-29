@@ -5,6 +5,7 @@
 @import "../components/trending/trendingStyle.css";
 @import "../components/boardSlider/BoardSlideStyle.css";
 @import "../components/footer/footer.css";
+@import "../components/header/headerStyle.css";
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
@@ -47,6 +48,8 @@
   }
 
   .classButton {
-    @apply px-6 py-1.5 text-textColor text-sm font-medium bg-textColor/20 backdrop-blur-lg ring-1 ring-textColor/50 ring-offset-0 rounded-full;
+    @apply px-6 py-1 text-textColor text-sm font-medium bg-accentColor/40 hover:bg-accentColor/60 backdrop-blur-lg ring-1 ring-textColor/50 ring-offset-0 rounded-full
+          duration-300;
   }
+
 }

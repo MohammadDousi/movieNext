@@ -11,6 +11,7 @@ module.exports = {
         primeryColor: "#202020",
         primeryColorDarker: "#151515",
         secondeColor: "#ffd100",
+        accentColor: "#2ec4b6",
         textColor: "#ffffff",
       },
     },

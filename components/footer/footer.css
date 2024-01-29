@@ -1,5 +1,5 @@
 footer {
-  @apply w-full px-20 py-5 flex flex-col justify-center items-center bg-primeryColorDarker border-t border-textColor/15;
+  @apply w-full mt-5 px-20 py-5 flex flex-col justify-center items-center bg-primeryColorDarker border-t border-textColor/15;
 }
 
 .copyrightText {

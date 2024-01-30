@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 import { EffectCreative, FreeMode, Mousewheel } from "swiper/modules";
 
@@ -29,16 +30,18 @@ export default function ItemNext({ data }) {
                 <SwiperSlide key={items?.id}>
                   <div className="flex flex-col justify-start items-start gap-3">
                     <div className="w-full relative rounded-xl overflow-hidden">
-                      <img
+                      <Image
+                        width={500}
+                        height={500}
+                        loading="lazy"
+                        unoptimized
                         className="w-full h-40 object-cover duration-300"
-                        src={
-                          "https://image.tmdb.org/t/p/original/" +
-                            items?.backdrop_path || items?.poster_path
-                        }
-                        alt={
-                          "https://image.tmdb.org/t/p/original/" +
-                            items?.backdrop_path || items?.poster_path
-                        }
+                        src={`https://image.tmdb.org/t/p/original${
+                          items?.backdrop_path || items?.poster_path
+                        }`}
+                        alt={`https://image.tmdb.org/t/p/original${
+                          items?.backdrop_path || items?.poster_path
+                        }`}
                       />
 
                       <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor/80 ring-8 ring-primeryColorDarker flex justify-center items-center rounded-tl-2xl">

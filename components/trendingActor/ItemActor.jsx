@@ -29,26 +29,27 @@ export default function ItemActor({ data }) {
               key={items.id}
               className="h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
             >
-              {items?.profile_path != null || "" ? (
-                <img
-                  className="w-full h-3/4 object-cover object-top rounded-full"
-                  src={
-                    "https://image.tmdb.org/t/p/original/" + items?.profile_path
-                  }
-                  alt={
-                    "https://image.tmdb.org/t/p/original/" + items?.profile_path
-                  }
-                />
-              ) : (
-                <Image
-                  className="w-full h-3/4 p-5 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10 cursor-pointer"
-                  width={100}
-                  height={100}
-                  quality={50}
-                  src={logo}
-                  alt={logo}
-                />
-              )}
+              <Image
+                width={500}
+                height={500}
+                loading="lazy"
+                unoptimized
+                className={
+                  items?.profile_path != null || ""
+                    ? "w-full h-3/4 object-cover object-top rounded-full"
+                    : "w-full h-3/4 p-5 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10 cursor-pointer"
+                }
+                src={
+                  items?.profile_path != null || ""
+                    ? `https://image.tmdb.org/t/p/original${items?.profile_path}`
+                    : logo
+                }
+                alt={
+                  items?.profile_path != null || ""
+                    ? `https://image.tmdb.org/t/p/original${items?.profile_path}`
+                    : logo
+                }
+              />
 
               <h2 className="w-full font-medium text-sm text-center text-textColor/70 tracking-wide">
                 {items?.name?.length >= 20

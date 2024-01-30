@@ -1,16 +1,12 @@
 "use client";
 
 import Link from "next/link";
-
+import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import {
-  Autoplay,
-  Pagination,
-  EffectCreative,
-} from "swiper/modules";
+import { Autoplay, Pagination, EffectCreative } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -76,14 +72,16 @@ export default function BoardSlider() {
           <SwiperSlide key={items?.id}>
             <Link href={`/movie/${items.id}`} key={items.id}>
               <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
-              <img
+             
+              <Image
+                unoptimized
+                width={600}
+                height={600}
+                quality={100}
+                loading="lazy"
                 className="w-full h-full object-cover object-top duration-300"
-                src={
-                  "https://image.tmdb.org/t/p/original/" + items?.backdrop_path
-                }
-                alt={
-                  "https://image.tmdb.org/t/p/original/" + items?.backdrop_path
-                }
+                src={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
+                alt={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
               />
 
               <div className="w-full px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">

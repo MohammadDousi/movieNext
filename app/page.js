@@ -4,6 +4,7 @@ import Trending from "@/components/trending/Trending";
 import TrendingActor from "@/components/trendingActor/TrendingActor";
 
 export default function Home() {
+
   return (
     <main>
       <BoardSlider />

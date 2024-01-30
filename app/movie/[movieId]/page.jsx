@@ -19,8 +19,8 @@ import "swiper/css/effect-creative";
 export default function MoviePage({ params }) {
   const [movie, setMovie] = useState();
   const [cast, setCast] = useState();
-  const [crew, setCrew] = useState();
   const [trailer, setTrailer] = useState();
+
 
   useEffect(() => {
     const options = {
@@ -155,12 +155,11 @@ export default function MoviePage({ params }) {
           </div>
 
           <section className="w-full flex flex-col gap-3.5">
-
             <div className="flex flex-col justify-start items-start gap-1.5">
               <h3 className="text-textColor/70">{}</h3>
             </div>
 
-            {/* <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
+            <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
               {movie?.genres?.map((genr, index) => (
                 <h3
                   key={genr.name}
@@ -171,16 +170,16 @@ export default function MoviePage({ params }) {
                     : genr.name + ","}
                 </h3>
               ))}
-            </div> */}
+            </div>
 
-            {/* <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-6">
+            <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-6">
               <div className="flex flex-row justify-start items-center gap-1.5">
                 Language :
                 <h3 className="text-base capitalize flex flex-row justify-center items-center gap-1.5">
                   {movie?.original_language}
                 </h3>
               </div>
-              
+
               <div className="flex flex-row justify-start items-center gap-1.5">
                 spoken languages :
                 {movie?.spoken_languages?.map((lang) => (
@@ -192,16 +191,15 @@ export default function MoviePage({ params }) {
                   </h3>
                 ))}
               </div>
-            </div> */}
+            </div>
 
-            {/* <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
+            <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
               production companies :
               {movie?.production_companies?.map((companie) => (
                 <h3 key={companie.name}>{companie.name},</h3>
               ))}
-            </div> */}
+            </div>
           </section>
-
         </div>
       </section>
 
@@ -253,63 +251,5 @@ export default function MoviePage({ params }) {
         <ItemActor data={cast} />
       </section>
     </section>
-
-    // <Swiper
-    //   className=""
-    //   spaceBetween={0}
-    //   speed={1500}
-    //   slidesPerView={1}
-    //   grabCursor={true}
-    //   centeredSlides={true}
-    //   loop={true}
-    //   autoplay={{
-    //     delay: 6000,
-    //     disableOnInteraction: false,
-    //   }}
-    //   pagination={{
-    //     clickable: true,
-    //     dynamicBullets: true,
-    //   }}
-    //   effect={"creative"}
-    //   creativeEffect={{
-    //     prev: {
-    //       shadow: true,
-    //       translate: ["-120%", 0, -500],
-    //     },
-    //     next: {
-    //       shadow: true,
-    //       translate: ["120%", 0, -500],
-    //     },
-    //   }}
-    //   modules={[Autoplay, Pagination, EffectCreative]}
-    // >
-
-    // <SwiperSlide key={movie?.id}>
-    //
-
-    //   <div className="w-full px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">
-    //     <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
-    //       {movie?.title?.length >= 30 ||
-    //       movie?.original_title?.length >= 30 ||
-    //       movie?.name?.length >= 30 ||
-    //       movie?.original_name?.length >= 30
-    //         ? `${movie?.title?.slice(0, 30)}...` ||
-    //           `${movie?.original_title?.slice(0, 30)}...` ||
-    //           `${movie?.name?.slice(0, 30)}...` ||
-    //           `${movie?.original_name?.slice(0, 30)}...`
-    //         : movie?.title ||
-    //           movie?.original_title ||
-    //           movie?.name ||
-    //           movie?.original_name}
-    //     </h1>
-    //     <h3 className="w-1/2 text-left text-lg text-textColor/70 drop-shadow-lg">
-    //       {movie?.overview.length >= 130
-    //         ? `${movie?.overview.slice(0, 130)}...`
-    //         : movie?.overview}
-    //     </h3>
-    //   </div>
-    // </SwiperSlide>
-    // ))}
-    // </Swiper>
   );
 }

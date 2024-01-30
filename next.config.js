@@ -5,12 +5,29 @@ module.exports = {
   // Enable the React DevTools profiler
   profiler: true,
 
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "image.tmdb.org",
+  //       pathname: "**",
+  //       port: "",
+  //     },
+  //   ],
+  // },
+
   images: {
-    remotePatterns: [
+    domains: ["image.tmdb.org"]
+},
+
+  async redirects() {
+    return [
       {
-        protocol: 'https',
-        hostname: 'image.tmdb.org',
+        source: "/movie",
+        destination: "/",
+        permanent: false,
+        basePath: false,
       },
-    ],
+    ];
   },
 };

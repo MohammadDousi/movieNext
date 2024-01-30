@@ -14,11 +14,11 @@ export default function ItemNext({ data }) {
     <>
       <Swiper
         className="!w-full h-full overflow-x-hidden"
-        spaceBetween={25}
+        spaceBetween={20}
         speed={1500}
         freeMode={true}
         mousewheel={true}
-        slidesPerView={4.3}
+        slidesPerView={4}
         grabCursor={true}
         modules={[Mousewheel, FreeMode]}
       >

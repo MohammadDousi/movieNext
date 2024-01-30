@@ -18,7 +18,7 @@ export default function ItemActor({ data }) {
       spaceBetween={15}
       speed={1500}
       freeMode={true}
-      slidesPerView={10.3}
+      slidesPerView={10}
       grabCursor={true}
       modules={[FreeMode, EffectCreative]}
     >

@@ -11,7 +11,8 @@ export default function Next7DayOnAir() {
 
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1",
+    // url: "https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1",
+    url : 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1',
     headers: {
       accept: "application/json",
       Authorization:

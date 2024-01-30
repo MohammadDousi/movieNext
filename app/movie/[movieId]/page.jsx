@@ -19,6 +19,7 @@ import "swiper/css/effect-creative";
 export default function MoviePage({ params }) {
   const [movie, setMovie] = useState();
   const [cast, setCast] = useState();
+  const [crew, setCrew] = useState();
   const [trailer, setTrailer] = useState();
 
   useEffect(() => {
@@ -58,6 +59,8 @@ export default function MoviePage({ params }) {
       .request(options)
       .then(function (response) {
         setCast(response.data.cast);
+        setCast(response.data.crew);
+        console.log(response.data.crew);
       })
       .catch(function (error) {
         console.error(error);
@@ -79,7 +82,6 @@ export default function MoviePage({ params }) {
       .request(options)
       .then(function (response) {
         setTrailer(response.data.results);
-        console.log(response.data.results);
       })
       .catch(function (error) {
         console.error(error);
@@ -90,7 +92,7 @@ export default function MoviePage({ params }) {
     let hour = Math.floor(time / 60);
     let min = Math.floor(time % 60);
 
-    return `${hour}h ${min}m`;
+    return `${hour}h-${min}m`;
   };
 
   return (
@@ -110,7 +112,7 @@ export default function MoviePage({ params }) {
             alt={"https://image.tmdb.org/t/p/original/" + movie?.poster_path}
           />
 
-          <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
+          <div className="size-10 pt-1 absolute bottom-0 right-0 text-primeryColor text-base font-bold bg-secondeColor ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
             {movie?.vote_average.toFixed(1)}
           </div>
         </div>
@@ -152,25 +154,33 @@ export default function MoviePage({ params }) {
             </h3>
           </div>
 
-          <section className="w-full flex flex-col gap-1.5">
-            <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
-              {movie?.genres?.map((genr) => (
+          <section className="w-full flex flex-col gap-3.5">
+
+            <div className="flex flex-col justify-start items-start gap-1.5">
+              <h3 className="text-textColor/70">{}</h3>
+            </div>
+
+            {/* <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
+              {movie?.genres?.map((genr, index) => (
                 <h3
                   key={genr.name}
                   className=" hover:text-secondeColor cursor-pointer tracking-wide"
                 >
-                  {genr.name},
+                  {index + Number(1) === movie?.genres?.length
+                    ? genr.name
+                    : genr.name + ","}
                 </h3>
               ))}
-            </div>
+            </div> */}
 
-            <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-6">
+            {/* <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-6">
               <div className="flex flex-row justify-start items-center gap-1.5">
                 Language :
                 <h3 className="text-base capitalize flex flex-row justify-center items-center gap-1.5">
                   {movie?.original_language}
                 </h3>
               </div>
+              
               <div className="flex flex-row justify-start items-center gap-1.5">
                 spoken languages :
                 {movie?.spoken_languages?.map((lang) => (
@@ -182,28 +192,29 @@ export default function MoviePage({ params }) {
                   </h3>
                 ))}
               </div>
-            </div>
+            </div> */}
 
-            <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
+            {/* <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
               production companies :
               {movie?.production_companies?.map((companie) => (
                 <h3 key={companie.name}>{companie.name},</h3>
               ))}
-            </div>
+            </div> */}
           </section>
+
         </div>
       </section>
 
       <section className="w-full flex flex-col gap-5">
-        <TitleContainer title="Top Billed Cast" />
-        <div className="w-full">
+        <TitleContainer title="trailer" />
+        <div className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
           <Swiper
             className="w-full h-full overflow-x-hidden"
-            spaceBetween={15}
+            spaceBetween={25}
             speed={1500}
             freeMode={true}
             mousewheel={true}
-            slidesPerView={3.3}
+            slidesPerView={4.3}
             grabCursor={true}
             modules={[Mousewheel, FreeMode, EffectCreative]}
           >
@@ -212,7 +223,7 @@ export default function MoviePage({ params }) {
                 <SwiperSlide key={items?.id}>
                   <div
                     key={items.id}
-                    className="w-full h-auto bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
+                    className="w-full rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
                   >
                     <MediaPlayer
                       src={`youtube/${items.key}`}
@@ -221,13 +232,13 @@ export default function MoviePage({ params }) {
                       load="visible"
                       posterLoad="visible"
                       controls="true"
-                      className="w-full rounded-lg"
+                      className="w-full  rounded-lg"
                     >
                       <MediaProvider />
                     </MediaPlayer>
                     <h4 className="w-full font-normal text-base text-left text-textColor/70">
-                      {items?.name?.length >= 40
-                        ? `${items?.name?.slice(0, 40)}...`
+                      {items?.name?.length >= 30
+                        ? `${items?.name?.slice(0, 30)}...`
                         : items?.name}
                     </h4>
                   </div>

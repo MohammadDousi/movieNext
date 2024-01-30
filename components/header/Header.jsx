@@ -25,7 +25,7 @@ export default function Header() {
         className={
           scroll < 100
             ? "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
-            : "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center"
+            : "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
         }
       >
         <div className="menuContainer">

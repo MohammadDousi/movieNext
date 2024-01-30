@@ -1,15 +1,16 @@
 import React from "react";
 
-import Image from "next/image";
+import Link from "next/link";
 
 export default function ItemTrending({ data }) {
   return (
     <>
       {data &&
         data.map((items) => (
-          <div
+          <Link
+            href={`/movie/${items.id}`}
             key={items.id}
-            className="w-1/5 flex flex-col justify-start items-start gap-3 overflow-hidden"
+            className="w-1/6 flex flex-col justify-start items-start gap-3 overflow-hidden"
           >
             <div className="w-full relative h-72 rounded-xl overflow-hidden">
               <img
@@ -33,7 +34,7 @@ export default function ItemTrending({ data }) {
                 {items.release_date || items.first_air_date}
               </h3>
             </div>
-          </div>
+          </Link>
         ))}
     </>
   );

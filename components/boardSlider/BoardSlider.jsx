@@ -74,7 +74,7 @@ export default function BoardSlider() {
           <SwiperSlide key={items?.id}>
             <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
             <img
-              className="w-full h-full  object-cover object-top duration-300"
+              className="w-full h-full object-cover object-top duration-300"
               src={
                 "https://image.tmdb.org/t/p/original/" + items?.backdrop_path
               }

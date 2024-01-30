@@ -1,8 +1,10 @@
 import "./globals.css";
-
-import Link from "next/link";
 import { Inter, Nunito, Ubuntu } from "next/font/google";
 import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+
+import '@vidstack/react/player/styles/base.css';
+
 const defaultFont = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,9 +20,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={defaultFont.className}>
         <Header />
-
         {children}
-        <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+        <Footer />
       </body>
     </html>
   );

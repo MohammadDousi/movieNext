@@ -47,9 +47,15 @@
     @apply bg-textColor/15 rounded-xl;
   }
 
-  .classButton {
-    @apply px-6 py-1 text-textColor text-sm font-medium bg-accentColor/40 hover:bg-accentColor/60 backdrop-blur-lg ring-1 ring-textColor/50 ring-offset-0 rounded-full
-          duration-300;
+  /* .classButton {
+    @apply h-8 px-5 text-textColor hover:text-primeryColor font-medium text-base ring-1 ring-textColor hover:ring-0 ring-offset-0 bg-textColor/10 hover:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 flex justify-center items-center rounded-full duration-300;
+  } */
+
+  .btn {
+    @apply !px-5 hover:!text-primeryColor !bg-textColor/10 hover:!bg-secondeColor !backdrop-blur-xl hover:!backdrop-blur-0 !rounded-full duration-300;
   }
 
+  .dropdown-content {
+    @apply  !bg-primeryColor/85 !backdrop-blur-xl !rounded-xl;
+  }
 }

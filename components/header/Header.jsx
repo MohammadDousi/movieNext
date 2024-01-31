@@ -27,7 +27,7 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
+            ? "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
             : "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
         }
       >
@@ -39,16 +39,70 @@ export default function Header() {
             loading="lazy"
             className="w-auto h-1/2 relative object-contain cursor-pointer"
           />
-          <section className="menu">
-            <h2>movie</h2>
-            <h2>serial</h2>
-            <h2>Animation</h2>
-            <h2>about us</h2>
-          </section>
+          <ul className="menu menu-vertical lg:menu-horizontal rounded-box">
+            <ul className="dropdown dropdown-hover">
+              <li tabIndex={0}>movie</li>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow w-56"
+              >
+                <li>
+                  <Link href={""}>popular</Link>
+                </li>
+                <li>
+                  <Link href={""}>now playing</Link>
+                </li>
+                <li>
+                  <Link href={""}>upcoming</Link>
+                </li>
+                <li>
+                  <Link href={""}>Top 250 movies</Link>
+                </li>
+              </ul>
+            </ul>
+            <ul className="dropdown dropdown-hover">
+              <li tabIndex={1}>serial</li>
+              <ul
+                tabIndex={1}
+                className="dropdown-content z-[1] menu p-2 shadow w-56"
+              >
+                <li>
+                  <Link href={""}>popular</Link>
+                </li>
+                <li>
+                  <Link href={""}>now playing</Link>
+                </li>
+                <li>
+                  <Link href={""}>upcoming</Link>
+                </li>
+                <li>
+                  <Link href={""}>Top 250 series</Link>
+                </li>
+              </ul>
+            </ul>
+
+            <li tabIndex={1}>Animation</li>
+            <li tabIndex={1}>pepole</li>
+            
+            <ul className="dropdown dropdown-hover">
+              <li tabIndex={1}>...</li>
+              <ul
+                tabIndex={1}
+                className="dropdown-content z-[1] menu p-2 shadow w-56"
+              >
+                <li>
+                  <Link href={""}>about us</Link>
+                </li>
+                <li>
+                  <Link href={""}>Advertising</Link>
+                </li>
+              </ul>
+            </ul>
+          </ul>
         </div>
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
-          <button className="size-8 bg-textColor hover:bg-secondeColor flex justify-center items-center rounded-full duration-300">
+          <button className="btn btn-sm btn-primary btn-circle btn-outline !text-textColor !px-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -64,7 +118,7 @@ export default function Header() {
               />
             </svg>
           </button>
-          <button className="h-8 px-5 text-textColor hover:text-primeryColor font-medium text-base ring-1 ring-textColor hover:ring-0 ring-offset-0 bg-textColor/10 hover:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 flex justify-center items-center rounded-full duration-300">
+          <button class="btn btn-sm btn-primary btn-outline">
             Sign in | Sign up
           </button>
         </div>

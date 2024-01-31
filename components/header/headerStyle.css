@@ -2,13 +2,18 @@
   @apply w-2/3 h-full flex flex-row justify-start items-center gap-24;
 }
 
-.menu {
+/* .menu {
   @apply flex flex-row justify-start items-center gap-0;
-}
+} */
 
-.menu > h2 {
-  @apply py-1 px-5
-  hover:bg-textColor/10 
+.menu  li  {
+  @apply px-5 py-1 relative
+  hover:bg-textColor/10
   text-textColor hover:text-secondeColor font-medium text-base capitalize tracking-wide 
   duration-300 cursor-pointer rounded-full;
 }
+
+/* .dropdown {
+  @apply absolute w-full p-2 !bg-primeryColorDarker rounded-xl 
+          flex flex-col justify-center items-start gap-1  ;
+} */

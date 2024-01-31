@@ -3,10 +3,11 @@ import Recently from "@/components/trending/Recently";
 import Link from "next/link";
 
 export default function NotFound() {
+
   return (
     <div className="w-full h-screen mt-10 flex flex-col justify-center items-center gap-4">
       <h2 className="text-textColor/90 text-3xl font-bold capitalize">
-        item not found
+        page not found
       </h2>
       <p className="text-textColor/70 text-base">
         Page not found for this section. Maybe an error has occurred.Try again

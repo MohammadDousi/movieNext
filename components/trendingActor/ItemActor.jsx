@@ -12,6 +12,9 @@ import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
 export default function ItemActor({ data }) {
+  
+  const uniqueData = [...new Map(data.map((item) => [item.id, item])).values()];
+
   return (
     <Swiper
       className="!w-full h-full overflow-x-hidden"
@@ -22,16 +25,17 @@ export default function ItemActor({ data }) {
       grabCursor={true}
       modules={[FreeMode, EffectCreative]}
     >
-      {data &&
-        data.map((items) => (
+      {uniqueData &&
+        uniqueData.map((items) => (
           <SwiperSlide key={items?.id}>
             <div
               key={items.id}
               className="h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
             >
               <Image
-                width={500}
-                height={500}
+                width={100}
+                height={100}
+                quality={100}
                 loading="lazy"
                 unoptimized
                 className={
@@ -41,12 +45,12 @@ export default function ItemActor({ data }) {
                 }
                 src={
                   items?.profile_path != null || ""
-                    ? `https://image.tmdb.org/t/p/original${items?.profile_path}`
+                    ? `https://image.tmdb.org/t/p/w185${items?.profile_path}`
                     : logo
                 }
                 alt={
                   items?.profile_path != null || ""
-                    ? `https://image.tmdb.org/t/p/original${items?.profile_path}`
+                    ? `https://image.tmdb.org/t/p/w185${items?.profile_path}`
                     : logo
                 }
               />

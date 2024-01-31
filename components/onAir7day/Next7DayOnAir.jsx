@@ -24,7 +24,7 @@ export default function Next7DayOnAir() {
     axios
       .request(options)
       .then(function (response) {
-        setOnAir(response.data.results);
+        setOnAir(response.data.results.slice(0,8));
       })
       .catch(function (error) {
         console.error(error);
@@ -32,11 +32,8 @@ export default function Next7DayOnAir() {
   }, []);
 
   return (
-    <section className="w-full flex flex-col justify-start items-start gap-5">
-      <TitleContainer title="next 7 days on air" />
       <section className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
         {(onAir !== null || "") && <ItemNext data={onAir} />}
       </section>
-    </section>
   );
 }

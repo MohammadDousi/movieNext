@@ -39,7 +39,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-[37rem] overflow-x-hidden"
+      className="!w-full h-[40rem] overflow-x-hidden"
       spaceBetween={0}
       speed={1500}
       slidesPerView={1}
@@ -72,16 +72,16 @@ export default function BoardSlider() {
           <SwiperSlide key={items?.id}>
             <Link href={`/movie/${items.id}`} key={items.id}>
               <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
-             
+
               <Image
                 unoptimized
-                width={600}
-                height={600}
+                width={1500}
+                height={1500}
                 quality={100}
-                loading="lazy"
+                property="true"
                 className="w-full h-full object-cover object-top duration-300"
-                src={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
-                alt={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
+                alt={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
               />
 
               <div className="w-full px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">

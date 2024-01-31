@@ -13,11 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
-import "aos/dist/aos.css";
-import Aos from "aos";
-
 export default function ItemTrending({ data }) {
-  // Aos.init();
 
   return (
     <Swiper
@@ -41,13 +37,14 @@ export default function ItemTrending({ data }) {
             >
               <div className="w-full relative h-72 rounded-xl overflow-hidden">
                 <Image
-                  width={500}
-                  height={500}
+                  width={200}
+                  height={200}
+                  quality={100}
                   loading="lazy"
                   unoptimized
                   className="w-full h-full object-cover duration-300 cursor-pointer"
-                  src={`https://image.tmdb.org/t/p/original${items?.poster_path}`}
-                  alt={`https://image.tmdb.org/t/p/original${items?.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w342${items?.poster_path}`}
+                  alt={`https://image.tmdb.org/t/p/w342${items?.poster_path}`}
                 />
 
                 <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor/80 ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">

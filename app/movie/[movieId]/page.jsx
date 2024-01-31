@@ -1,10 +1,12 @@
 "use client";
+import Image from "next/image";
 
 import TitleContainer from "@/components/title/TitleContainer";
 import ItemActor from "@/components/trendingActor/ItemActor";
+
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { IoTime, IoCalendar, IoStar, IoLanguage } from "react-icons/io5";
+import { useState, useEffect, lazy } from "react";
+import { IoTime, IoCalendar, IoStar } from "react-icons/io5";
 
 import { MediaPlayer, MediaProvider } from "@vidstack/react";
 
@@ -16,11 +18,12 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
-export default function MoviePage({ params }) {
-  const [movie, setMovie] = useState();
-  const [cast, setCast] = useState();
-  const [trailer, setTrailer] = useState();
+import { notFound } from "next/navigation";
 
+export default function MoviePage({ params }) {
+  const [movie, setMovie] = useState([]);
+  const [cast, setCast] = useState([]);
+  const [trailer, setTrailer] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -37,7 +40,6 @@ export default function MoviePage({ params }) {
       .request(options)
       .then(function (response) {
         setMovie(response.data);
-        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -97,23 +99,33 @@ export default function MoviePage({ params }) {
 
   return (
     <section className="w-full px-20 relative h-full flex flex-col justify-start items-center gap-14 overflow-x-hidden">
-      <span className="w-full h-full absolute -z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
-      <img
-        className="w-full h-full absolute -z-50 object-cover object-top opacity-10"
-        src={"https://image.tmdb.org/t/p/original/" + movie?.backdrop_path}
-        alt={"https://image.tmdb.org/t/p/original/" + movie?.backdrop_path}
+      <span className="w-full h-5/6 absolute -z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
+      <Image
+        className="w-full h-5/6 absolute -z-50 object-cover object-top opacity-10"
+        src={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
+        alt={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
+        width={1500}
+        height={1500}
+        quality={100}
+        property="true"
+        unoptimized
       />
 
       <section className="w-full h-screen relative pt-20 flex flex-row justify-center items-center gap-10">
         <div className="w-1/4 relative rounded-xl overflow-hidden">
-          <img
+          <Image
             className="w-full h-full object-cover"
-            src={"https://image.tmdb.org/t/p/original/" + movie?.poster_path}
-            alt={"https://image.tmdb.org/t/p/original/" + movie?.poster_path}
+            src={"https://image.tmdb.org/t/p/w500/" + movie?.poster_path}
+            alt={"https://image.tmdb.org/t/p/w500/" + movie?.poster_path}
+            width={200}
+            height={200}
+            quality={100}
+            property="true"
+            unoptimized
           />
 
           <div className="size-10 pt-1 absolute bottom-0 right-0 text-primeryColor text-base font-bold bg-secondeColor ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
-            {movie?.vote_average.toFixed(1)}
+            {movie?.vote_average?.toFixed(1)}
           </div>
         </div>
 
@@ -137,7 +149,7 @@ export default function MoviePage({ params }) {
 
             <h3 className="text-base text-secondeColor drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
               <IoStar />
-              {movie?.vote_average.toFixed(1)} ({movie?.vote_count})
+              {movie?.vote_average?.toFixed(1)} ({movie?.vote_count})
             </h3>
           </div>
 
@@ -146,12 +158,12 @@ export default function MoviePage({ params }) {
               {movie?.title || movie?.original_name}
             </h1>
 
-            <h3 className="w-full text-lg text-textColor/70 drop-shadow-lg">
+            <p className="w-full text-lg text-textColor/70 drop-shadow-lg">
               <span className="font-bold text-xl text-accentColor/50 italic capitalize ">
                 overview :{" "}
               </span>
               {movie?.overview}
-            </h3>
+            </p>
           </div>
 
           <section className="w-full flex flex-col gap-3.5">
@@ -193,7 +205,7 @@ export default function MoviePage({ params }) {
               </div>
             </div>
 
-            <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
+            <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row flex-wrap justify-start items-center gap-1.5">
               production companies :
               {movie?.production_companies?.map((companie) => (
                 <h3 key={companie.name}>{companie.name},</h3>
@@ -208,7 +220,7 @@ export default function MoviePage({ params }) {
         <div className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
           <Swiper
             className="w-full h-full overflow-x-hidden"
-            spaceBetween={25}
+            spaceBetween={20}
             speed={1500}
             freeMode={true}
             mousewheel={true}

@@ -31,15 +31,16 @@ export default function ItemNext({ data }) {
                   <div className="flex flex-col justify-start items-start gap-3">
                     <div className="w-full relative rounded-xl overflow-hidden">
                       <Image
-                        width={500}
-                        height={500}
+                        width={200}
+                        height={200}
+                        quality={100}
                         loading="lazy"
                         unoptimized
                         className="w-full h-40 object-cover duration-300"
-                        src={`https://image.tmdb.org/t/p/original${
+                        src={`https://image.tmdb.org/t/p/w300${
                           items?.backdrop_path || items?.poster_path
                         }`}
-                        alt={`https://image.tmdb.org/t/p/original${
+                        alt={`https://image.tmdb.org/t/p/w300${
                           items?.backdrop_path || items?.poster_path
                         }`}
                       />

@@ -6,8 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 
+import { useRouter } from "next/navigation";
 export default function Header() {
   const [scroll, setScroll] = useState();
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +33,11 @@ export default function Header() {
       >
         <div className="menuContainer">
           <Image
+            onClick={() => router.push("/", { scroll: true })}
             src={logo}
             alt="logo movieland"
             loading="lazy"
-            className="w-auto h-1/2 relative object-contain"
+            className="w-auto h-1/2 relative object-contain cursor-pointer"
           />
           <section className="menu">
             <h2>movie</h2>

@@ -99,19 +99,19 @@ export default function MoviePage({ params }) {
 
   return (
     <section className="w-full px-20 relative h-full flex flex-col justify-start items-center gap-14 overflow-x-hidden">
-      <span className="w-full h-5/6 absolute -z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
+      <span className="w-full h-5/6 absolute z-10 bg-gradient-to-t from-10% from-primeryColor to-transparent/10"></span>
       <Image
-        className="w-full h-5/6 absolute -z-50 object-cover object-top opacity-10"
+        className="w-full h-5/6 absolute z-0 object-cover object-top opacity-10"
         src={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
         alt={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
         width={1500}
         height={1500}
         quality={100}
-        property="true"
+        property={true}
         unoptimized
       />
 
-      <section className="w-full h-screen relative pt-20 flex flex-row justify-center items-center gap-10">
+      <section className="w-full h-screen z-10 relative pt-20 flex flex-row justify-center items-center gap-10">
         <div className="w-1/4 relative rounded-xl overflow-hidden">
           <Image
             className="w-full h-full object-cover"
@@ -120,7 +120,7 @@ export default function MoviePage({ params }) {
             width={200}
             height={200}
             quality={100}
-            property="true"
+            property={true}
             unoptimized
           />
 
@@ -215,7 +215,7 @@ export default function MoviePage({ params }) {
         </div>
       </section>
 
-      <section className="w-full flex flex-col gap-5">
+      <section className="w-full z-10 flex flex-col gap-5">
         <TitleContainer title="trailer" />
         <div className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
           <Swiper
@@ -258,10 +258,11 @@ export default function MoviePage({ params }) {
         </div>
       </section>
 
-      <section className="w-full flex flex-col gap-5">
+      <section className="w-full z-10 flex flex-col gap-5">
         <TitleContainer title="Top Billed Cast" />
         <ItemActor data={cast} />
       </section>
+
     </section>
   );
 }

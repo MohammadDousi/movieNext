@@ -9,13 +9,13 @@ export default function Home() {
   return (
     <main>
       <BoardSlider />
-      <section className="w-full px-20 flex flex-col justify-start items-start gap-14 overflow-x-hidden">
+      <section className="w-full px-20 flex flex-col justify-start items-start gap-16 overflow-x-hidden">
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="recently" href="#" />
           <Recently />
         </section>
         <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="trending" href="#" />
+          <TitleContainer title="trending" href={"#"} />
           <Trending />
         </section>
         <section className="w-full flex flex-col justify-start items-start gap-5">

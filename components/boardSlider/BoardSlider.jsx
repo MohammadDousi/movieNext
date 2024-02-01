@@ -71,7 +71,7 @@ export default function BoardSlider() {
         trend.map((items) => (
           <SwiperSlide key={items?.id}>
             <Link href={`/movie/${items.id}`} key={items.id}>
-              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
+              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
 
               <Image
                 unoptimized

@@ -83,7 +83,7 @@ export default function Header() {
 
             <li tabIndex={1}>Animation</li>
             <li tabIndex={1}>pepole</li>
-            
+
             <ul className="dropdown dropdown-hover">
               <li tabIndex={1}>...</li>
               <ul
@@ -102,14 +102,13 @@ export default function Header() {
         </div>
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
-          <button className="btn btn-sm btn-primary btn-circle btn-outline !text-textColor !px-0">
+          <button className="btn btn-sm btn-circle !text-textColor !px-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5"
             >
               <path
                 strokeLinecap="round"
@@ -118,9 +117,7 @@ export default function Header() {
               />
             </svg>
           </button>
-          <button class="btn btn-sm btn-primary btn-outline">
-            Sign in | Sign up
-          </button>
+          <button className="btn btn-sm btn-primary">Sign in | Sign up</button>
         </div>
       </header>
     </>

@@ -5,25 +5,14 @@ import TitleContainer from "@/components/title/TitleContainer";
 import ItemActor from "@/components/trendingActor/ItemActor";
 
 import axios from "axios";
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 import { IoTime, IoCalendar, IoStar } from "react-icons/io5";
-
-import { MediaPlayer, MediaProvider } from "@vidstack/react";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, FreeMode, Mousewheel } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import "swiper/css/effect-creative";
-
-import { notFound } from "next/navigation";
+import Trailer from "./Trailer";
 
 export default function MoviePage({ params }) {
-  const [movie, setMovie] = useState([]);
-  const [cast, setCast] = useState([]);
-  const [trailer, setTrailer] = useState([]);
+  const [movie, setMovie] = useState();
+  const [cast, setCast] = useState();
+  const [trailer, setTrailer] = useState();
 
   useEffect(() => {
     const options = {
@@ -207,8 +196,12 @@ export default function MoviePage({ params }) {
 
             <div className="w-full text-base font-light text-textColor/70 capitalize drop-shadow-lg flex flex-row flex-wrap justify-start items-center gap-1.5">
               production companies :
-              {movie?.production_companies?.map((companie) => (
-                <h3 key={companie.name}>{companie.name},</h3>
+              {movie?.production_companies?.map((companie, index) => (
+                <h3 key={companie.name}>
+                  {index + Number(1) === movie?.production_companies?.length
+                    ? companie.name
+                    : companie.name + ","}
+                </h3>
               ))}
             </div>
           </section>
@@ -217,52 +210,13 @@ export default function MoviePage({ params }) {
 
       <section className="w-full z-10 flex flex-col gap-5">
         <TitleContainer title="trailer" />
-        <div className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
-          <Swiper
-            className="w-full h-full overflow-x-hidden"
-            spaceBetween={20}
-            speed={1500}
-            freeMode={true}
-            mousewheel={true}
-            slidesPerView={4.3}
-            grabCursor={true}
-            modules={[Mousewheel, FreeMode, EffectCreative]}
-          >
-            {trailer &&
-              trailer.map((items) => (
-                <SwiperSlide key={items?.id}>
-                  <div
-                    key={items.id}
-                    className="w-full rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
-                  >
-                    <MediaPlayer
-                      src={`youtube/${items.key}`}
-                      aspectRatio="16/9"
-                      viewType="video"
-                      load="visible"
-                      posterLoad="visible"
-                      controls="true"
-                      className="w-full  rounded-lg"
-                    >
-                      <MediaProvider />
-                    </MediaPlayer>
-                    <h4 className="w-full font-normal text-base text-left text-textColor/70">
-                      {items?.name?.length >= 30
-                        ? `${items?.name?.slice(0, 30)}...`
-                        : items?.name}
-                    </h4>
-                  </div>
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        </div>
+        <Trailer data={trailer} />
       </section>
 
       <section className="w-full z-10 flex flex-col gap-5">
         <TitleContainer title="Top Billed Cast" />
         <ItemActor data={cast} />
       </section>
-
     </section>
   );
 }

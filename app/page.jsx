@@ -14,10 +14,12 @@ export default function Home() {
           <TitleContainer title="recently" href="#" />
           <Recently />
         </section>
+
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="trending" href={"#"} />
           <Trending />
         </section>
+
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="next 7 days on air" href="#" />
           <Next7DayOnAir />

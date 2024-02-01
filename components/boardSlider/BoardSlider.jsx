@@ -18,7 +18,6 @@ export default function BoardSlider() {
   const options = {
     method: "GET",
     url: "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-
     headers: {
       accept: "application/json",
       Authorization:
@@ -30,7 +29,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 8));
+        setTrend(response.data.results);
       })
       .catch(function (error) {
         console.error(error);
@@ -46,6 +45,7 @@ export default function BoardSlider() {
       grabCursor={true}
       centeredSlides={true}
       loop={true}
+      lazy="true"
       autoplay={{
         delay: 6000,
         disableOnInteraction: false,
@@ -78,6 +78,7 @@ export default function BoardSlider() {
                 width={1500}
                 height={1500}
                 quality={100}
+                loading="lazy"
                 property="true"
                 className="w-full h-full object-cover object-top duration-300"
                 src={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}

@@ -23,6 +23,7 @@ export default function ItemTrending({ data }) {
       speed={1500}
       freeMode={true}
       slidesPerView={6}
+      lazy="true"
       grabCursor={true}
       modules={[FreeMode, EffectCreative]}
     >
@@ -40,6 +41,7 @@ export default function ItemTrending({ data }) {
                   height={200}
                   quality={100}
                   loading="lazy"
+                  property="true"
                   unoptimized
                   className="w-full h-full object-cover duration-300 cursor-pointer"
                   src={`https://image.tmdb.org/t/p/w342${items?.poster_path}`}
@@ -80,7 +82,7 @@ export default function ItemTrending({ data }) {
               key={item}
               className="w-1/6 opacity-10 flex flex-col justify-start items-start gap-3"
             >
-              <div className="skeleton w-full bg-textColor/30 relative h-72 rounded-xl "></div>
+              <div className="skeleton w-full bg-textColor/30 relative h-72 rounded-xl"></div>
               <div className="w-full px-1 flex flex-col gap-1.5">
                 <div className="skeleton w-full h-3 bg-textColor/30"></div>
                 <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>

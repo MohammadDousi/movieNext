@@ -20,6 +20,7 @@ export default function ItemNext({ data }) {
         spaceBetween={20}
         speed={1500}
         freeMode={true}
+        lazy="true"
         mousewheel={true}
         slidesPerView={4}
         grabCursor={true}

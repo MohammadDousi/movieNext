@@ -7,7 +7,7 @@ import TitleContainer from "../title/TitleContainer";
 import ItemActor from "./ItemActor";
 
 export default function TrendingActor() {
-  const [actor, setActor] = useState([]);
+  const [actor, setActor] = useState();
 
   const options = {
     method: "GET",

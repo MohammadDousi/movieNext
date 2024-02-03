@@ -87,16 +87,16 @@ export default function MoviePage({ params }) {
   };
 
   return (
-    <section className="w-full px-20 relative h-full flex flex-col justify-start items-center gap-14 overflow-x-hidden">
-      <span className="w-full h-5/6 absolute z-10 bg-gradient-to-t from-10% from-primeryColor to-transparent/10"></span>
+    <section className="w-full px-16 relative h-full flex flex-col justify-start items-center gap-14 overflow-x-hidden">
+      <span className="w-full h-full absolute z-10 bg-gradient-to-t from-10% from-primeryColor to-transparent/10"></span>
       <Image
-        className="w-full h-5/6 absolute z-0 object-cover object-top opacity-10"
+        className="w-full h-full absolute z-0 object-cover object-top opacity-10"
         src={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
         alt={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
-        width={1500}
-        height={1500}
+        width={1200}
+        height={1200}
         quality={100}
-        property={true}
+        property="true"
         unoptimized
       />
 
@@ -109,7 +109,7 @@ export default function MoviePage({ params }) {
             width={200}
             height={200}
             quality={100}
-            property={true}
+            property="true"
             unoptimized
           />
 

@@ -16,14 +16,16 @@ module.exports = {
     ],
   },
 
-  // images: {
-  //   domains: ["image.tmdb.org"],
-  // },
-
   async redirects() {
     return [
       {
         source: "/movie",
+        destination: "/",
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/category",
         destination: "/",
         permanent: false,
         basePath: false,

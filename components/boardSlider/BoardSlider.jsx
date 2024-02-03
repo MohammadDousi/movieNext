@@ -29,7 +29,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results);
+        setTrend(response.data.results.slice(0,8));
       })
       .catch(function (error) {
         console.error(error);
@@ -38,7 +38,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-[40rem] overflow-x-hidden"
+      className="!w-full h-screen overflow-x-hidden"
       spaceBetween={0}
       speed={1500}
       slidesPerView={1}
@@ -75,8 +75,8 @@ export default function BoardSlider() {
 
               <Image
                 unoptimized
-                width={1500}
-                height={1500}
+                width={1200}
+                height={1200}
                 quality={100}
                 loading="lazy"
                 property="true"

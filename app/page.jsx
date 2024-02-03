@@ -1,4 +1,5 @@
 import BoardSlider from "@/components/boardSlider/BoardSlider";
+import GenresGroup from "@/components/genres/GenresGroup";
 import Next7DayOnAir from "@/components/onAir7day/Next7DayOnAir";
 import TitleContainer from "@/components/title/TitleContainer";
 import Recently from "@/components/trending/Recently";
@@ -9,7 +10,8 @@ export default function Home() {
   return (
     <main>
       <BoardSlider />
-      <section className="w-full px-20 flex flex-col justify-start items-start gap-16 overflow-x-hidden">
+      <section className="w-full px-16 flex flex-col justify-start items-start gap-16 overflow-x-hidden">
+        
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="recently" href="#" />
           <Recently />

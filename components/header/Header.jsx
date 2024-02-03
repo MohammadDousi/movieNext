@@ -27,8 +27,8 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
-            : "w-full h-20 px-20 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
+            ? "w-full h-20 px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
+            : "w-full h-20 px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
         }
       >
         <div className="menuContainer">
@@ -47,16 +47,16 @@ export default function Header() {
                 className="dropdown-content z-[1] menu p-2 shadow w-56"
               >
                 <li>
-                  <Link href={""}>popular</Link>
+                  <Link href={`/category/popular-movie`}>popular</Link>
                 </li>
                 <li>
-                  <Link href={""}>now playing</Link>
+                  <Link href={`/category/now-playing-movie`}>now playing</Link>
                 </li>
                 <li>
-                  <Link href={""}>upcoming</Link>
+                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
                 </li>
                 <li>
-                  <Link href={""}>Top 250 movies</Link>
+                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
                 </li>
               </ul>
             </ul>
@@ -64,19 +64,16 @@ export default function Header() {
               <li tabIndex={1}>serial</li>
               <ul
                 tabIndex={1}
-                className="dropdown-content z-[1] menu p-2 shadow w-56"
+                className="dropdown-content z-[1] p-2 shadow w-56"
               >
                 <li>
-                  <Link href={""}>popular</Link>
+                  <Link href={"/category/popular-serial"}>popular</Link>
                 </li>
                 <li>
-                  <Link href={""}>now playing</Link>
+                  <Link href={"/category/on-air-serial"}>on the air</Link>
                 </li>
                 <li>
-                  <Link href={""}>upcoming</Link>
-                </li>
-                <li>
-                  <Link href={""}>Top 250 series</Link>
+                  <Link href={"/category/top-250-serial"}>Top 250 series</Link>
                 </li>
               </ul>
             </ul>

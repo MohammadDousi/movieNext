@@ -64,4 +64,8 @@
   .skeleton {
     @apply rounded-xl;
   }
+
+  .join-item {
+    @apply !text-textColor/50
+  }
 }

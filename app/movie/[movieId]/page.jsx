@@ -7,7 +7,8 @@ import ItemActor from "@/components/trendingActor/ItemActor";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IoTime, IoCalendar, IoStar } from "react-icons/io5";
-import Trailer from "./Trailer";
+import Link from "next/link";
+import Trailer from "@/components/trailer/Trailer";
 
 export default function MoviePage({ params }) {
   const [movie, setMovie] = useState();
@@ -50,8 +51,6 @@ export default function MoviePage({ params }) {
       .request(options)
       .then(function (response) {
         setCast(response.data.cast);
-        setCast(response.data.crew);
-        console.log(response.data.crew);
       })
       .catch(function (error) {
         console.error(error);
@@ -99,6 +98,16 @@ export default function MoviePage({ params }) {
         property="true"
         unoptimized
       />
+
+      <div className="breadcrumbs absolute top-0 left-0 ml-16 mt-24 z-30 text-base text-textColor/50 *:capitalize">
+        <ul>
+          <li>
+            <Link href={`/`}>Home</Link>
+          </li>
+          <li>Movie</li>
+          <li>Movie {movie?.title || movie?.original_name}</li>
+        </ul>
+      </div>
 
       <section className="w-full h-screen z-10 relative pt-20 flex flex-row justify-center items-center gap-10">
         <div className="w-1/4 relative rounded-xl overflow-hidden">

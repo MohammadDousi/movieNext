@@ -47,16 +47,16 @@ export default function Header() {
                 className="dropdown-content z-[1] menu p-2 shadow w-56"
               >
                 <li>
-                  <Link href={`/category/popular-movie`}>popular</Link>
+                  <Link href={`/category/popular-movie?page=1`}>popular</Link>
                 </li>
                 <li>
-                  <Link href={`/category/now-playing-movie`}>now playing</Link>
+                  <Link href={`/category/now-playing-movie?page=1`}>now playing</Link>
                 </li>
                 <li>
-                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
+                  <Link href={`/category/upcoming-movie?page=1`}>upcoming</Link>
                 </li>
                 <li>
-                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
+                  <Link href={`/category/top-250-movie?page=1`}>Top 250 movies</Link>
                 </li>
               </ul>
             </ul>

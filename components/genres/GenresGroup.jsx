@@ -4,8 +4,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 export default function GenresGroup() {
-  // const [genresMovie, setGenresMovie] = useState([]);
-  // const [genresSerial, setGenresSerial] = useState([]);
 
   const [changeGenres, setChangeGenres] = useState({ genre: "movie" }); // true movie , false serial
 
@@ -154,29 +152,6 @@ export default function GenresGroup() {
       name: "Western",
     },
   ];
-  // useEffect(() => {
-  //   const options = {
-  //     method: "GET",
-  //     url: `https://api.themoviedb.org/3/genre/movie/list?language=en`,
-  //     headers: {
-  //       accept: "application/json",
-  //       Authorization:
-  //         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
-  //     },
-  //   };
-  //   axios
-  //     .request(options)
-  //     .then(function (response) {
-  //       setGenresMovie(response.data.genres);
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // }, [changeGenres.genre]);
-
-  useEffect(() => {
-    console.log(changeGenres.genre);
-  }, [changeGenres.genre]);
 
   // useEffect(() => {
   //   const options = {
@@ -252,7 +227,7 @@ export default function GenresGroup() {
           {genresMovie.map((items) => (
             <div
               key={items.id}
-              className="w-full h-10 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"
+              className="w-full h-12 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"
             >
               <h2 className="w-full text-left px-5">{items.name}</h2>
             </div>
@@ -264,7 +239,7 @@ export default function GenresGroup() {
           {genresSerial.map((items) => (
             <div
               key={items.id}
-              className="w-full h-10 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"
+              className="w-full h-12 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"
             >
               <h2 className="w-full text-left px-5">{items.name}</h2>
             </div>

@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 
 import { IoTime, IoCalendar, IoStar } from "react-icons/io5";
+import Link from "next/link";
 
 export default function ItemCategory({ data }) {
-  console.log(data);
 
   let genrName = "";
   const genresMovie = [
@@ -165,7 +165,9 @@ export default function ItemCategory({ data }) {
     <>
       {data &&
         data.map((items, index) => (
-          <section
+          items.vote_average.toFixed(1) != 0 && (
+          <Link
+            href={`/movie/${items?.id}`}
             key={items.id + index}
             className="w-full p-5 z-10 relative bg-primeryColorDarker/50 flex flex-row justify-start items-start gap-6 rounded-2xl overflow-hidden"
           >
@@ -208,7 +210,7 @@ export default function ItemCategory({ data }) {
 
                 <h3 className="text-base text-textColor/70 drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
                   <IoCalendar />
-                  {items?.first_air_date}({items?.origin_country})
+                  {items?.first_air_date || items?.release_date}{(items?.origin_country)}
                 </h3>
 
                 <h3 className="text-base text-secondeColor drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
@@ -232,7 +234,7 @@ export default function ItemCategory({ data }) {
                 </p>
               </div>
 
-              <section className="w-full flex flex-col gap-3.5">
+              <div className="w-full flex flex-col gap-3.5">
                 <div className="flex flex-col justify-start items-start gap-1.5">
                   <h3 className="text-textColor/70">{}</h3>
                 </div>
@@ -256,9 +258,11 @@ export default function ItemCategory({ data }) {
                     {items?.original_language}
                   </h3>
                 </div>
-              </section>
+              </div>
+
             </div>
-          </section>
+          </Link>
+          )
         ))}
     </>
   );

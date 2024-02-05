@@ -22,7 +22,7 @@ export default function ItemActor({ data }) {
       speed={1500}
       freeMode={true}
       lazy="true"
-      slidesPerView={10}
+      slidesPerView={3}
       grabCursor={true}
       breakpoints={{
         430: {

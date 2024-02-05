@@ -38,7 +38,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-dvh lg:h-screen overflow-x-hidden"
+      className="!w-full h-lvh lg:h-screen overflow-x-hidden"
       spaceBetween={0}
       speed={1500}
       slidesPerView={1}

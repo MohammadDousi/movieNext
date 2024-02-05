@@ -22,17 +22,17 @@ export default function ItemTrending({ data }) {
       spaceBetween={20}
       speed={1500}
       freeMode={true}
-      slidesPerView={6}
+      slidesPerView={1.8}
       lazy="true"
       grabCursor={true}
       modules={[FreeMode]}
       breakpoints={{
-        430: {
+        425: {
           slidesPerView: 1.8,
           spaceBetween: 20,
         },
         768: {
-          slidesPerView: 4,
+          slidesPerView: 3.6,
           spaceBetween: 20,
         },
         1024: {

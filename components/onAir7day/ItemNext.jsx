@@ -22,12 +22,13 @@ export default function ItemNext({ data }) {
         freeMode={true}
         lazy="true"
         mousewheel={true}
-        slidesPerView={4}
+        slidesPerView={1.2}
         grabCursor={true}
         breakpoints={{
           430: {
             slidesPerView: 1.2,
             spaceBetween: 20,
+            speed: 600,
           },
           768: {
             slidesPerView: 2.2,

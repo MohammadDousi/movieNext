@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @import "../components/boardSlider/BoardSlideStyle.css";
-@import "../components/footer/footer.css";
 @import "../components/header/headerStyle.css";
 
 /* :root {

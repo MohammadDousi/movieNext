@@ -24,6 +24,20 @@ export default function ItemNext({ data }) {
         mousewheel={true}
         slidesPerView={4}
         grabCursor={true}
+        breakpoints={{
+          430: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        }}
         modules={[Mousewheel, FreeMode]}
       >
         {data &&

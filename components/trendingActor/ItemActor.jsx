@@ -4,12 +4,10 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import logo from "../../public/logo.png";
 
-import { EffectCreative, FreeMode } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import "swiper/css/effect-creative";
 
 export default function ItemActor({ data }) {
   const skele = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -26,7 +24,21 @@ export default function ItemActor({ data }) {
       lazy="true"
       slidesPerView={10}
       grabCursor={true}
-      modules={[FreeMode, EffectCreative]}
+      breakpoints={{
+        430: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 10,
+          spaceBetween: 20,
+        },
+      }}
+      modules={[FreeMode]}
     >
       {uniqueData &&
         uniqueData.map((items) => (

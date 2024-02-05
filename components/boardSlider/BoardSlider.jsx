@@ -29,7 +29,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0,8));
+        setTrend(response.data.results.slice(0, 8));
       })
       .catch(function (error) {
         console.error(error);
@@ -38,7 +38,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-screen overflow-x-hidden"
+      className="!w-full h-dvh lg:h-screen overflow-x-hidden"
       spaceBetween={0}
       speed={1500}
       slidesPerView={1}
@@ -85,8 +85,8 @@ export default function BoardSlider() {
                 alt={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
               />
 
-              <div className="w-full px-6 lg:px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">
-                <h1 className="w-full text-left font-bold text-4xl lg:text-6xl text-textColor drop-shadow-lg">
+              <div className="w-full px-6 lg:px-20 absolute bottom-20 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
+                <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
                   {items?.title?.length >= 30 ||
                   items?.original_title?.length >= 30 ||
                   items?.name?.length >= 30 ||

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { EffectCreative, FreeMode } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -25,7 +25,21 @@ export default function ItemTrending({ data }) {
       slidesPerView={6}
       lazy="true"
       grabCursor={true}
-      modules={[FreeMode, EffectCreative]}
+      modules={[FreeMode]}
+      breakpoints={{
+        430: {
+          slidesPerView: 1.8,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      }}
     >
       {data &&
         data.map((items) => (

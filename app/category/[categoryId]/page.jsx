@@ -18,7 +18,6 @@ export default function CategoryPage({ params }) {
 
   const searchParams = useSearchParams();
   const search = searchParams.get("page");
-  const as = searchParams.get("categoryId");
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -59,14 +58,17 @@ export default function CategoryPage({ params }) {
   }
 
   useEffect(() => {
-    router.push(pathname + "?" + createQueryString("page", page));
+    search && setPage(search);
+  }, []);
+
+  useEffect(() => {
+    (page !== null || "") &&
+      router.push(pathname + "?" + createQueryString("page", page));
+
+    console.log(page);
   }, [page]);
 
   useEffect(() => {
-    search && setPage(search);
-
-    console.log(as);
-
     const options = {
       method: "GET",
       url: `https://api.themoviedb.org/3/${category}?language=en-US&page=${search}`,
@@ -96,8 +98,8 @@ export default function CategoryPage({ params }) {
   }, [search]);
 
   return (
-    <section className="w-full px-6 lg:px-16 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
-      <div className="breadcrumbs w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30 text-base text-textColor/50 *:capitalize">
+    <section className="w-full px-6 lg:px-16 pt-20 lg:pt-24 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
+      <div className="breadcrumbs w-full z-30 text-base text-textColor/50 *:capitalize">
         <ul>
           <li>
             <Link href={`/`}>Home</Link>
@@ -112,7 +114,7 @@ export default function CategoryPage({ params }) {
           {/* pagination */}
           <ItemCategory data={movie} />
 
-          {page && totalPage && (
+          {(page != null || "") && (totalPage != null || "") && (
             <div className="join flex gap-2">
               <button
                 name={totalPage - totalPage + 1}

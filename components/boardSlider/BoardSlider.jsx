@@ -29,7 +29,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 8));
+        setTrend(response.data.results.slice(0, 6));
       })
       .catch(function (error) {
         console.error(error);
@@ -38,7 +38,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-lvh lg:h-screen overflow-x-hidden"
+      className="!w-full h-lvh lg:h-[41rem] overflow-x-hidden"
       spaceBetween={0}
       speed={600}
       slidesPerView={1}
@@ -55,16 +55,16 @@ export default function BoardSlider() {
         dynamicBullets: true,
       }}
       effect={"creative"}
-      creativeEffect={{
-        prev: {
-          shadow: true,
-          translate: ["-120%", 0, -500],
-        },
-        next: {
-          shadow: true,
-          translate: ["120%", 0, -500],
-        },
-      }}
+      // creativeEffect={{
+      //   prev: {
+      //     shadow: true,
+      //     translate: ["-120%", 0, -500],
+      //   },
+      //   next: {
+      //     shadow: true,
+      //     translate: ["120%", 0, -500],
+      //   },
+      // }}
       breakpoints={{
         425: {
           speed: 600,
@@ -96,7 +96,7 @@ export default function BoardSlider() {
                 alt={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
               />
 
-              <div className="w-full px-6 lg:px-20 absolute bottom-20 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
+              <div className="w-full px-6 lg:px-20 absolute bottom-24 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
                 <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
                   {items?.title?.length >= 30 ||
                   items?.original_title?.length >= 30 ||

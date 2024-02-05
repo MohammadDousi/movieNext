@@ -10,7 +10,7 @@ import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
 
 import { useRouter } from "next/navigation";
 export default function Header() {
-  const [showMenuMobile, setShowMenuMobile] = useState(true);
+  const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   const [scroll, setScroll] = useState();
   const router = useRouter();
@@ -35,8 +35,8 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300 "
-            : "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
+            ? "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
+            : "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
         <Image
@@ -47,7 +47,7 @@ export default function Header() {
           className="w-auto h-1/2 z-10 relative object-contain cursor-pointer"
         />
 
-        <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center gap-24">
+        <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
           <ul className="menu menu-horizontal rounded-box">
             <ul className="dropdown dropdown-hover">
               <li tabIndex={0}>movie</li>
@@ -114,8 +114,8 @@ export default function Header() {
         <div
           className={
             showMenuMobile
-              ? "join join-vertical showMenuMobileOpen"
-              : "join join-vertical showMenuMobileClose"
+              ? "join join-vertical lg:hidden showMenuMobileOpen"
+              : "join join-vertical lg:hidden showMenuMobileClose"
           }
         >
           <div className="collapse collapse-arrow join-item">
@@ -209,12 +209,13 @@ export default function Header() {
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
+
             <IoMenu
-              className="swap-on fill-current"
+              className="swap-off fill-current"
               onClick={() => setShowMenuMobile(!showMenuMobile)}
             />
             <IoClose
-              className="swap-off fill-current"
+              className="swap-on fill-current"
               onClick={() => setShowMenuMobile(!showMenuMobile)}
             />
           </label>

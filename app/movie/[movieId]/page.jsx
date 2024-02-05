@@ -105,7 +105,7 @@ export default function MoviePage({ params }) {
             <Link href={`/`}>Home</Link>
           </li>
           <li>Movie</li>
-          <li>Movie {movie?.title || movie?.original_name}</li>
+          <li>{movie?.title || movie?.original_name}</li>
         </ul>
       </div>
 
@@ -214,7 +214,6 @@ export default function MoviePage({ params }) {
               ))}
             </div>
           </section>
-
         </div>
       </section>
 

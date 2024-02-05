@@ -10,6 +10,8 @@ import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
 
 import { useRouter } from "next/navigation";
 export default function Header() {
+  const [showMenuMobile, setShowMenuMobile] = useState(true);
+
   const [scroll, setScroll] = useState();
   const router = useRouter();
 
@@ -23,6 +25,11 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const showMenuMobileHandler = () => {
+    setShowMenuMobile(!showMenuMobile);
+  };
+
   return (
     <>
       <header
@@ -32,15 +39,16 @@ export default function Header() {
             : "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
         }
       >
-        <div className="menuContainer">
-          <Image
-            onClick={() => router.push("/", { scroll: true })}
-            src={logo}
-            alt="logo movieland"
-            loading="lazy"
-            className="w-auto h-1/2 relative object-contain cursor-pointer"
-          />
-          <ul className="hidden menu menu-vertical lg:menu-horizontal rounded-box">
+        <Image
+          onClick={() => router.push("/", { scroll: true })}
+          src={logo}
+          alt="logo movieland"
+          loading="lazy"
+          className="w-auto h-1/2 z-10 relative object-contain cursor-pointer"
+        />
+
+        <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center gap-24">
+          <ul className="menu menu-horizontal rounded-box">
             <ul className="dropdown dropdown-hover">
               <li tabIndex={0}>movie</li>
               <ul
@@ -103,6 +111,96 @@ export default function Header() {
           </ul>
         </div>
 
+        <div
+          className={
+            showMenuMobile
+              ? "join join-vertical showMenuMobileOpen"
+              : "join join-vertical showMenuMobileClose"
+          }
+        >
+          <div className="collapse collapse-arrow join-item">
+            <input type="radio" name="my-accordion-2" />
+            <div className="collapse-title">Movie</div>
+            <div className="collapse-content">
+              <ul className="menu pb-20">
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={`/category/popular-movie?page=1`}>popular</Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={`/category/now-playing-movie?page=1`}>
+                    now playing
+                  </Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={`/category/upcoming-movie?page=1`}>upcoming</Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={`/category/top-250-movie?page=1`}>
+                    Top 250 movies
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="collapse collapse-arrow join-item">
+            <input type="radio" name="my-accordion-2" />
+            <div className="collapse-title">serial</div>
+            <div className="collapse-content">
+              <ul className="menu">
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={"/category/popular-serial?page=1"}>popular</Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={"/category/on-air-serial?page=1"}>
+                    on the air
+                  </Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={"/category/top-250-serial?page=1"}>
+                    Top 250 series
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="collapse">
+            <input type="radio" name="my-accordion-2" />
+            <div
+              onClick={() => showMenuMobileHandler()}
+              className="collapse-title"
+            >
+              Animation
+            </div>
+          </div>
+
+          <div className="collapse">
+            <input type="radio" name="my-accordion-2" />
+            <div
+              onClick={() => showMenuMobileHandler()}
+              className="collapse-title"
+            >
+              pepole
+            </div>
+          </div>
+
+          <div className="collapse collapse-arrow join-item">
+            <input type="radio" name="my-accordion-2" />
+            <div className="collapse-title">about us</div>
+            <div className="collapse-content">
+              <ul className="menu">
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={""}>about us</Link>
+                </li>
+                <li onClick={() => showMenuMobileHandler()}>
+                  <Link href={""}>Advertising</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
           <button className="btn btn-sm btn-circle !text-textColor !px-0">
             <IoSearch />
@@ -111,10 +209,14 @@ export default function Header() {
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
-            {/* hamburger icon */}
-            <IoMenu className="swap-off fill-current" />
-            {/* close icon */}
-            <IoClose className="swap-on fill-current" />
+            <IoMenu
+              className="swap-on fill-current"
+              onClick={() => setShowMenuMobile(!showMenuMobile)}
+            />
+            <IoClose
+              className="swap-off fill-current"
+              onClick={() => setShowMenuMobile(!showMenuMobile)}
+            />
           </label>
 
           <button className="hidden lg:btn lg:btn-sm btn-primary">

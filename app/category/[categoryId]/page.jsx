@@ -96,13 +96,14 @@ export default function CategoryPage({ params }) {
   }, [search]);
 
   return (
-    <section className="w-full px-6 lg:px-16 h-full flex flex-col justify-start items-start gap-5 overflow-x-hidden">
+    <section className="w-full px-6 lg:px-16 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
       <div className="breadcrumbs w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30 text-base text-textColor/50 *:capitalize">
         <ul>
           <li>
             <Link href={`/`}>Home</Link>
           </li>
           <li>category</li>
+          <li>{params.categoryId}</li>
         </ul>
       </div>
 

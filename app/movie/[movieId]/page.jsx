@@ -86,7 +86,7 @@ export default function MoviePage({ params }) {
   };
 
   return (
-    <section className="w-full px-6 lg:px-16 relative h-full flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
+    <section className="w-full px-6 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
       <span className="w-full h-full absolute z-10 bg-gradient-to-t from-10% from-primeryColor to-transparent/10"></span>
       <Image
         className="w-full h-full absolute z-0 object-cover object-center lg:object-top opacity-10"
@@ -128,7 +128,7 @@ export default function MoviePage({ params }) {
         </div>
 
         <div className="w-full lg:w-3/4 mt-5 flex flex-col justify-start items-start gap-6">
-          <div className="w-full lg:w-auto flex flex-row justify-center lg:justify-start items-center gap-6">
+          <div className="w-full lg:w-auto flex flex-row justify-center lg:justify-start items-center gap-2">
             <h3 className=" text-base text-textColor/70 tracking-wider drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
               <IoTime />
               {generateTime(movie?.runtime)}

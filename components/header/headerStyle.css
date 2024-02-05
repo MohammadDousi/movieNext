@@ -1,19 +1,31 @@
-.menuContainer {
-  @apply w-2/3 h-full flex flex-row justify-start items-center gap-24;
+.showMenuMobileOpen {
+  @apply w-full h-lvh absolute top-0 left-0 -z-0 px-6 py-20 
+  bg-primeryColor
+   flex flex-col justify-start items-start gap-1 
+   duration-300 -translate-x-0;
 }
 
-/* .menu {
-  @apply flex flex-row justify-start items-center gap-0;
-} */
+.showMenuMobileClose {
+  @apply w-full h-lvh absolute top-0 left-0 -z-0 px-6 py-20 
+  bg-primeryColor 
+  flex flex-col justify-start items-start gap-1 
+  duration-300 translate-x-full;
+}
 
-.menu  li  {
+.menu {
+  @apply w-full flex flex-col justify-start items-start gap-1;
+}
+.menu li {
   @apply px-5 py-1 relative
   hover:bg-textColor/10
   text-textColor hover:text-secondeColor font-medium text-base capitalize tracking-wide 
   duration-300 cursor-pointer rounded-full;
 }
 
-/* .dropdown {
-  @apply absolute w-full p-2 !bg-primeryColorDarker rounded-xl 
-          flex flex-col justify-center items-start gap-1  ;
-} */
+.collapse-title {
+  @apply text-textColor text-base font-medium capitalize tracking-wide duration-300 cursor-pointer rounded-full;
+}
+
+.collapse-content {
+  @apply w-auto h-auto bg-primeryColorDarker/50 rounded-xl;
+}

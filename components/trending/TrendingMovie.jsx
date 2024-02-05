@@ -6,14 +6,13 @@ import axios from "axios";
 import ItemTrending from "./ItemTrending";
 import TitleContainer from "../title/TitleContainer";
 
-export default function Trending() {
-  const [trend, setTrend] = useState();
+export default function TrendingMovie() {
+  const [recently, setRecently] = useState();
 
   useEffect(() => {
     const options = {
       method: "GET",
-      // url: "https://api.themoviedb.org/3/trending/all/day?language=en-US",
-      url: "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+       url : 'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
 
       headers: {
         accept: "application/json",
@@ -24,7 +23,7 @@ export default function Trending() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 10));
+        setRecently(response.data.results.slice(0, 15));
       })
       .catch(function (error) {
         console.error(error);
@@ -32,8 +31,9 @@ export default function Trending() {
   }, []);
 
   return (
+    
       <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-        <ItemTrending data={trend} />
+        <ItemTrending data={recently} />
       </section>
   );
 }

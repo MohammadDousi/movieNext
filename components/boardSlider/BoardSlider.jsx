@@ -17,7 +17,7 @@ export default function BoardSlider() {
 
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    url : 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
     headers: {
       accept: "application/json",
       Authorization:
@@ -29,7 +29,7 @@ export default function BoardSlider() {
     axios
       .request(options)
       .then(function (response) {
-        setTrend(response.data.results.slice(0, 6));
+        setTrend(response.data.results.slice(0, 10));
       })
       .catch(function (error) {
         console.error(error);
@@ -55,16 +55,16 @@ export default function BoardSlider() {
         dynamicBullets: true,
       }}
       effect={"creative"}
-      // creativeEffect={{
-      //   prev: {
-      //     shadow: true,
-      //     translate: ["-120%", 0, -500],
-      //   },
-      //   next: {
-      //     shadow: true,
-      //     translate: ["120%", 0, -500],
-      //   },
-      // }}
+      creativeEffect={{
+        prev: {
+          shadow: true,
+          translate: ["-120%", 0, -500],
+        },
+        next: {
+          shadow: true,
+          translate: ["120%", 0, -500],
+        },
+      }}
       breakpoints={{
         425: {
           speed: 600,
@@ -92,8 +92,8 @@ export default function BoardSlider() {
                 loading="lazy"
                 property="true"
                 className="w-full h-full object-cover object-center lg:object-top duration-300"
-                src={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
-                alt={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
+                alt={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
               />
 
               <div className="w-full px-6 lg:px-20 absolute bottom-24 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">

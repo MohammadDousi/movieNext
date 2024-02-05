@@ -9,7 +9,7 @@ export default function TitleContainer({ title, href }) {
 
       {href && (
         <button className="btn btn-sm !text-textColor">
-          {<Link href={""}>see all</Link>}
+          {<Link href={href}>see all</Link>}
         </button>
       )}
     </div>

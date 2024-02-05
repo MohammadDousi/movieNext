@@ -31,7 +31,7 @@ export default function Trailer({ data }) {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3.6,
             spaceBetween: 20,
           },
         }}
@@ -42,7 +42,7 @@ export default function Trailer({ data }) {
             <SwiperSlide key={items?.id}>
               <div
                 key={items.id}
-                className="w-full rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
+                className="w-full rounded-xl flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
               >
                 <MediaPlayer
                   src={`youtube/${items.key}`}

@@ -45,7 +45,7 @@ export default function ItemActor({ data }) {
           <SwiperSlide key={items?.id}>
             <div
               key={items.id}
-              className="h-44 lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
+              className="h-44 lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
             >
               <Image
                 width={100}

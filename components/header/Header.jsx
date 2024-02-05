@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 export default function Header() {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
-  const [scroll, setScroll] = useState();
+  const [scroll, setScroll] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -56,20 +56,16 @@ export default function Header() {
                 className="dropdown-content z-[1] menu p-2 shadow w-56"
               >
                 <li>
-                  <Link href={`/category/popular-movie?page=1`}>popular</Link>
+                  <Link href={`/category/popular-movie`}>popular</Link>
                 </li>
                 <li>
-                  <Link href={`/category/now-playing-movie?page=1`}>
-                    now playing
-                  </Link>
+                  <Link href={`/category/now-playing-movie`}>now playing</Link>
                 </li>
                 <li>
-                  <Link href={`/category/upcoming-movie?page=1`}>upcoming</Link>
+                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
                 </li>
                 <li>
-                  <Link href={`/category/top-250-movie?page=1`}>
-                    Top 250 movies
-                  </Link>
+                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
                 </li>
               </ul>
             </ul>
@@ -124,20 +120,16 @@ export default function Header() {
             <div className="collapse-content">
               <ul className="menu pb-20">
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/popular-movie?page=1`}>popular</Link>
+                  <Link href={`/category/popular-movie`}>popular</Link>
                 </li>
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/now-playing-movie?page=1`}>
-                    now playing
-                  </Link>
+                  <Link href={`/category/now-playing-movie`}>now playing</Link>
                 </li>
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/upcoming-movie?page=1`}>upcoming</Link>
+                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
                 </li>
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/top-250-movie?page=1`}>
-                    Top 250 movies
-                  </Link>
+                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
                 </li>
               </ul>
             </div>
@@ -149,17 +141,13 @@ export default function Header() {
             <div className="collapse-content">
               <ul className="menu">
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/popular-serial?page=1"}>popular</Link>
+                  <Link href={"/category/popular-serial"}>popular</Link>
                 </li>
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/on-air-serial?page=1"}>
-                    on the air
-                  </Link>
+                  <Link href={"/category/on-air-serial"}>on the air</Link>
                 </li>
                 <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/top-250-serial?page=1"}>
-                    Top 250 series
-                  </Link>
+                  <Link href={"/category/top-250-serial"}>Top 250 series</Link>
                 </li>
               </ul>
             </div>

@@ -35,7 +35,7 @@ export default function ItemNext({ data }) {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3.6,
             spaceBetween: 20,
           },
         }}
@@ -46,7 +46,7 @@ export default function ItemNext({ data }) {
             (items) =>
               items.vote_average.toFixed(1) != 0 && (
                 <SwiperSlide key={items?.id}>
-                  <div className="flex flex-col justify-start items-start gap-3">
+                  <div className="flex flex-col justify-start items-start gap-3 select-none">
                     <div className="w-full relative rounded-xl overflow-hidden">
                       <Image
                         width={200}
@@ -54,11 +54,11 @@ export default function ItemNext({ data }) {
                         quality={100}
                         loading="lazy"
                         unoptimized
-                        className="w-full h-40 object-cover duration-300"
-                        src={`https://image.tmdb.org/t/p/w300${
+                        className="w-full h-52 object-cover duration-300"
+                        src={`https://image.tmdb.org/t/p/w780${
                           items?.backdrop_path || items?.poster_path
                         }`}
-                        alt={`https://image.tmdb.org/t/p/w300${
+                        alt={`https://image.tmdb.org/t/p/w780${
                           items?.backdrop_path || items?.poster_path
                         }`}
                       />
@@ -70,11 +70,18 @@ export default function ItemNext({ data }) {
 
                     <div className="w-full px-1 flex flex-col gap-1">
                       <h2 className="w-full font-medium text-base text-left text-textColor/70 tracking-normal">
-                        {items?.name?.length >= 30 ||
+                        {items?.title?.length >= 30 ||
+                        items?.original_title?.length >= 30 ||
+                        items?.name?.length >= 30 ||
                         items?.original_name?.length >= 30
-                          ? `${items?.name?.slice(0, 30)}...` ||
+                          ? `${items?.title?.slice(0, 30)}...` ||
+                            `${items?.original_title?.slice(0, 30)}...` ||
+                            `${items?.name?.slice(0, 30)}...` ||
                             `${items?.original_name?.slice(0, 30)}...`
-                          : items?.name || items?.original_name}
+                          : items?.title ||
+                            items?.original_title ||
+                            items?.name ||
+                            items?.original_name}
                       </h2>
                     </div>
                   </div>

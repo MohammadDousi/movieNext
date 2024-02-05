@@ -6,13 +6,12 @@ import ItemNext from "./ItemNext";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function Next7DayOnAir() {
+export default function PopularTv() {
   const [onAir, setOnAir] = useState();
 
   const options = {
     method: "GET",
-    // url: "https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1",
-    url : 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1',
+    url: "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1",
     headers: {
       accept: "application/json",
       Authorization:
@@ -24,7 +23,7 @@ export default function Next7DayOnAir() {
     axios
       .request(options)
       .then(function (response) {
-        setOnAir(response.data.results.slice(0,8));
+        setOnAir(response.data.results.slice(0, 8));
       })
       .catch(function (error) {
         console.error(error);
@@ -32,8 +31,8 @@ export default function Next7DayOnAir() {
   }, []);
 
   return (
-      <section className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
-        {(onAir !== null || "") && <ItemNext data={onAir} />}
-      </section>
+    <section className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
+      {(onAir !== null || "") && <ItemNext data={onAir} />}
+    </section>
   );
 }

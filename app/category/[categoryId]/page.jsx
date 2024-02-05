@@ -11,7 +11,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
   const [totalPage, setTotalPage] = useState();
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -43,7 +43,18 @@ export default function CategoryPage({ params }) {
     case "now-playing-movie":
       category = "movie/now_playing";
       break;
+
+    case "trending-movie":
+      category = "trending/movie/day";
+      break;
+    case "trending-tv":
+      category = "trending/tv/day";
+      break;
+    case "":
+      category = "movie/popular";
+
     case "top-250-serial":
+    case "trending-tv":
       category = "tv/top_rated";
       break;
     case "popular-serial":
@@ -62,16 +73,17 @@ export default function CategoryPage({ params }) {
   }, []);
 
   useEffect(() => {
-    (page !== null || "") &&
-      router.push(pathname + "?" + createQueryString("page", page));
-
-    console.log(page);
+    if (page != (null || "")) {
+      router.replace(pathname + "?" + createQueryString("page", page));
+    }
   }, [page]);
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/${category}?language=en-US&page=${search}`,
+      url: `https://api.themoviedb.org/3/${category}?language=en-US&page=${
+        search || page
+      }`,
       headers: {
         accept: "application/json",
         Authorization:

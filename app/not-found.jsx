@@ -1,5 +1,5 @@
 import TitleContainer from "@/components/title/TitleContainer";
-import Recently from "@/components/trending/Recently";
+import TrendingMovie from "@/components/trending/TrendingMovie";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -20,7 +20,7 @@ export default function NotFound() {
       <section className="w-full px-20 flex flex-col justify-start items-start gap-14 overflow-x-hidden">
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="recently" />
-          <Recently />
+          <TrendingMovie />
         </section>
       </section>
     </div>

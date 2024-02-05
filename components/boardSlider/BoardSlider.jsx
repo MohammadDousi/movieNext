@@ -71,7 +71,7 @@ export default function BoardSlider() {
         trend.map((items) => (
           <SwiperSlide key={items?.id}>
             <Link href={`/movie/${items.id}`} key={items.id}>
-              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
+              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
 
               <Image
                 unoptimized
@@ -80,13 +80,13 @@ export default function BoardSlider() {
                 quality={100}
                 loading="lazy"
                 property="true"
-                className="w-full h-full object-cover object-top duration-300"
+                className="w-full h-full object-cover object-center lg:object-top duration-300"
                 src={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
                 alt={`https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`}
               />
 
-              <div className="w-full px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">
-                <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
+              <div className="w-full px-6 lg:px-20 absolute bottom-16 flex flex-col justify-start items-start gap-3.5">
+                <h1 className="w-full text-left font-bold text-4xl lg:text-6xl text-textColor drop-shadow-lg">
                   {items?.title?.length >= 30 ||
                   items?.original_title?.length >= 30 ||
                   items?.name?.length >= 30 ||
@@ -100,7 +100,7 @@ export default function BoardSlider() {
                       items?.name ||
                       items?.original_name}
                 </h1>
-                <h3 className="w-1/2 pl-1 text-left text-lg text-textColor/70 leading-tight drop-shadow-lg">
+                <h3 className="w-full lg:w-1/2 pl-1 text-left text-base lg:text-lg text-textColor/70 leading-tight drop-shadow-lg">
                   {items?.overview.length >= 130
                     ? `${items?.overview.slice(0, 130)}...`
                     : items?.overview}

@@ -23,7 +23,7 @@
   * {
     line-height: unset;
     direction: ltr;
-    @apply p-0 m-0 box-border outline-0 no-underline list-none border-0 border-transparent duration-300;
+    @apply p-0 m-0 box-border outline-0 no-underline list-none border-0 border-transparent;
   }
 
   body {
@@ -66,6 +66,6 @@
   }
 
   .join-item {
-    @apply !text-textColor/50
+    @apply !text-textColor/50;
   }
 }

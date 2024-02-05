@@ -6,10 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 
+import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
+
 import { useRouter } from "next/navigation";
 export default function Header() {
   const [scroll, setScroll] = useState();
-
   const router = useRouter();
 
   useEffect(() => {
@@ -27,8 +28,8 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-20 px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300"
-            : "w-full h-20 px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
+            ? "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center duration-300 "
+            : "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center duration-300"
         }
       >
         <div className="menuContainer">
@@ -39,7 +40,7 @@ export default function Header() {
             loading="lazy"
             className="w-auto h-1/2 relative object-contain cursor-pointer"
           />
-          <ul className="menu menu-vertical lg:menu-horizontal rounded-box">
+          <ul className="hidden menu menu-vertical lg:menu-horizontal rounded-box">
             <ul className="dropdown dropdown-hover">
               <li tabIndex={0}>movie</li>
               <ul
@@ -50,13 +51,17 @@ export default function Header() {
                   <Link href={`/category/popular-movie?page=1`}>popular</Link>
                 </li>
                 <li>
-                  <Link href={`/category/now-playing-movie?page=1`}>now playing</Link>
+                  <Link href={`/category/now-playing-movie?page=1`}>
+                    now playing
+                  </Link>
                 </li>
                 <li>
                   <Link href={`/category/upcoming-movie?page=1`}>upcoming</Link>
                 </li>
                 <li>
-                  <Link href={`/category/top-250-movie?page=1`}>Top 250 movies</Link>
+                  <Link href={`/category/top-250-movie?page=1`}>
+                    Top 250 movies
+                  </Link>
                 </li>
               </ul>
             </ul>
@@ -100,21 +105,21 @@ export default function Header() {
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
           <button className="btn btn-sm btn-circle !text-textColor !px-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-              />
-            </svg>
+            <IoSearch />
           </button>
-          <button className="btn btn-sm btn-primary">Sign in | Sign up</button>
+
+          <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
+            {/* this hidden checkbox controls the state */}
+            <input type="checkbox" />
+            {/* hamburger icon */}
+            <IoMenu className="swap-off fill-current" />
+            {/* close icon */}
+            <IoClose className="swap-on fill-current" />
+          </label>
+
+          <button className="hidden lg:btn lg:btn-sm btn-primary">
+            Sign in | Sign up
+          </button>
         </div>
       </header>
     </>

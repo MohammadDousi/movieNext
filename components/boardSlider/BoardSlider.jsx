@@ -40,7 +40,7 @@ export default function BoardSlider() {
     <Swiper
       className="!w-full h-lvh lg:h-screen overflow-x-hidden"
       spaceBetween={0}
-      speed={1500}
+      speed={600}
       slidesPerView={1}
       grabCursor={true}
       centeredSlides={true}
@@ -63,6 +63,17 @@ export default function BoardSlider() {
         next: {
           shadow: true,
           translate: ["120%", 0, -500],
+        },
+      }}
+      breakpoints={{
+        425: {
+          speed: 600,
+        },
+        768: {
+          speed: 900,
+        },
+        1024: {
+          speed: 1500,
         },
       }}
       modules={[Autoplay, Pagination, EffectCreative]}

@@ -86,10 +86,10 @@ export default function MoviePage({ params }) {
   };
 
   return (
-    <section className="w-full px-16 relative h-full flex flex-col justify-start items-center gap-14 overflow-x-hidden">
+    <section className="w-full px-6 lg:px-16 relative h-full flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
       <span className="w-full h-full absolute z-10 bg-gradient-to-t from-10% from-primeryColor to-transparent/10"></span>
       <Image
-        className="w-full h-full absolute z-0 object-cover object-top opacity-10"
+        className="w-full h-full absolute z-0 object-cover object-center lg:object-top opacity-10"
         src={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
         alt={"https://image.tmdb.org/t/p/w1280/" + movie?.backdrop_path}
         width={1200}
@@ -99,7 +99,7 @@ export default function MoviePage({ params }) {
         unoptimized
       />
 
-      <div className="breadcrumbs absolute top-0 left-0 ml-16 mt-24 z-30 text-base text-textColor/50 *:capitalize">
+      <div className="breadcrumbs w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30 text-base text-textColor/50 *:capitalize">
         <ul>
           <li>
             <Link href={`/`}>Home</Link>
@@ -109,10 +109,10 @@ export default function MoviePage({ params }) {
         </ul>
       </div>
 
-      <section className="w-full h-screen z-10 relative pt-20 flex flex-row justify-center items-center gap-10">
-        <div className="w-1/4 relative rounded-xl overflow-hidden">
+      <section className="w-full h-full lg:h-screen z-10 relative lg:pt-20 flex flex-col lg:flex-row justify-start lg:justify-center items-center gap-10">
+        <div className="w-3/5 lg:w-1/4 relative rounded-xl overflow-hidden">
           <Image
-            className="w-full h-full object-cover"
+            className="w-full h-80 lg:h-full object-cover"
             src={"https://image.tmdb.org/t/p/w500/" + movie?.poster_path}
             alt={"https://image.tmdb.org/t/p/w500/" + movie?.poster_path}
             width={200}
@@ -122,13 +122,13 @@ export default function MoviePage({ params }) {
             unoptimized
           />
 
-          <div className="size-10 pt-1 absolute bottom-0 right-0 text-primeryColor text-base font-bold bg-secondeColor ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
+          <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
             {movie?.vote_average?.toFixed(1)}
           </div>
         </div>
 
-        <div className="w-3/4 mt-5 flex flex-col justify-start items-start gap-6">
-          <div className="flex flex-row justify-start items-center gap-6">
+        <div className="w-full lg:w-3/4 mt-5 flex flex-col justify-start items-start gap-6">
+          <div className="w-full lg:w-auto flex flex-row justify-center lg:justify-start items-center gap-6">
             <h3 className=" text-base text-textColor/70 tracking-wider drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
               <IoTime />
               {generateTime(movie?.runtime)}
@@ -214,6 +214,7 @@ export default function MoviePage({ params }) {
               ))}
             </div>
           </section>
+
         </div>
       </section>
 

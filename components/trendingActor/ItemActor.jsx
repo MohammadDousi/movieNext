@@ -18,16 +18,16 @@ export default function ItemActor({ data }) {
   return (
     <Swiper
       className="!w-full h-full overflow-x-hidden"
-      spaceBetween={15}
+      spaceBetween={10}
       speed={1500}
       freeMode={true}
       lazy="true"
-      slidesPerView={3}
+      slidesPerView={4}
       grabCursor={true}
       breakpoints={{
         430: {
-          slidesPerView: 3,
-          spaceBetween: 15,
+          slidesPerView: 4,
+          spaceBetween: 10,
         },
         768: {
           slidesPerView: 6,
@@ -45,7 +45,7 @@ export default function ItemActor({ data }) {
           <SwiperSlide key={items?.id}>
             <div
               key={items.id}
-              className="h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
+              className="h-44 lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 overflow-hidden"
             >
               <Image
                 width={100}

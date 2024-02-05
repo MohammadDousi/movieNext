@@ -96,21 +96,20 @@ export default function CategoryPage({ params }) {
   }, [search]);
 
   return (
-    <section className="w-full px-16 h-full flex flex-col justify-start items-start gap-5">
-      <section className="w-full mt-24">
-        <div className="breadcrumbs text-base text-textColor/50 *:capitalize">
-          <ul>
-            <li>
-              <Link href={`/`}>Home</Link>
-            </li>
-            <li>category</li>
-          </ul>
-        </div>
-      </section>
+    <section className="w-full px-6 lg:px-16 h-full flex flex-col justify-start items-start gap-5 overflow-x-hidden">
+      <div className="breadcrumbs w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30 text-base text-textColor/50 *:capitalize">
+        <ul>
+          <li>
+            <Link href={`/`}>Home</Link>
+          </li>
+          <li>category</li>
+        </ul>
+      </div>
 
       <section className="w-full flex flex-row justify-start items-start gap-5 duration-300">
-        <section className="w-full h-auto flex flex-col justify-start items-center gap-7">
+        <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
+          <ItemCategory data={movie} />
 
           {page && totalPage && (
             <div className="join flex gap-2">
@@ -258,14 +257,13 @@ export default function CategoryPage({ params }) {
               </button>
             </div>
           )}
-
-          <ItemCategory data={movie} />
         </section>
 
-        <section className="w-[30rem] relative flex flex-col justify-start items-start gap-5 duration-300">
+        <section className="hidden lg:w-[30rem] relative lg:flex flex-col justify-start items-start gap-5 duration-300">
           <GenresGroup />
         </section>
       </section>
+
       <ToTop />
     </section>
   );

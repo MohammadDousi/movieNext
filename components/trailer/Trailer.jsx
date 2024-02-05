@@ -1,14 +1,13 @@
 import React from "react";
 
-import { MediaPlayer, MediaProvider ,Caption, Controls, Gesture,Time } from "@vidstack/react";
+import { MediaPlayer, MediaProvider } from "@vidstack/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCreative, FreeMode, Mousewheel } from "swiper/modules";
+import { FreeMode, Mousewheel } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import "swiper/css/effect-creative";
 
 export default function Trailer({ data }) {
   return (
@@ -19,9 +18,24 @@ export default function Trailer({ data }) {
         speed={1500}
         freeMode={true}
         mousewheel={true}
-        slidesPerView={4.3}
+        slidesPerView={1.2}
         grabCursor={true}
-        modules={[Mousewheel, FreeMode, EffectCreative]}
+        breakpoints={{
+          430: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            speed: 600,
+          },
+          768: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        }}
+        modules={[Mousewheel, FreeMode]}
       >
         {data &&
           data.map((items) => (

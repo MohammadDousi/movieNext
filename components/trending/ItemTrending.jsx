@@ -14,8 +14,6 @@ import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
 export default function ItemTrending({ data }) {
-  const skele = [1, 2, 3, 4, 5, 6];
-
   return (
     <Swiper
       className="!w-full h-full overflow-x-hidden"
@@ -86,19 +84,12 @@ export default function ItemTrending({ data }) {
         ))}
 
       {!data && (
-        <div className="w-full flex flex-row justify-start items-start gap-5 overflow-hidden">
-          {skele.map((item) => (
-            <div
-              key={item}
-              className="w-1/6 opacity-10 flex flex-col justify-start items-start gap-3"
-            >
-              <div className="skeleton w-full bg-textColor/30 relative h-72 rounded-xl"></div>
-              <div className="w-full px-1 flex flex-col gap-1.5">
-                <div className="skeleton w-full h-3 bg-textColor/30"></div>
-                <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>
-              </div>
-            </div>
-          ))}
+        <div className="w-1/6 opacity-10 flex flex-col justify-start items-start gap-3">
+          <div className="skeleton w-full bg-textColor/30 relative h-72 rounded-xl"></div>
+          <div className="w-full px-1 flex flex-col gap-1.5">
+            <div className="skeleton w-full h-3 bg-textColor/30"></div>
+            <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>
+          </div>
         </div>
       )}
     </Swiper>

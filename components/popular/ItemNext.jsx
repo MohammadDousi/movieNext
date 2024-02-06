@@ -11,8 +11,6 @@ import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
 export default function ItemNext({ data }) {
-  const skele = [1, 2, 3, 4];
-
   return (
     <>
       <Swiper
@@ -90,17 +88,12 @@ export default function ItemNext({ data }) {
           )}
 
         <section className="w-full flex flex-row justify-start items-start gap-4">
-          {!data &&
-            skele.map((items) => (
-              <div
-                key={items}
-                className="w-1/4 opacity-10 flex flex-col justify-start items-start gap-3"
-              >
-                <div className="skeleton w-full h-40 !rounded-xl bg-textColor/30"></div>
-
-                <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>
-              </div>
-            ))}
+          {!data && (
+            <div className="w-1/4 opacity-10 flex flex-col justify-start items-start gap-3">
+              <div className="skeleton w-full h-40 !rounded-xl bg-textColor/30"></div>
+              <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>
+            </div>
+          )}
         </section>
       </Swiper>
     </>

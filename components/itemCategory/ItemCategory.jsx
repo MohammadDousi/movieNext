@@ -188,7 +188,7 @@ export default function ItemCategory({ data }) {
                   unoptimized
                 />
 
-                <div className="w-3/5 lg:w-auto h-80 lg:h-96 relative rounded-xl overflow-hidden">
+                <div className="w-3/5 lg:w-60 h-80 lg:h-96 relative rounded-xl overflow-hidden">
                   <Image
                     className="w-full h-full object-cover"
                     src={
@@ -261,7 +261,7 @@ export default function ItemCategory({ data }) {
                       ))}
                     </div>
 
-                    <div className="text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-1.5">
+                    <div className="skeleton w-1/3 lg:w-1/4 h-2 bg-textColor/30 opacity-10">
                       Language :
                       <h3 className="text-base capitalize flex flex-row justify-center items-center gap-1.5">
                         {items?.original_language}
@@ -269,10 +269,40 @@ export default function ItemCategory({ data }) {
                     </div>
                   </div>
                 </div>
-
               </Link>
             )
         )}
+
+      {!data && (
+        <div className="w-full p-5 z-10 relative bg-primeryColorDarker/50 flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start gap-6 rounded-2xl overflow-hidden">
+          <div className="skeleton w-3/5 lg:w-60 h-80 lg:h-96 bg-textColor/30 opacity-10 rounded-xl"></div>
+
+          <div className="w-full lg:w-4/6 mt-2 flex flex-col justify-start items-start gap-10">
+            <div className="w-full flex flex-row justify-center lg:justify-start items-center gap-3">
+              <div className="skeleton w-1/3 lg:w-32 h-2 bg-textColor/30 opacity-10"></div>
+              <div className="skeleton w-1/3 lg:w-32 h-2 bg-textColor/30 opacity-10"></div>
+              <div className="skeleton w-1/3 lg:w-32 h-2 bg-textColor/30 opacity-10"></div>
+            </div>
+
+            <div className="w-full flex flex-col justify-start items-start gap-7">
+              <div className="skeleton w-full lg:w-2/3 h-5 bg-textColor/30 opacity-10"></div>
+
+              <div className="w-full flex flex-col gap-3">
+                <div className="skeleton w-1/2 lg:w-full h-3 bg-textColor/30 opacity-10"></div>
+                <div className="skeleton w-1/2 lg:w-full h-3 bg-textColor/30 opacity-10"></div>
+                <div className="skeleton w-1/2 lg:w-full h-3 bg-textColor/30 opacity-10"></div>
+                <div className="skeleton w-1/2 lg:w-1/2 h-3 bg-textColor/30 opacity-10"></div>
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col gap-3.5">
+              <div className="skeleton w-1/5 lg:w-1/5 h-2 bg-textColor/30 opacity-10"></div>
+              <div className="skeleton w-1/4 lg:w-1/4 h-2 bg-textColor/30 opacity-10"></div>
+              <div className="skeleton w-1/3 lg:w-1/3 h-2 bg-textColor/30 opacity-10"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

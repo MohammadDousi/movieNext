@@ -30,6 +30,21 @@ export default function Header() {
     setShowMenuMobile(!showMenuMobile);
   };
 
+  const menuMovie = [
+    { name: "trending", href: "trending-movie" },
+    { name: "popular", href: "popular-movie" },
+    { name: "now playing", href: "trending-movie" },
+    { name: "upcoming", href: "upcoming-movie" },
+    { name: "Top 250 movies", href: "top-250-movie" },
+  ];
+
+  const menuSerial = [
+    { name: "trending", href: "trending-tv" },
+    { name: "popular", href: "popular-serial" },
+    { name: "on the air", href: "on-air-serial" },
+    { name: "Top 250 series", href: "top-250-serial" },
+  ];
+
   return (
     <>
       <header
@@ -55,18 +70,11 @@ export default function Header() {
                 tabIndex={0}
                 className="dropdown-content z-[1] menu p-2 shadow w-56"
               >
-                <li>
-                  <Link href={`/category/popular-movie`}>popular</Link>
-                </li>
-                <li>
-                  <Link href={`/category/now-playing-movie`}>now playing</Link>
-                </li>
-                <li>
-                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
-                </li>
-                <li>
-                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
-                </li>
+                {menuMovie.map((items) => (
+                  <li key={items.name}>
+                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  </li>
+                ))}
               </ul>
             </ul>
             <ul className="dropdown dropdown-hover">
@@ -75,19 +83,14 @@ export default function Header() {
                 tabIndex={1}
                 className="dropdown-content z-[1] p-2 shadow w-56"
               >
-                <li>
-                  <Link href={"/category/popular-serial"}>popular</Link>
-                </li>
-                <li>
-                  <Link href={"/category/on-air-serial"}>on the air</Link>
-                </li>
-                <li>
-                  <Link href={"/category/top-250-serial"}>Top 250 series</Link>
-                </li>
+                {menuSerial.map((items) => (
+                  <li key={items.name}>
+                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  </li>
+                ))}
               </ul>
             </ul>
 
-            <li tabIndex={1}>Animation</li>
             <li tabIndex={1}>pepole</li>
 
             <ul className="dropdown dropdown-hover">
@@ -118,19 +121,12 @@ export default function Header() {
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">Movie</div>
             <div className="collapse-content">
-              <ul className="menu pb-20">
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/popular-movie`}>popular</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/now-playing-movie`}>now playing</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/upcoming-movie`}>upcoming</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={`/category/top-250-movie`}>Top 250 movies</Link>
-                </li>
+              <ul className="menu">
+                {menuMovie.map((items) => (
+                  <li key={items.name} onClick={() => showMenuMobileHandler()}>
+                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -140,26 +136,12 @@ export default function Header() {
             <div className="collapse-title">serial</div>
             <div className="collapse-content">
               <ul className="menu">
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/popular-serial"}>popular</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/on-air-serial"}>on the air</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={"/category/top-250-serial"}>Top 250 series</Link>
-                </li>
+                {menuSerial.map((items) => (
+                  <li key={items.name} onClick={() => showMenuMobileHandler()}>
+                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  </li>
+                ))}
               </ul>
-            </div>
-          </div>
-
-          <div className="collapse">
-            <input type="radio" name="my-accordion-2" />
-            <div
-              onClick={() => showMenuMobileHandler()}
-              className="collapse-title"
-            >
-              Animation
             </div>
           </div>
 

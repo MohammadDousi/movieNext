@@ -33,7 +33,7 @@ export default function TrendingMovie() {
   return (
     
       <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-        <ItemTrending data={recently} />
+        <ItemTrending data={recently}  typeLink="movie" />
       </section>
   );
 }

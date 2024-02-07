@@ -32,7 +32,7 @@ export default function PopularTv() {
 
   return (
     <section className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
-      {(onAir !== null || "") && <ItemNext data={onAir} />}
+      {(onAir !== null || "") && <ItemNext data={onAir} typeLink="tv" />}
     </section>
   );
 }

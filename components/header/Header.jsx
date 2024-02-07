@@ -38,11 +38,11 @@ export default function Header() {
     { name: "Top 250 movies", href: "top-250-movie" },
   ];
 
-  const menuSerial = [
+  const menuTv = [
     { name: "trending", href: "trending-tv" },
-    { name: "popular", href: "popular-serial" },
-    { name: "on the air", href: "on-air-serial" },
-    { name: "Top 250 series", href: "top-250-serial" },
+    { name: "popular", href: "popular-tv" },
+    { name: "on the air", href: "on-air-tv" },
+    { name: "Top 250 tv shows", href: "top-250-tv" },
   ];
 
   return (
@@ -78,12 +78,12 @@ export default function Header() {
               </ul>
             </ul>
             <ul className="dropdown dropdown-hover">
-              <li tabIndex={1}>serial</li>
+              <li tabIndex={1}>Tv shows</li>
               <ul
                 tabIndex={1}
-                className="dropdown-content z-[1] p-2 shadow w-56"
+                className="dropdown-content z-[1] p-2 shadow w-60"
               >
-                {menuSerial.map((items) => (
+                {menuTv.map((items) => (
                   <li key={items.name}>
                     <Link href={`/category/${items.href}`}>{items.name}</Link>
                   </li>
@@ -133,10 +133,10 @@ export default function Header() {
 
           <div className="collapse collapse-arrow join-item">
             <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title">serial</div>
+            <div className="collapse-title">tv shows</div>
             <div className="collapse-content">
               <ul className="menu">
-                {menuSerial.map((items) => (
+                {menuTv.map((items) => (
                   <li key={items.name} onClick={() => showMenuMobileHandler()}>
                     <Link href={`/category/${items.href}`}>{items.name}</Link>
                   </li>

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 
 export default function GenresGroup() {
 
-  const [changeGenres, setChangeGenres] = useState({ genre: "movie" }); // true movie , false serial
+  const [changeGenres, setChangeGenres] = useState({ genre: "movie" }); // true movie , false tv shows
 
   const genresMovie = [
     {
@@ -86,7 +86,7 @@ export default function GenresGroup() {
     },
   ];
 
-  const genresSerial = [
+  const genresTv = [
     {
       id: 10759,
       name: "Action & Adventure",
@@ -167,7 +167,7 @@ export default function GenresGroup() {
   //   axios
   //     .request(options)
   //     .then(function (response) {
-  //       setGenresSerial(response.data.genres);
+  //       setGenresTv(response.data.genres);
   //     })
   //     .catch(function (error) {
   //       console.error(error);
@@ -216,7 +216,7 @@ export default function GenresGroup() {
               htmlFor="tv"
               className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
             >
-              serial
+              tv shows
             </label>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function GenresGroup() {
       )}
       {changeGenres.genre === "tv" && (
         <section className="w-full grid grid-cols-2 gap-3 duration-300">
-          {genresSerial.map((items) => (
+          {genresTv.map((items) => (
             <div
               key={items.id}
               className="w-full h-12 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"

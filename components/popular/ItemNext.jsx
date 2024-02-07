@@ -9,8 +9,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
+import Link from "next/link";
 
-export default function ItemNext({ data }) {
+export default function ItemNext({ data, typeLink }) {
   return (
     <>
       <Swiper
@@ -44,7 +45,14 @@ export default function ItemNext({ data }) {
             (items) =>
               items.vote_average.toFixed(1) != 0 && (
                 <SwiperSlide key={items?.id}>
-                  <div className="flex flex-col justify-start items-start gap-3 select-none">
+                  <Link
+                    href={
+                      typeLink === "movie"
+                        ? `/movie/${items?.id}`
+                        : `/tvShows/${items?.id}`
+                    }
+                    className="flex flex-col justify-start items-start gap-3 select-none"
+                  >
                     <div className="w-full relative rounded-xl overflow-hidden">
                       <Image
                         width={200}
@@ -67,7 +75,7 @@ export default function ItemNext({ data }) {
                     </div>
 
                     <div className="w-full px-1 flex flex-col gap-1">
-                      <h2 className="w-full font-medium text-base text-left text-textColor/70 tracking-normal">
+                      <h2 className="w-full font-medium text-lg text-left text-textColor/70 tracking-normal capitalize">
                         {items?.title?.length >= 30 ||
                         items?.original_title?.length >= 30 ||
                         items?.name?.length >= 30 ||
@@ -82,7 +90,7 @@ export default function ItemNext({ data }) {
                             items?.original_name}
                       </h2>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               )
           )}

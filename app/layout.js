@@ -10,7 +10,7 @@ const defaultFont = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "MovieLand",
-  description: "Movie, Serial and Animation",
+  description: "Movie, TV Shows and Animation",
   icons: {
     icon: "./favicon.ico",
   },

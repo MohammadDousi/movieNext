@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 
-export default function ItemTrending({ data }) {
+export default function ItemTrending({ data, typeLink }) {
   return (
     <Swiper
       className="!w-full h-full overflow-x-hidden"
@@ -43,7 +43,11 @@ export default function ItemTrending({ data }) {
         data.map((items) => (
           <SwiperSlide key={items?.id}>
             <Link
-              href={`/movie/${items?.id}`}
+              href={
+                typeLink === "movie"
+                  ? `/movie/${items?.id}`
+                  : `/tvShows/${items?.id}`
+              }
               key={items?.id}
               className="w-full flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
             >
@@ -65,7 +69,7 @@ export default function ItemTrending({ data }) {
                 </div>
               </div>
               <div className="w-full flex flex-col gap-1">
-                <h2 className="w-full font-medium text-lg text-left text-textColor/70 tracking-normal">
+                <h2 className="w-full font-medium text-lg text-left text-textColor/70 tracking-normal capitalize">
                   {items?.media_type === "movie"
                     ? items?.title?.length >= 22 ||
                       items?.original_title?.length >= 22

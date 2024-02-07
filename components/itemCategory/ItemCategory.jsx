@@ -86,7 +86,7 @@ export default function ItemCategory({ data }) {
     },
   ];
 
-  const genresSerial = [
+  const genresTv = [
     {
       id: 10759,
       name: "Action & Adventure",

@@ -28,7 +28,7 @@ export default function Home() {
         </section>
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="popular tv" href={"/category/top-250-serial"} />
+          <TitleContainer title="popular tv" href={"/category/top-250-tv"} />
           <PopularTv />
         </section>
 

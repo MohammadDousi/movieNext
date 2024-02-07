@@ -53,14 +53,14 @@ export default function CategoryPage({ params }) {
     case "":
       category = "movie/popular";
 
-    case "top-250-serial":
+    case "top-250-tv-shows":
     case "trending-tv":
       category = "tv/top_rated";
       break;
-    case "popular-serial":
+    case "popular-tv-shows":
       category = "tv/popular";
       break;
-    case "on-air-serial":
+    case "on-air-tv-shows":
       category = "tv/on_the_air";
       break;
     default:

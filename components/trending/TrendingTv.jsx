@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ItemTrending from "./ItemTrending";
 import TitleContainer from "../title/TitleContainer";
+import { data } from "autoprefixer";
 
 export default function TrendingTv() {
   const [trend, setTrend] = useState();
@@ -12,7 +13,7 @@ export default function TrendingTv() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url : 'https://api.themoviedb.org/3/trending/tv/day?language=en-US',
+      url: "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
       headers: {
         accept: "application/json",
         Authorization:
@@ -30,8 +31,8 @@ export default function TrendingTv() {
   }, []);
 
   return (
-      <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-        <ItemTrending data={trend} />
-      </section>
+    <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
+      <ItemTrending data={trend} typeLink="tv" />
+    </section>
   );
 }

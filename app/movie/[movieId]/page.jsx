@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { IoTime, IoCalendar, IoStar } from "react-icons/io5";
 import Link from "next/link";
 import Trailer from "@/components/trailer/Trailer";
+import ToTop from "@/components/toTop/ToTop";
 
 export default function MoviePage({ params }) {
   const [movie, setMovie] = useState();
@@ -86,6 +87,8 @@ export default function MoviePage({ params }) {
   };
 
   return (
+    <>
+    
     <section className="w-full px-6 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
       <span className="w-full h-5/6 absolute z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
       <Image
@@ -128,7 +131,7 @@ export default function MoviePage({ params }) {
         </div>
 
         <div className="w-full lg:w-3/4 mt-5 flex flex-col justify-start items-start gap-6">
-          <div className="w-full lg:w-auto flex flex-row justify-center lg:justify-start items-center gap-2 lg:gap-6">
+          <div className="w-full lg:w-auto flex flex-row flex-wrap justify-center lg:justify-start items-center gap-2 lg:gap-6">
             <h3 className=" text-base text-textColor/70 tracking-wider drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
               <IoTime />
               {generateTime(movie?.runtime)}
@@ -152,7 +155,7 @@ export default function MoviePage({ params }) {
           </div>
 
           <div className="w-full flex flex-col justify-start items-start gap-3.5">
-            <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
+            <h1 className="w-full text-left font-bold text-5xl lg:text-6xl text-textColor drop-shadow-lg">
               {movie?.title || movie?.original_name}
             </h1>
 
@@ -227,5 +230,7 @@ export default function MoviePage({ params }) {
         <ItemActor data={cast} />
       </section>
     </section>
+    <ToTop />
+    </>
   );
 }

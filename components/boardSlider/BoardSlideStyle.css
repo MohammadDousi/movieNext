@@ -1,5 +1,5 @@
 .swiper-pagination {
-  @apply !w-full lg:!px-20 !absolute !bottom-12 lg:!bottom-16 flex !flex-row justify-center lg:justify-end items-center;
+  @apply !w-full lg:!px-20 !absolute !bottom-16 lg:!bottom-16 flex !flex-row justify-center lg:justify-end items-center;
 }
 
 .swiper-pagination-bullet {

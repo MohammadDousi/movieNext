@@ -51,7 +51,7 @@ export default function Trailer({ data }) {
                   load="visible"
                   posterLoad="visible"
                   controls="true"
-                  className="w-full  rounded-lg"
+                  className="w-full rounded-lg"
                 >
                   <MediaProvider />
                 </MediaPlayer>

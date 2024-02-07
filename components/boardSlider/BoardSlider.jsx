@@ -17,7 +17,7 @@ export default function BoardSlider() {
 
   const options = {
     method: "GET",
-    url : 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
+    url: "https://api.themoviedb.org/3/trending/all/day?language=en-US",
     headers: {
       accept: "application/json",
       Authorization:
@@ -81,8 +81,15 @@ export default function BoardSlider() {
       {trend &&
         trend.map((items) => (
           <SwiperSlide key={items?.id}>
-            <Link href={`/movie/${items.id}`} key={items.id}>
-              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent/10"></span>
+            <Link
+              href={
+                items.media_type === "movie"
+                  ? `/movie/${items.id}`
+                  : `/tvShows/${items.id}`
+              }
+              key={items.id}
+            >
+              <span className="w-full h-full absolute bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
 
               <Image
                 unoptimized
@@ -96,7 +103,7 @@ export default function BoardSlider() {
                 alt={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
               />
 
-              <div className="w-full px-6 lg:px-20 absolute bottom-24 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
+              <div className="w-full px-6 lg:px-20 absolute bottom-28 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
                 <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
                   {items?.title?.length >= 30 ||
                   items?.original_title?.length >= 30 ||

@@ -162,7 +162,7 @@ export default function TvShowsPage({ params }) {
             </div>
 
             <div className="w-full flex flex-col justify-start items-start gap-3.5">
-              <h1 className="w-full text-left font-bold text-4xl lg;text-6xl text-textColor drop-shadow-lg">
+              <h1 className="w-full text-left font-bold text-5xl lg;text-6xl text-textColor drop-shadow-lg">
                 {tv?.title || tv?.original_name}
               </h1>
 

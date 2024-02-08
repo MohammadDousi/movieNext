@@ -12,12 +12,14 @@ export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
   const [totalPage, setTotalPage] = useState();
   const [page, setPage] = useState(1);
+  const [genersId, setGenersId] = useState();
 
   const router = useRouter();
   const pathname = usePathname();
 
   const searchParams = useSearchParams();
   const search = searchParams.get("page");
+  const genres = searchParams.get("genres");
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -29,61 +31,99 @@ export default function CategoryPage({ params }) {
     [searchParams]
   );
 
+  const baseUrl = "https://api.themoviedb.org/3/";
+  const [genrateUrl, setGenrateUrl] = useState("");
+
   let category = "";
-  switch (params.categoryId) {
-    case "popular-movie":
-      category = "movie/popular";
-      break;
-    case "upcoming-movie":
-      category = "movie/upcoming";
-      break;
-    case "top-250-movie":
-      category = "movie/top_rated";
-      break;
-    case "now-playing-movie":
-      category = "movie/now_playing";
-      break;
-
-    case "trending-movie":
-      category = "trending/movie/day";
-      break;
-    case "trending-tv":
-      category = "trending/tv/day";
-      break;
-    case "":
-      category = "movie/popular";
-
-    case "top-250-tv-shows":
-    case "trending-tv":
-      category = "tv/top_rated";
-      break;
-    case "popular-tv-shows":
-      category = "tv/popular";
-      break;
-    case "on-air-tv-shows":
-      category = "tv/on_the_air";
-      break;
-    default:
-      category = category = "popular";
-      break;
-  }
 
   useEffect(() => {
     search && setPage(search);
+    genres && setGenersId(genres);
   }, []);
 
   useEffect(() => {
+    switch (params.categoryId) {
+      case "popular-movie":
+        category = "movie/popular";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "upcoming-movie":
+        category = "movie/upcoming";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "top-250-movie":
+        category = "movie/top_rated";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "now-playing-movie":
+        category = "movie/now_playing";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "trending-movie":
+        category = "trending/movie/day";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+
+      case "Action":
+      case "Adventure":
+      case "Animation":
+      case "Comedy":
+      case "Crime":
+      case "Documentary":
+      case "Drama":
+      case "Family":
+      case "Fantasy":
+      case "History":
+      case "Horror":
+      case "Music":
+      case "Mystery":
+      case "Romance":
+      case "Science-Fiction":
+      case "TV-Movie":
+      case "Thriller":
+      case "War":
+      case "Western":
+        setGenrateUrl(
+          `discover/movie?language=en-US&page=${
+            page || search
+          }&sort_by=popularity.desc&with_genres=${genersId}`
+        );
+        break;
+
+      // ////////////////////////////////////////////////////
+      case "trending-tv-shows":
+        category = "trending/tv/day";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+
+      case "top-250-tv-shows":
+        category = "tv/top_rated";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "popular-tv-shows":
+        category = "tv/popular";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      case "on-air-tv-shows":
+        category = "tv/on_the_air";
+        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        break;
+      default:
+        category = category = "popular";
+        break;
+    }
+
     if (page != (null || "")) {
       router.replace(pathname + "?" + createQueryString("page", page));
     }
-  }, [page]);
+
+    console.log(pathname);
+  }, [page, search, genrateUrl]);
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/${category}?language=en-US&page=${
-        search || page
-      }`,
+      url: baseUrl + genrateUrl,
       headers: {
         accept: "application/json",
         Authorization:
@@ -107,7 +147,7 @@ export default function CategoryPage({ params }) {
       .catch(function (error) {
         console.error(error);
       });
-  }, [search]);
+  }, [search, genrateUrl]);
 
   return (
     <section className="w-full px-6 lg:px-16 pt-20 lg:pt-24 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
@@ -124,7 +164,6 @@ export default function CategoryPage({ params }) {
       <section className="w-full flex flex-row justify-start items-start gap-5 duration-300">
         <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
-          <ItemCategory data={movie} />
 
           {(page != null || "") && (totalPage != null || "") && (
             <div className="join flex gap-2">
@@ -272,6 +311,7 @@ export default function CategoryPage({ params }) {
               </button>
             </div>
           )}
+          <ItemCategory data={movie} />
         </section>
 
         <section className="hidden lg:w-[30rem] relative lg:flex flex-col justify-start items-start gap-5 duration-300">

@@ -39,10 +39,10 @@ export default function Header() {
   ];
 
   const menuTv = [
-    { name: "trending", href: "trending-tv" },
-    { name: "popular", href: "popular-tv" },
-    { name: "on the air", href: "on-air-tv" },
-    { name: "Top 250 tv shows", href: "top-250-tv" },
+    { name: "trending", href: "trending-tv-shows" },
+    { name: "popular", href: "popular-tv-shows" },
+    { name: "on the air", href: "on-air-tv-shows" },
+    { name: "Top 250 tv shows", href: "top-250-tv-shows" },
   ];
 
   return (

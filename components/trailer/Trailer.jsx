@@ -17,7 +17,6 @@ export default function Trailer({ data }) {
         spaceBetween={20}
         speed={1500}
         freeMode={true}
-        mousewheel={true}
         slidesPerView={1.2}
         grabCursor={true}
         breakpoints={{

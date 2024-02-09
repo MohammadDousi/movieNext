@@ -33,7 +33,6 @@ export default function TvShowsPage({ params }) {
       .request(options)
       .then(function (response) {
         setTv(response.data);
-        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);

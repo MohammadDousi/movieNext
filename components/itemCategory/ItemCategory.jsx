@@ -84,9 +84,8 @@ export default function ItemCategory({ data }) {
       id: 37,
       name: "Western",
     },
-  ];
 
-  const genresTv = [
+    ///// tv shows
     {
       id: 10759,
       name: "Action & Adventure",
@@ -160,8 +159,6 @@ export default function ItemCategory({ data }) {
     return `${hour}h-${min}m`;
   };
 
-  console.log(data);
-
   return (
     <>
       {data &&
@@ -220,8 +217,8 @@ export default function ItemCategory({ data }) {
 
                     <h3 className="text-base text-textColor/70 drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
                       <IoCalendar />
-                      {items?.first_air_date || items?.release_date}
-                      {items?.origin_country}
+                      {items?.first_air_date || items?.release_date} (
+                      {items?.origin_country})
                     </h3>
 
                     <h3 className="text-base text-secondeColor drop-shadow-lg flex flex-row justify-center items-center gap-1.5">

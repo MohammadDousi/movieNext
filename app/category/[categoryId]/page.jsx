@@ -44,7 +44,7 @@ export default function CategoryPage({ params }) {
   }, []);
 
   useEffect(() => {
-    switch (params.categoryId) {
+    switch (decodeURIComponent(params.categoryId)) {
       case "popular-movie":
         category = "movie/popular";
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
@@ -66,25 +66,25 @@ export default function CategoryPage({ params }) {
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
-      case "Action":
-      case "Adventure":
-      case "Animation":
-      case "Comedy":
-      case "Crime":
-      case "Documentary":
-      case "Drama":
-      case "Family":
-      case "Fantasy":
-      case "History":
-      case "Horror":
-      case "Music":
-      case "Mystery":
-      case "Romance":
-      case "Science-Fiction":
-      case "TV-Movie":
-      case "Thriller":
-      case "War":
-      case "Western":
+      case "Action movie":
+      case "Adventure movie":
+      case "Animation movie":
+      case "Comedy movie":
+      case "Crime movie":
+      case "Documentary movie":
+      case "Drama movie":
+      case "Family movie":
+      case "Fantasy movie":
+      case "History movie":
+      case "Horror movie":
+      case "Music movie":
+      case "Mystery movie":
+      case "Romance movie":
+      case "Science Fiction movie":
+      case "TV Movie movie":
+      case "Thriller movie":
+      case "War movie":
+      case "Western movie":
         setGenrateUrl(
           `discover/movie?language=en-US&page=${
             page || search
@@ -110,6 +110,30 @@ export default function CategoryPage({ params }) {
         category = "tv/on_the_air";
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
+
+      case "Action & Adventure tv":
+      case "Animation tv":
+      case "Comedy tv":
+      case "Crime tv":
+      case "Documentary tv":
+      case "Drama tv":
+      case "Family tv":
+      case "Kids tv":
+      case "Mystery tv":
+      case "News tv":
+      case "Reality tv":
+      case "Sci-Fi & Fantasy tv":
+      case "Soap tv":
+      case "Talk tv":
+      case "War & Politics tv":
+      case "Western tv":
+        setGenrateUrl(
+          `discover/tv?language=en-US&page=${
+            page || search
+          }&sort_by=popularity.desc&with_genres=${genersId}`
+        );
+        break;
+
       default:
         category = category = "popular";
         break;
@@ -140,7 +164,6 @@ export default function CategoryPage({ params }) {
           behavior: "smooth",
         });
 
-        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -184,7 +207,7 @@ export default function CategoryPage({ params }) {
             <Link href={`/`}>Home</Link>
           </li>
           <li>category</li>
-          <li>{params.categoryId}</li>
+          <li>{decodeURIComponent(params.categoryId)}</li>
         </ul>
       </div>
 

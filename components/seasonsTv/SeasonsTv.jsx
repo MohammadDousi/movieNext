@@ -16,7 +16,6 @@ export default function SeasonsTv({ data }) {
         spaceBetween={20}
         speed={1500}
         freeMode={true}
-        mousewheel={true}
         slidesPerView={1.8}
         grabCursor={true}
         breakpoints={{

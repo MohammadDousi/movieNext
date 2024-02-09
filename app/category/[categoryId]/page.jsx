@@ -211,7 +211,7 @@ export default function CategoryPage({ params }) {
         </ul>
       </div>
 
-      <section className="w-full flex flex-row justify-start items-start gap-5 duration-300">
+      <section className="w-full flex flex-col lg:flex-row justify-start items-start gap-5 duration-300">
         <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
 

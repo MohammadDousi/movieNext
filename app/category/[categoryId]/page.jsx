@@ -1,12 +1,14 @@
 "use client";
 
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import GenresGroup from "@/components/genres/GenresGroup";
 import ItemCategory from "@/components/itemCategory/ItemCategory";
 import Link from "next/link";
 import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Loading from "@/app/loading";
+import { data } from "autoprefixer";
 
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
@@ -117,10 +119,6 @@ export default function CategoryPage({ params }) {
       router.replace(pathname + "?" + createQueryString("page", page));
     }
 
-    console.log(pathname);
-  }, [page, search, genrateUrl]);
-
-  useEffect(() => {
     const options = {
       method: "GET",
       url: baseUrl + genrateUrl,
@@ -147,7 +145,36 @@ export default function CategoryPage({ params }) {
       .catch(function (error) {
         console.error(error);
       });
-  }, [search, genrateUrl]);
+  }, [page, search, genrateUrl]);
+
+  // useEffect(() => {
+  //   const options = {
+  //     method: "GET",
+  //     url: baseUrl + genrateUrl,
+  //     headers: {
+  //       accept: "application/json",
+  //       Authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
+  //     },
+  //   };
+
+  //   axios
+  //     .request(options)
+  //     .then(function (response) {
+  //       setMovie(response.data.results);
+  //       setTotalPage(response.data.total_pages);
+
+  //       window.scrollTo({
+  //         top: 0,
+  //         behavior: "smooth",
+  //       });
+
+  //       console.log(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.error(error);
+  //     });
+  // }, [search, genrateUrl]);
 
   return (
     <section className="w-full px-6 lg:px-16 pt-20 lg:pt-24 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
@@ -165,6 +192,10 @@ export default function CategoryPage({ params }) {
         <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
 
+          <Suspense fallback={<Loading />}>
+            {data ? <ItemCategory data={movie} /> : <Loading />}
+          </Suspense>
+
           {(page != null || "") && (totalPage != null || "") && (
             <div className="join flex gap-2">
               <button
@@ -172,7 +203,11 @@ export default function CategoryPage({ params }) {
                 onClick={(e) => {
                   setPage(e.target.name);
                 }}
-                className="join-item btn btn-circle"
+                className={
+                  page == totalPage - totalPage + 1
+                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
+                    : "join-item btn btn-sm lg:btn-md btn-circle "
+                }
               >
                 {totalPage - totalPage + 1}
               </button>
@@ -181,7 +216,11 @@ export default function CategoryPage({ params }) {
                 onClick={(e) => {
                   setPage(e.target.name);
                 }}
-                className="join-item btn btn-circle"
+                className={
+                  page == totalPage - totalPage + 2
+                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
+                    : "join-item btn btn-sm lg:btn-md btn-circle "
+                }
               >
                 {totalPage - totalPage + 2}
               </button>
@@ -190,7 +229,11 @@ export default function CategoryPage({ params }) {
                 onClick={(e) => {
                   setPage(e.target.name);
                 }}
-                className="join-item btn btn-circle"
+                className={
+                  page == totalPage - totalPage + 3
+                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
+                    : "join-item btn btn-sm lg:btn-md btn-circle "
+                }
               >
                 {totalPage - totalPage + 3}
               </button>
@@ -207,8 +250,8 @@ export default function CategoryPage({ params }) {
                   setPage(e.target.name);
                 }}
                 className={
-                  page >= 6 && Number(page) + Number(2)
-                    ? "join-item btn btn-circle"
+                  page >= 6
+                    ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle "
                     : "hidden"
                 }
               >
@@ -221,8 +264,8 @@ export default function CategoryPage({ params }) {
                   setPage(e.target.name);
                 }}
                 className={
-                  page >= 5 && Number(page) + Number(1)
-                    ? "join-item btn btn-circle"
+                  page >= 5
+                    ? "join-item btn btn-sm lg:btn-md btn-circle "
                     : "hidden"
                 }
               >
@@ -235,8 +278,8 @@ export default function CategoryPage({ params }) {
                   setPage(e.target.name);
                 }}
                 className={
-                  page >= 4 && Number(page) + Number(1)
-                    ? "join-item btn btn-circle btn-active btn-primary"
+                  page >= 4
+                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
                     : "hidden"
                 }
               >
@@ -250,7 +293,7 @@ export default function CategoryPage({ params }) {
                 }}
                 className={
                   page >= 3 && page < totalPage
-                    ? "join-item btn btn-circle"
+                    ? "join-item btn btn-sm lg:btn-md btn-circle "
                     : "hidden"
                 }
               >
@@ -264,7 +307,7 @@ export default function CategoryPage({ params }) {
                 }}
                 className={
                   page >= 3 && page < totalPage - 1
-                    ? "join-item btn btn-circle"
+                    ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle "
                     : "hidden"
                 }
               >
@@ -290,7 +333,7 @@ export default function CategoryPage({ params }) {
                 className={
                   Number(page) >= Number(totalPage) - Number(4)
                     ? "hidden"
-                    : "join-item btn btn-circle"
+                    : "join-item btn btn-sm lg:btn-md btn-circle "
                 }
               >
                 {Number(totalPage) - Number(1)}
@@ -304,17 +347,16 @@ export default function CategoryPage({ params }) {
                 className={
                   Number(page) >= Number(totalPage) - Number(4)
                     ? "hidden"
-                    : "join-item btn btn-circle"
+                    : "join-item btn btn-sm lg:btn-md btn-circle "
                 }
               >
                 {Number(totalPage)}
               </button>
             </div>
           )}
-          <ItemCategory data={movie} />
         </section>
 
-        <section className="hidden lg:w-[30rem] relative lg:flex flex-col justify-start items-start gap-5 duration-300">
+        <section className="hidden lg:w-[35rem] relative lg:flex flex-col justify-start items-start gap-5 duration-300">
           <GenresGroup />
         </section>
       </section>

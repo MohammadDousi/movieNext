@@ -160,6 +160,8 @@ export default function ItemCategory({ data }) {
     return `${hour}h-${min}m`;
   };
 
+  console.log(data);
+
   return (
     <>
       {data &&
@@ -209,12 +211,12 @@ export default function ItemCategory({ data }) {
                   </div>
                 </div>
 
-                <div className="w-full lg:w-4/6 mt-2 flex flex-col justify-start items-start gap-6">
+                <section className="w-full lg:w-4/6 mt-2 flex flex-col justify-start items-start gap-8">
                   <div className="w-full flex flex-row justify-center lg:justify-start items-center gap-3">
-                    <h3 className="text-base text-textColor/70 tracking-wider drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
+                    {/* <h3 className="text-base text-textColor/70 tracking-wider drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
                       <IoTime />
                       {generateTime(items?.runtime)}
-                    </h3>
+                    </h3> */}
 
                     <h3 className="text-base text-textColor/70 drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
                       <IoCalendar />
@@ -243,32 +245,31 @@ export default function ItemCategory({ data }) {
                     </p>
                   </div>
 
-                  <div className="w-full flex flex-col gap-3.5">
-                    <div className="flex flex-col justify-start items-start gap-1.5">
-                      <h3 className="text-textColor/70">{}</h3>
-                    </div>
-
-                    <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
+                  <div className="w-full flex flex-col gap-1.5">
+                    <div className="w-full text-base text-textColor/70 capitalize flex flex-row justify-start items-center gap-1.5">
+                      Geners :
                       {items?.genre_ids?.map((genr, index) => (
                         <h3
                           key={genr}
                           className=" hover:text-secondeColor cursor-pointer tracking-wide"
                         >
                           {index + Number(1) === items?.genre_ids?.length
-                            ? genr
-                            : genr + ","}
+                            ? genresMovie.filter((item) => item.id == genr)[0]
+                                .name
+                            : genresMovie.filter((item) => item.id == genr)[0]
+                                .name + ","}
                         </h3>
                       ))}
                     </div>
 
-                    <div className="skeleton w-1/3 lg:w-1/4 h-2 bg-textColor/30 opacity-10">
-                      Language :
-                      <h3 className="text-base capitalize flex flex-row justify-center items-center gap-1.5">
+                    <div className="w-full text-base text-textColor/70 capitalize flex flex-row justify-start items-center gap-1.5">
+                      language :
+                      <h3 className="text-base text-textColor/70 drop-shadow-lg flex flex-row justify-center items-center gap-1.5">
                         {items?.original_language}
                       </h3>
                     </div>
                   </div>
-                </div>
+                </section>
               </Link>
             )
         )}

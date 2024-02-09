@@ -32,7 +32,7 @@ export default function GenresGroup() {
 
   return (
     <section className="w-full flex flex-col justify-start items-start gap-3">
-      <section className="w-full p-5 bg-primeryColorDarker/50 flex flex-col justify-start items-start gap-6 rounded-2xl duration-300">
+      <section className="hidden w-full p-5 bg-primeryColorDarker/50 lg:flex flex-col justify-start items-start gap-6 rounded-2xl duration-300">
         <div className="w-full flex flex-row justify-between items-center">
           <h2 className="text-textColor text-xl font-bold capitalize flex items-center">
             genres
@@ -92,13 +92,53 @@ export default function GenresGroup() {
         </section> */}
       </section>
 
-      <div className="collapse lg:collapse-open  bg-primeryColorDarker/50">
+      <div className="collapse w-full lg:collapse-open collapse-arrow bg-primeryColorDarker/50">
         <input type="checkbox" ref={collapseGenres} className="lg:hidden" />
         <div className="collapse-title lg:hidden text-textColor text-xl font-bold capitalize">
           geners
         </div>
 
         <div className="collapse-content w-full lg:pt-5 flex flex-col justify-start items-start gap-6 duration-300">
+          <div className="w-full flex flex-row justify-end items-end gap-1.5">
+            <div className="flex justify-center items-center">
+              <input
+                type="radio"
+                name="genresRaido"
+                id="movie"
+                onChange={(e) => {
+                  setChangeGenres({ genre: e.target.id });
+                }}
+                checked={changeGenres.genre === "movie" && true}
+                className="peer hidden"
+              />
+              <label
+                htmlFor="movie"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+              >
+                movies
+              </label>
+            </div>
+
+            <div className="flex justify-center items-center">
+              <input
+                type="radio"
+                name="genresRaido"
+                id="tv"
+                onChange={(e) => {
+                  setChangeGenres({ genre: e.target.id });
+                }}
+                checked={changeGenres.genre === "tv" && true}
+                className="peer hidden"
+              />
+              <label
+                htmlFor="tv"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+              >
+                tv shows
+              </label>
+            </div>
+          </div>
+
           <div className="w-full grid grid-cols-2 gap-3">
             {geners.map((items) => (
               <Link

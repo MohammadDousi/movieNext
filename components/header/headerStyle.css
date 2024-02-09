@@ -26,7 +26,3 @@
 .collapse-title {
   @apply text-textColor text-base font-medium capitalize tracking-wide duration-300 cursor-pointer rounded-full;
 }
-
-.collapse-content {
-  @apply w-auto h-auto bg-primeryColorDarker/50 rounded-xl;
-}

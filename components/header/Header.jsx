@@ -120,7 +120,7 @@ export default function Header() {
           <div className="collapse collapse-arrow join-item">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">Movie</div>
-            <div className="collapse-content">
+            <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 {menuMovie.map((items) => (
                   <li key={items.name} onClick={() => showMenuMobileHandler()}>
@@ -134,7 +134,7 @@ export default function Header() {
           <div className="collapse collapse-arrow join-item">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">tv shows</div>
-            <div className="collapse-content">
+            <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 {menuTv.map((items) => (
                   <li key={items.name} onClick={() => showMenuMobileHandler()}>
@@ -158,7 +158,7 @@ export default function Header() {
           <div className="collapse collapse-arrow join-item">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">about us</div>
-            <div className="collapse-content">
+            <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 <li onClick={() => showMenuMobileHandler()}>
                   <Link href={""}>about us</Link>

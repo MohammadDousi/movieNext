@@ -159,6 +159,8 @@ export default function ItemCategory({ data }) {
     return `${hour}h-${min}m`;
   };
 
+  console.log(data);
+
   return (
     <>
       {data &&
@@ -166,7 +168,11 @@ export default function ItemCategory({ data }) {
           (items, index) =>
             items.vote_average.toFixed(1) != 0 && (
               <Link
-                href={`/movie/${items?.id}`}
+                href={
+                  items?.release_date
+                    ? `/movie/${items?.id}`
+                    : `/tvShows/${items?.id}`
+                }
                 key={items.id + index}
                 className="w-full p-5 z-10 relative bg-primeryColorDarker/50 flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start gap-6 rounded-2xl overflow-hidden"
               >

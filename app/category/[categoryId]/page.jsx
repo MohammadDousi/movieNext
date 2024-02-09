@@ -211,7 +211,7 @@ export default function CategoryPage({ params }) {
         </ul>
       </div>
 
-      <section className="w-full flex flex-col lg:flex-row justify-start items-start gap-5 duration-300">
+      <section className="w-full flex flex-col-reverse lg:flex-row justify-start items-start gap-5 duration-300">
         <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
 
@@ -302,7 +302,7 @@ export default function CategoryPage({ params }) {
                 }}
                 className={
                   page >= 4
-                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
+                    ? "join-item btn btn-sm lg:btn-md btn-circle btn-active btn-primary"
                     : "hidden"
                 }
               >
@@ -379,7 +379,7 @@ export default function CategoryPage({ params }) {
           )}
         </section>
 
-        <section className="hidden lg:w-[35rem] relative lg:flex flex-col justify-start items-start gap-5 duration-300">
+        <section className="w-full lg:w-[35rem] lg:flex flex-col justify-start items-start gap-5 duration-300">
           <GenresGroup />
         </section>
       </section>

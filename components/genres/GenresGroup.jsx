@@ -78,18 +78,6 @@ export default function GenresGroup() {
             </div>
           </div>
         </div>
-
-        {/* <section className="w-full grid grid-cols-2 gap-3 duration-300">
-          {geners.map((items) => (
-            <Link
-              key={items.id}
-              href={`${items.name.replace(" ", "-")}?genres=${items.id}`}
-              className="w-full h-12 text-textColor/70 hover:text-secondeColor text-sm tracking-wide bg-primeryColor hover:bg-textColor/10 flex justify-start items-center rounded-full cursor-pointer"
-            >
-              <h2 className="w-full text-left px-5">{items.name}</h2>
-            </Link>
-          ))}
-        </section> */}
       </section>
 
       <div className="collapse w-full lg:collapse-open collapse-arrow bg-primeryColorDarker/50">

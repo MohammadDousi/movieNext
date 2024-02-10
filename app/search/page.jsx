@@ -1,17 +1,18 @@
 "use client";
 
 import TitleContainer from "@/components/title/TitleContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import ToTop from "@/components/toTop/ToTop";
 import ItemCategory from "@/components/itemCategory/ItemCategory";
+import Pagination from "@/components/pagination/pagination";
 
 export default function Search() {
   const [data, setData] = useState();
   const [textSearch, setTextSearch] = useState("");
   const baseUrl = "https://api.themoviedb.org/3/";
 
-  const [totalPage, setTotalPage] = useState();
+  const [totalPage, setTotalPage] = useState("");
   const [page, setPage] = useState(1);
 
   const searchHandler = (e) => {
@@ -34,12 +35,43 @@ export default function Search() {
         .request(options)
         .then(function (response) {
           setData(response.data.results);
-          console.log(response.data.results);
+          setTotalPage(response.data.total_pages);
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
         })
         .catch(function (error) {
           console.error(error);
         });
     }
+  };
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      url: `${baseUrl}/search/multi?query=${textSearch}&language=en-US&page=${page}`,
+
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setData(response.data.results);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, [page]);
+
+  const handleClick = (page) => {
+    setPage(page);
   };
 
   return (
@@ -57,8 +89,15 @@ export default function Search() {
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title={textSearch && `Result for ${textSearch}`} />
-          <div className="w-full flex flex-col lg:flex-row lg:flex-wrap justify-start items-start gap-3">
+          <div className="w-full flex flex-col lg:flex-row lg:flex-wrap justify-center items-start gap-7">
             {data && <ItemCategory data={data} />}
+            {page != (null || "") && totalPage != (null || "") && (
+              <Pagination
+                page={page}
+                totalPage={totalPage}
+                handleClick={handleClick}
+              />
+            )}
           </div>
         </section>
       </section>

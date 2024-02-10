@@ -9,6 +9,7 @@ import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Loading from "@/app/loading";
 import { data } from "autoprefixer";
+import Pagination from "@/components/pagination/pagination";
 
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
@@ -163,12 +164,15 @@ export default function CategoryPage({ params }) {
           top: 0,
           behavior: "smooth",
         });
-
       })
       .catch(function (error) {
         console.error(error);
       });
   }, [page, search, genrateUrl]);
+
+  const handleClick = (page) => {
+    setPage(page);
+  };
 
   return (
     <section className="w-full px-6 lg:px-16 pt-20 lg:pt-24 h-full min-h-screen flex flex-col justify-start items-start gap-5 overflow-x-hidden">
@@ -186,167 +190,14 @@ export default function CategoryPage({ params }) {
         <section className="w-full flex flex-col justify-start items-center gap-7">
           {/* pagination */}
 
-          <Suspense fallback={<Loading />}>
-            {data ? <ItemCategory data={movie} /> : <Loading />}
-          </Suspense>
+          {data ? <ItemCategory data={movie} /> : <Loading />}
 
-          {(page != null || "") && (totalPage != null || "") && (
-            <div className="join flex gap-2">
-              <button
-                name={totalPage - totalPage + 1}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page == totalPage - totalPage + 1
-                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
-                    : "join-item btn btn-sm lg:btn-md btn-circle "
-                }
-              >
-                {totalPage - totalPage + 1}
-              </button>
-              <button
-                name={totalPage - totalPage + 2}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page == totalPage - totalPage + 2
-                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
-                    : "join-item btn btn-sm lg:btn-md btn-circle "
-                }
-              >
-                {totalPage - totalPage + 2}
-              </button>
-              <button
-                name={totalPage - totalPage + 3}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page == totalPage - totalPage + 3
-                    ? "join-item btn btn-sm lg:btn-md btn-circle  btn-active btn-primary"
-                    : "join-item btn btn-sm lg:btn-md btn-circle "
-                }
-              >
-                {totalPage - totalPage + 3}
-              </button>
-
-              <button
-                className={page >= 6 ? "join-item btn-disabled px-1" : "hidden"}
-              >
-                ...
-              </button>
-
-              <button
-                name={Number(page) - Number(2)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page >= 6
-                    ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle "
-                    : "hidden"
-                }
-              >
-                {Number(page) - Number(2)}
-              </button>
-
-              <button
-                name={Number(page) - Number(1)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page >= 5
-                    ? "join-item btn btn-sm lg:btn-md btn-circle "
-                    : "hidden"
-                }
-              >
-                {Number(page) - Number(1)}
-              </button>
-
-              <button
-                name={Number(page)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page >= 4
-                    ? "join-item btn btn-sm lg:btn-md btn-circle btn-active btn-primary"
-                    : "hidden"
-                }
-              >
-                {Number(page)}
-              </button>
-
-              <button
-                name={Number(page) + Number(1)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page >= 3 && page < totalPage
-                    ? "join-item btn btn-sm lg:btn-md btn-circle "
-                    : "hidden"
-                }
-              >
-                {page >= 3 && page < totalPage && Number(page) + Number(1)}
-              </button>
-
-              <button
-                name={Number(page) + Number(2)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  page >= 3 && page < totalPage - 1
-                    ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle "
-                    : "hidden"
-                }
-              >
-                {page >= 3 && page < totalPage && Number(page) + Number(2)}
-              </button>
-
-              <button
-                className={
-                  page < 0 || Number(page) >= Number(totalPage) - Number(4)
-                    ? "hidden"
-                    : "join-item btn-disabled px-1"
-                }
-              >
-                ...
-              </button>
-
-              <button
-                name={Number(totalPage) - Number(1)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                value={Number(totalPage) - Number(1)}
-                className={
-                  Number(page) >= Number(totalPage) - Number(4)
-                    ? "hidden"
-                    : "join-item btn btn-sm lg:btn-md btn-circle "
-                }
-              >
-                {Number(totalPage) - Number(1)}
-              </button>
-
-              <button
-                name={Number(totalPage)}
-                onClick={(e) => {
-                  setPage(e.target.name);
-                }}
-                className={
-                  Number(page) >= Number(totalPage) - Number(4)
-                    ? "hidden"
-                    : "join-item btn btn-sm lg:btn-md btn-circle "
-                }
-              >
-                {Number(totalPage)}
-              </button>
-            </div>
+          {page != (null || "") && totalPage != (null || "") && (
+            <Pagination
+              page={page}
+              totalPage={totalPage}
+              handleClick={handleClick}
+            />
           )}
         </section>
 

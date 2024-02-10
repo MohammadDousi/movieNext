@@ -4,8 +4,6 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import ItemTrending from "./ItemTrending";
-import TitleContainer from "../title/TitleContainer";
-import { data } from "autoprefixer";
 
 export default function TrendingTv() {
   const [trend, setTrend] = useState();

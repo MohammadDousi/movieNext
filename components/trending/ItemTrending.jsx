@@ -65,7 +65,7 @@ export default function ItemTrending({ data, typeLink }) {
                 />
 
                 <div className="size-8 pt-1 absolute bottom-0 right-0 text-primeryColor text-sm font-bold bg-secondeColor/80 ring-8 ring-primeryColor flex justify-center items-center rounded-tl-2xl">
-                  {items?.vote_average.toFixed(1)}
+                  {items?.vote_average?.toFixed(1)}
                 </div>
               </div>
               <div className="w-full flex flex-col gap-1">

@@ -10,7 +10,7 @@ import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
 
 import { useRouter } from "next/navigation";
 export default function Header() {
-  const [showMenuMobile, setShowMenuMobile] = useState(false);
+  const [showMenuMobile, setShowMenuMobile] = useState(true);
 
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
@@ -71,8 +71,14 @@ export default function Header() {
                 className="dropdown-content z-[1] menu p-2 shadow w-56"
               >
                 {menuMovie.map((items) => (
-                  <li key={items.name}>
-                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  <li
+                    key={items.name}
+                    onClick={() => {
+                      showMenuMobileHandler();
+                      router.push(`/category/${items.href}`, { scroll: true });
+                    }}
+                  >
+                    <h5>{items.name}</h5>
                   </li>
                 ))}
               </ul>
@@ -84,8 +90,14 @@ export default function Header() {
                 className="dropdown-content z-[1] p-2 shadow w-60"
               >
                 {menuTv.map((items) => (
-                  <li key={items.name}>
-                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  <li
+                    key={items.name}
+                    onClick={() => {
+                      showMenuMobileHandler();
+                      router.push(`/category/${items.href}`, { scroll: true });
+                    }}
+                  >
+                    <h5>{items.name}</h5>
                   </li>
                 ))}
               </ul>
@@ -123,8 +135,14 @@ export default function Header() {
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 {menuMovie.map((items) => (
-                  <li key={items.name} onClick={() => showMenuMobileHandler()}>
-                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  <li
+                    key={items.name}
+                    onClick={() => {
+                      showMenuMobileHandler();
+                      router.push(`/category/${items.href}`, { scroll: true });
+                    }}
+                  >
+                    <h5>{items.name}</h5>
                   </li>
                 ))}
               </ul>
@@ -137,8 +155,14 @@ export default function Header() {
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 {menuTv.map((items) => (
-                  <li key={items.name} onClick={() => showMenuMobileHandler()}>
-                    <Link href={`/category/${items.href}`}>{items.name}</Link>
+                  <li
+                    key={items.name}
+                    onClick={() => {
+                      showMenuMobileHandler();
+                      router.push(`/category/${items.href}`, { scroll: true });
+                    }}
+                  >
+                    <h5>{items.name}</h5>
                   </li>
                 ))}
               </ul>
@@ -172,7 +196,10 @@ export default function Header() {
         </div>
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
-          <button className="btn btn-sm btn-circle !text-textColor !px-0">
+          <button
+            onClick={() => router.push("/search", { scroll: true })}
+            className="btn btn-sm btn-circle !text-textColor !px-0"
+          >
             <IoSearch />
           </button>
 

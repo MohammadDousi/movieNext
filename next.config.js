@@ -25,7 +25,7 @@ module.exports = {
         basePath: false,
       },
       {
-        source: "/category/",
+        source: "/category",
         destination: "/",
         permanent: false,
         basePath: false,

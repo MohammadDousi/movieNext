@@ -113,7 +113,7 @@ export default function TvShowsPage({ params }) {
           </ul>
         </div>
 
-        <section className="w-full h-full lg:h-screen z-10 relative lg:pt-20 flex flex-col lg:flex-row justify-start lg:justify-center items-center gap-10">
+        <section className="w-full h-full lg:h-screen z-10 relative lg:pt-24 flex flex-col lg:flex-row justify-start lg:justify-center items-center gap-10">
           <div className="w-3/5 lg:w-1/4 relative rounded-xl overflow-hidden">
             <Image
               className="w-full h-80 lg:h-full object-cover"
@@ -237,24 +237,6 @@ export default function TvShowsPage({ params }) {
             </section>
           </div>
         </section>
-
-        {/* 
-
-      "number_of_episodes": 9,
-  "number_of_seasons": 1,
-
-  "seasons": [
-    {
-      "air_date": "2024-01-25",
-      "episode_count": 9,
-      "id": 127255,
-      "name": "Miniseries",
-      "overview": "",
-      "poster_path": "/rSAmgcoA74371rplbqM27yVsd3y.jpg",
-      "season_number": 1,
-      "vote_average": 7.5
-    }
-  ], */}
 
         <section className="w-full z-10 flex flex-col gap-5">
           <TitleContainer title="seasons" />

@@ -159,14 +159,12 @@ export default function ItemCategory({ data }) {
     return `${hour}h-${min}m`;
   };
 
-  console.log(data);
-
   return (
     <>
       {data &&
         data.map(
           (items, index) =>
-            items.vote_average.toFixed(1) != 0 && (
+            items.vote_average?.toFixed(1) != 0 && (
               <Link
                 href={
                   items?.release_date

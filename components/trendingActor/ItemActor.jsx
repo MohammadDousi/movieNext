@@ -22,11 +22,11 @@ export default function ItemActor({ data }) {
       speed={1500}
       freeMode={true}
       lazy="true"
-      slidesPerView={4}
+      slidesPerView={3.3}
       grabCursor={true}
       breakpoints={{
         430: {
-          slidesPerView: 4,
+          slidesPerView: 3.3,
           spaceBetween: 10,
         },
         768: {
@@ -45,7 +45,7 @@ export default function ItemActor({ data }) {
           <SwiperSlide key={items?.id}>
             <div
               key={items.id}
-              className="h-44 lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
+              className="lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
             >
               <Image
                 width={100}
@@ -81,7 +81,7 @@ export default function ItemActor({ data }) {
 
       {!data && (
         <div className="w-1/4 lg:w-28 opacity-10 flex flex-col justify-start items-start gap-3">
-          <div className="w-full h-44 lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-center gap-3 select-none overflow-hidden">
+          <div className="w-full lg:h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-center gap-3 select-none overflow-hidden">
             <div className="skeleton w-full h-3/4 !rounded-full bg-textColor/30"></div>
             <div className="skeleton w-1/2 h-1.5 bg-textColor/30"></div>
           </div>

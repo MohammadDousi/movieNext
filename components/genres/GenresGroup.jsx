@@ -99,7 +99,7 @@ export default function GenresGroup() {
         </div>
 
         <div className="collapse-content w-full lg:pt-5 flex flex-col justify-start items-start gap-6 duration-300">
-          <div className="w-full flex flex-row justify-end items-end gap-1.5">
+          <div className="w-full lg:hidden flex flex-row justify-end items-end gap-1.5">
             <div className="flex justify-center items-center">
               <input
                 type="radio"

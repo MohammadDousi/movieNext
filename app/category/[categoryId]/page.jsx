@@ -8,7 +8,6 @@ import Link from "next/link";
 import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Loading from "@/app/loading";
-import { data } from "autoprefixer";
 import Pagination from "@/components/pagination/Pagination";
 
 export default function CategoryPage({ params }) {
@@ -36,8 +35,7 @@ export default function CategoryPage({ params }) {
 
   const baseUrl = "https://api.themoviedb.org/3/";
   const [genrateUrl, setGenrateUrl] = useState("");
-
-  let category = "";
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     search && setPage(search);
@@ -47,23 +45,23 @@ export default function CategoryPage({ params }) {
   useEffect(() => {
     switch (decodeURIComponent(params.categoryId)) {
       case "popular movie":
-        category = "movie/popular";
+        setCategory("movie/popular");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "upcoming movie":
-        category = "movie/upcoming";
+        setCategory("movie/upcoming");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "top 250 movie":
-        category = "movie/top_rated";
+        setCategory("movie/top_rated");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "now playing movie":
-        category = "movie/now_playing";
+        setCategory("movie/now_playing");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "trending movie":
-        category = "trending/movie/day";
+        setCategory("movie/trending/movie/day");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
@@ -95,20 +93,20 @@ export default function CategoryPage({ params }) {
 
       // ////////////////////////////////////////////////////
       case "trending tv shows":
-        category = "trending/tv/day";
+        setCategory("trending/tv/day");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
       case "top 250 tv shows":
-        category = "tv/top_rated";
+        setCategory("tv/top_rated");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "popular tv shows":
-        category = "tv/popular";
+        setCategory("tv/popular");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "on air tv shows":
-        category = "tv/on_the_air";
+        setCategory("tv/on_the_air");
         setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
@@ -136,7 +134,8 @@ export default function CategoryPage({ params }) {
         break;
 
       default:
-        category = category = "popular";
+        setCategory("popular");
+
         break;
     }
 
@@ -188,8 +187,7 @@ export default function CategoryPage({ params }) {
 
       <section className="w-full flex flex-col-reverse lg:flex-row justify-start items-start gap-5 duration-300">
         <section className="w-full flex flex-col justify-start items-center gap-7">
-
-          {data ? <ItemCategory data={movie} /> : <Loading />}
+          {movie ? <ItemCategory data={movie} /> : <Loading />}
 
           {page != (null || "") && totalPage != (null || "") && (
             <Pagination
@@ -200,7 +198,7 @@ export default function CategoryPage({ params }) {
           )}
         </section>
 
-        <section className="w-full lg:w-[35rem] lg:flex flex-col justify-start items-start gap-5 duration-300">
+        <section className="w-full lg:w-[30rem] lg:flex flex-col justify-start items-start gap-5 duration-300">
           <GenresGroup />
         </section>
       </section>

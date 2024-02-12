@@ -218,7 +218,7 @@ export default function TvShowsPage({ params }) {
                       key={lang.name}
                       className="text-base flex flex-row justify-center items-center gap-1.5"
                     >
-                      {index + Number(1) === movie?.spoken_languages?.length
+                      {index + Number(1) === tv?.spoken_languages?.length
                         ? lang.name
                         : lang.name + ","}
                     </h3>

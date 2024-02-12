@@ -175,7 +175,6 @@ export default function ItemCategory({ data }) {
                 className="w-full p-5 z-10 relative bg-primeryColorDarker/50 flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start gap-6 rounded-2xl overflow-hidden"
               >
                 <span className="w-full h-full absolute top-0 left-0 -z-10 bg-gradient-to-t from-primeryColorDarker to-transparent/10"></span>
-
                 <Image
                   className="w-full h-full absolute top-0 left-0 opacity-15 blur-xl object-center -z-20 object-cover"
                   src={
@@ -191,7 +190,11 @@ export default function ItemCategory({ data }) {
                   unoptimized
                 />
 
-                <div className="w-3/5 lg:w-60 h-80 lg:h-96 relative rounded-xl overflow-hidden">
+                <button className="px-8 h-10 bg-accentColor/10 hover:bg-accentColor/70 absolute right-5 bottom-5 rounded-full font-normal text-sm tracking-wide text-textColor/90 capitalize duration-300">
+                  see more
+                </button>
+
+                <div className="w-3/5 lg:w-64 h-80 lg:h-96 relative rounded-xl overflow-hidden">
                   <Image
                     className="w-full h-full object-cover"
                     src={

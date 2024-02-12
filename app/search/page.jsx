@@ -76,16 +76,16 @@ export default function Search() {
 
   return (
     <>
-      <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-2 lg:pt-28 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
+      <section className="w-full h-full min-h-screen  px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
         <div className="w-full flex flex-row justify-center items-center gap-3">
           <input
             type="text"
             placeholder="Search ..."
             autoFocus
-            className="input input-md w-full max-w-lg bg-textColor/25 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10"
+            className="input input-md w-full lg:max-w-lg bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10"
             onChange={(e) => searchHandler(e)}
           />
-        </div>
+        </div>``
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title={textSearch && `Result for ${textSearch}`} />

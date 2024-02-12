@@ -7,10 +7,13 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 
 import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
+import { PiUserBold } from "react-icons/pi";
 
 import { useRouter } from "next/navigation";
+import SignInUp from "../signInUp/SignInUp";
 export default function Header() {
-  const [showMenuMobile, setShowMenuMobile] = useState(true);
+  const [showMenuMobile, setShowMenuMobile] = useState(false);
+  const [showSignInUp, setShowSignInUp] = useState(false);
 
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
@@ -31,18 +34,17 @@ export default function Header() {
   };
 
   const menuMovie = [
-    { name: "trending", href: "trending-movie" },
-    { name: "popular", href: "popular-movie" },
-    { name: "now playing", href: "trending-movie" },
-    { name: "upcoming", href: "upcoming-movie" },
-    { name: "Top 250 movies", href: "top-250-movie" },
+    { name: "trending", href: "trending movie" },
+    { name: "popular", href: "popular movie" },
+    { name: "now playing", href: "trending movie" },
+    { name: "Top 250 movies", href: "top 250 movie" },
   ];
 
   const menuTv = [
-    { name: "trending", href: "trending-tv-shows" },
-    { name: "popular", href: "popular-tv-shows" },
-    { name: "on the air", href: "on-air-tv-shows" },
-    { name: "Top 250 tv shows", href: "top-250-tv-shows" },
+    { name: "trending", href: "trending tv shows" },
+    { name: "popular", href: "popular tv shows" },
+    { name: "on the air", href: "on air tv shows" },
+    { name: "Top 250 tv shows", href: "top 250 tv shows" },
   ];
 
   return (
@@ -50,8 +52,8 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
-            : "w-full h-14 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+            ? "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
+            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
         <Image
@@ -203,6 +205,13 @@ export default function Header() {
             <IoSearch />
           </button>
 
+          <label
+            htmlFor="modalSignInUp"
+            className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0"
+          >
+            <PiUserBold />
+          </label>
+
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
@@ -217,11 +226,26 @@ export default function Header() {
             />
           </label>
 
-          <button className="hidden lg:btn lg:btn-sm btn-primary">
+          <label
+            htmlFor="modalSignInUp"
+            className="hidden lg:btn lg:btn-sm btn-primary"
+          >
             Sign in | Sign up
-          </button>
+          </label>
         </div>
       </header>
+      <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
+      <dialog
+        id="modalSignInUp"
+        role="dialog"
+        className="modal bg-primeryColor/95"
+      >
+        <div className="modal-box p-6 lg:p-10 bg-primeryColorDarker/85">
+          <SignInUp />
+          
+        </div>
+        <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
+      </dialog>
     </>
   );
 }

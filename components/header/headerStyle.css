@@ -26,3 +26,7 @@
 .collapse-title {
   @apply text-textColor text-base font-medium capitalize tracking-wide duration-300 cursor-pointer rounded-full;
 }
+
+.dropdown-content {
+  @apply !bg-primeryColor/95 !backdrop-blur-xl !rounded-xl;
+}

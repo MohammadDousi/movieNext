@@ -9,7 +9,7 @@ import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Loading from "@/app/loading";
 import { data } from "autoprefixer";
-import Pagination from "@/components/pagination/pagination";
+import Pagination from "@/components/pagination/Pagination";
 
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ToTop from "@/components/toTop/ToTop";
 import ItemCategory from "@/components/itemCategory/ItemCategory";
-import Pagination from "@/components/pagination/pagination";
+import Pagination from "@/components/pagination/Pagination";
 
 export default function Search() {
   const [data, setData] = useState();
@@ -74,6 +74,8 @@ export default function Search() {
     setPage(page);
   };
 
+  console.log(page != (null || "") && totalPage != (null || ""));
+
   return (
     <>
       <section className="w-full h-full min-h-screen  px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
@@ -85,8 +87,8 @@ export default function Search() {
             className="input input-md w-full lg:max-w-lg bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10"
             onChange={(e) => searchHandler(e)}
           />
-        </div>``
-
+        </div>
+        ``
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title={textSearch && `Result for ${textSearch}`} />
           <div className="w-full flex flex-col lg:flex-row lg:flex-wrap justify-center items-start gap-7">

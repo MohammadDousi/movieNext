@@ -31,9 +31,6 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-textColor/15 rounded-xl;
   }
-  /* .classButton {
-    @apply h-8 px-5 text-textColor hover:text-primeryColor font-medium text-base ring-1 ring-textColor hover:ring-0 ring-offset-0 bg-textColor/10 hover:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 flex justify-center items-center rounded-full duration-300;
-  } */
 
   .btn {
     @apply !btn-outline capitalize !px-5 hover:!text-primeryColor !bg-textColor/10 hover:!bg-secondeColor !backdrop-blur-xl hover:!backdrop-blur-0 !rounded-full duration-300;
@@ -41,6 +38,10 @@
 
   .btn > svg {
     @apply size-4;
+  }
+
+  .input {
+    @apply input-md !outline-transparent w-full !bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border focus:!border-accentColor/70;
   }
 
   .skeleton {

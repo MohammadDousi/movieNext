@@ -194,12 +194,14 @@ export default function MoviePage({ params }) {
 
                 <div className="flex flex-row justify-start items-center gap-1.5">
                   spoken languages :
-                  {movie?.spoken_languages?.map((lang) => (
+                  {movie?.spoken_languages?.map((lang , index) => (
                     <h3
                       key={lang.name}
                       className="text-base flex flex-row justify-center items-center gap-1.5"
                     >
-                      {lang.name}
+                       {index + Number(1) === movie?.spoken_languages?.length
+                      ? lang.name
+                      : lang.name + ","}
                     </h3>
                   ))}
                 </div>

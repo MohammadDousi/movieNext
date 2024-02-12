@@ -17,7 +17,7 @@ export default function SignInUp() {
               username
             </span>
           </div>
-          <input className="input input-md w-full bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10" />
+          <input className="input" />
         </label>
 
         <label className="form-control w-full">
@@ -28,7 +28,7 @@ export default function SignInUp() {
           </div>
           <input
             type="password"
-            className="input input-md w-full bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10"
+            className="input"
           />
         </label>
 

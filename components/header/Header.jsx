@@ -240,7 +240,7 @@ export default function Header() {
         role="dialog"
         className="modal bg-primeryColor/95"
       >
-        <div className="modal-box p-6 lg:p-10 bg-primeryColorDarker/85">
+        <div className="modal-box p-6 lg:p-10 bg-primeryColorDarker/90">
           <SignInUp />
           
         </div>

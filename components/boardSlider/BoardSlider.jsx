@@ -99,8 +99,8 @@ export default function BoardSlider() {
                 loading="lazy"
                 property="true"
                 className="w-full h-full object-cover object-center lg:object-top duration-300"
-                src={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
-                alt={`https://image.tmdb.org/t/p/original${items?.backdrop_path}`}
+                src={window.innerWidth > 430 ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}` : `https://image.tmdb.org/t/p/original${items?.poster_path}`}
+                alt={window.innerWidth > 430 ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}` : `https://image.tmdb.org/t/p/original${items?.poster_path}`}
               />
 
               <div className="w-full px-6 lg:px-20 absolute bottom-28 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">

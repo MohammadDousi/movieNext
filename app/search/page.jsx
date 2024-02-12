@@ -19,6 +19,11 @@ export default function Search() {
     setData("");
     setTextSearch(e.target.value);
 
+    if (e.target.value == "" || null) {
+      setPage(1);
+      setTotalPage("");
+    }
+
     if (e.target.value) {
       const options = {
         method: "GET",
@@ -74,21 +79,19 @@ export default function Search() {
     setPage(page);
   };
 
-  console.log(page != (null || "") && totalPage != (null || ""));
-
   return (
     <>
-      <section className="w-full h-full min-h-screen  px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
+      <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-6 overflow-x-hidden">
         <div className="w-full flex flex-row justify-center items-center gap-3">
           <input
             type="text"
-            placeholder="Search ..."
+            placeholder="search by name , ex : Batman , Aquaman and the lost kingdom , ..."
             autoFocus
-            className="input input-md w-full lg:max-w-lg bg-textColor/10 text-textColor/90 font-bold text-base tracking-wider border-textColor/50 focus:border-textColor/10"
+            className="input"
             onChange={(e) => searchHandler(e)}
           />
         </div>
-        ``
+        
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title={textSearch && `Result for ${textSearch}`} />
           <div className="w-full flex flex-col lg:flex-row lg:flex-wrap justify-center items-start gap-7">

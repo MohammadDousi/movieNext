@@ -90,7 +90,7 @@ export default function TvShowsPage({ params }) {
 
   return (
     <>
-      <section className="w-full px-3 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
+      <section className="w-full px-6 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
         <span className="w-full h-5/6 absolute z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
         <Image
           className="w-full h-5/6 absolute z-0 object-cover object-center lg:object-top opacity-10"

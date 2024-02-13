@@ -5,12 +5,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
+import logo2 from "../../public/logo2.png";
 
 import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
 import { PiUserBold } from "react-icons/pi";
 
 import { useRouter } from "next/navigation";
 import SignInUp from "../signInUp/SignInUp";
+
 export default function Header() {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
   const [showSignInUp, setShowSignInUp] = useState(false);
@@ -234,7 +236,12 @@ export default function Header() {
         role="dialog"
         className="modal bg-primeryColor/95"
       >
-        <div className="modal-box p-6 lg:p-10 bg-primeryColorDarker/90">
+        <div className="modal-box lg:max-w-4xl flex flex-col lg:flex-row justify-start items-center gap-5 lg:gap-10 p-6 lg:p-10 bg-primeryColorDarker/90 duration-300 overflow-x-hidden lg:overflow-hidden">
+          <Image
+            src={logo2}
+            alt="log movie land"
+            className="w-1/3 p-2 lg:p-5 object-contain"
+          />
           <SignInUp />
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>

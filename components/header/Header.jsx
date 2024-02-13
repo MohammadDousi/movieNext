@@ -36,7 +36,8 @@ export default function Header() {
   const menuMovie = [
     { name: "trending", href: "trending movie" },
     { name: "popular", href: "popular movie" },
-    { name: "now playing", href: "trending movie" },
+    { name: "now playing", href: "now playing movie" },
+    { name: "upcoming", href: "upcoming movie" },
     { name: "Top 250 movies", href: "top 250 movie" },
   ];
 
@@ -106,21 +107,12 @@ export default function Header() {
             </ul>
 
             <li tabIndex={1}>pepole</li>
-
-            <ul className="dropdown dropdown-hover">
-              <li tabIndex={1}>...</li>
-              <ul
-                tabIndex={1}
-                className="dropdown-content z-[1] menu p-2 shadow w-56"
-              >
-                <li>
-                  <Link href={""}>about us</Link>
-                </li>
-                <li>
-                  <Link href={""}>Advertising</Link>
-                </li>
-              </ul>
-            </ul>
+            <li
+              tabIndex={1}
+              onClick={() => router.push("https://kaktusprog.ir")}
+            >
+              About us
+            </li>
           </ul>
         </div>
 
@@ -183,7 +175,9 @@ export default function Header() {
 
           <div className="collapse collapse-arrow join-item">
             <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title">about us</div>
+            <div className="collapse-title">
+              <Link href={"https://kaktusprog.ir"}>about us</Link>
+            </div>
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
                 <li onClick={() => showMenuMobileHandler()}>
@@ -242,7 +236,6 @@ export default function Header() {
       >
         <div className="modal-box p-6 lg:p-10 bg-primeryColorDarker/90">
           <SignInUp />
-          
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
       </dialog>

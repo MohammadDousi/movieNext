@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   // Enable the React DevTools profiler
-  profiler: true,
+  // profiler: true,
 
   images: {
     remotePatterns: [
@@ -33,3 +33,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = nextConfig;

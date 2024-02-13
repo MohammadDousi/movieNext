@@ -46,23 +46,18 @@ export default function CategoryPage({ params }) {
     switch (decodeURIComponent(params.categoryId)) {
       case "popular movie":
         setCategory("movie/popular");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "upcoming movie":
         setCategory("movie/upcoming");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "top 250 movie":
         setCategory("movie/top_rated");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "now playing movie":
         setCategory("movie/now_playing");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "trending movie":
-        setCategory("movie/trending/movie/day");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
+        setCategory("trending/movie/day");
         break;
 
       case "Action movie":
@@ -84,30 +79,22 @@ export default function CategoryPage({ params }) {
       case "Thriller movie":
       case "War movie":
       case "Western movie":
-        setGenrateUrl(
-          `discover/movie?language=en-US&page=${
-            page || search
-          }&sort_by=popularity.desc&with_genres=${genersId}`
-        );
+        setCategory("discover/movie");
         break;
 
       // ////////////////////////////////////////////////////
       case "trending tv shows":
         setCategory("trending/tv/day");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
       case "top 250 tv shows":
         setCategory("tv/top_rated");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "popular tv shows":
         setCategory("tv/popular");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
       case "on air tv shows":
         setCategory("tv/on_the_air");
-        setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
         break;
 
       case "Action & Adventure tv":
@@ -126,17 +113,22 @@ export default function CategoryPage({ params }) {
       case "Talk tv":
       case "War & Politics tv":
       case "Western tv":
-        setGenrateUrl(
-          `discover/tv?language=en-US&page=${
-            page || search
-          }&sort_by=popularity.desc&with_genres=${genersId}`
-        );
+        setCategory("discover/tv");
         break;
 
       default:
-        setCategory("popular");
-
+        setCategory("movie/popular");
         break;
+    }
+
+    if (genres) {
+      setGenrateUrl(
+        `${category}?language=en-US&page=${
+          page || search
+        }&sort_by=popularity.desc&with_genres=${genersId}`
+      );
+    } else {
+      setGenrateUrl(`${category}?language=en-US&page=${search || page}`);
     }
 
     if (page != (null || "")) {
@@ -158,7 +150,6 @@ export default function CategoryPage({ params }) {
       .then(function (response) {
         setMovie(response.data.results);
         setTotalPage(response.data.total_pages);
-
         window.scrollTo({
           top: 0,
           behavior: "smooth",

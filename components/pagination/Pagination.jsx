@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Pagination({ page, totalPage, handleClick }) {
-  console.log(page, totalPage);
 
   return (
     <div className="join flex gap-2">

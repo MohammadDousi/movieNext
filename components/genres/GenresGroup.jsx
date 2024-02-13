@@ -91,7 +91,7 @@ export default function GenresGroup() {
             <div className="flex justify-center items-center">
               <input
                 type="radio"
-                name="genresRaido"
+                name="genresRaido2"
                 id="movie"
                 onChange={(e) => {
                   setChangeGenres({ genre: e.target.id });
@@ -110,7 +110,7 @@ export default function GenresGroup() {
             <div className="flex justify-center items-center">
               <input
                 type="radio"
-                name="genresRaido"
+                name="genresRaido2"
                 id="tv"
                 onChange={(e) => {
                   setChangeGenres({ genre: e.target.id });

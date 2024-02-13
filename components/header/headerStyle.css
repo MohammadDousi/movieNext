@@ -2,14 +2,14 @@
   @apply w-full h-lvh absolute top-0 left-0 -z-0 px-6 py-20 
   bg-primeryColor
    flex flex-col justify-start items-start gap-1 
-   duration-300 -translate-x-0;
+   duration-300 -translate-x-0 overflow-x-hidden;
 }
 
 .showMenuMobileClose {
   @apply w-full h-lvh absolute top-0 left-0 -z-0 px-6 py-20 
   bg-primeryColor 
   flex flex-col justify-start items-start gap-1 
-  duration-300 translate-x-full;
+  duration-300 translate-x-full overflow-x-hidden;
 }
 
 .menu {

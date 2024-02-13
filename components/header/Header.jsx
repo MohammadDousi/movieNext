@@ -126,7 +126,7 @@ export default function Header() {
           }
         >
           <div className="collapse collapse-arrow join-item">
-            <input type="radio" name="my-accordion-2" />
+            <input type="checkbox" name="my-accordion-2" />
             <div className="collapse-title">Movie</div>
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
@@ -146,7 +146,7 @@ export default function Header() {
           </div>
 
           <div className="collapse collapse-arrow join-item">
-            <input type="radio" name="my-accordion-2" />
+            <input type="checkbox" name="my-accordion-2" />
             <div className="collapse-title">tv shows</div>
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
@@ -166,7 +166,7 @@ export default function Header() {
           </div>
 
           <div className="collapse">
-            <input type="radio" name="my-accordion-2" />
+            <input type="checkbox" name="my-accordion-2" />
             <div
               onClick={() => showMenuMobileHandler()}
               className="collapse-title"
@@ -176,7 +176,7 @@ export default function Header() {
           </div>
 
           <div className="collapse">
-            <input type="radio" name="my-accordion-2" />
+            <input type="checkbox" name="my-accordion-2" />
             <div
               onClick={() => router.push("https://kaktusprog.ir")}
               className="collapse-title"
@@ -222,6 +222,7 @@ export default function Header() {
             Sign in | Sign up
           </label>
         </div>
+
       </header>
       <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
       <dialog

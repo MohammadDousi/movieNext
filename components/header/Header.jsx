@@ -55,8 +55,8 @@ export default function Header() {
       <header
         className={
           scroll < 100
-            ? "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
-            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+            ? "w-full h-16 lg:h-20 px-3 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
+            : "w-full h-16 lg:h-20 px-3 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
         <Image
@@ -175,20 +175,13 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="collapse collapse-arrow join-item">
+          <div className="collapse">
             <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title">
-              <Link href={"https://kaktusprog.ir"}>about us</Link>
-            </div>
-            <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
-              <ul className="menu">
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={""}>about us</Link>
-                </li>
-                <li onClick={() => showMenuMobileHandler()}>
-                  <Link href={""}>Advertising</Link>
-                </li>
-              </ul>
+            <div
+              onClick={() => router.push("https://kaktusprog.ir")}
+              className="collapse-title"
+            >
+              about us
             </div>
           </div>
         </div>

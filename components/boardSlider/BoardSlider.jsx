@@ -111,7 +111,7 @@ export default function BoardSlider() {
                 }
               />
 
-              <div className="w-full px-6 lg:px-20 absolute bottom-28 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
+              <div className="w-full px-3 lg:px-20 absolute bottom-28 lg:bottom-16 flex flex-col justify-start items-start gap-3.5">
                 <h1 className="w-full text-left font-bold text-6xl text-textColor drop-shadow-lg">
                   {items?.title?.length >= 30 ||
                   items?.original_title?.length >= 30 ||

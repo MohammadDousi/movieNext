@@ -81,7 +81,7 @@ export default function Search() {
 
   return (
     <>
-      <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-6 overflow-x-hidden">
+      <section className="w-full h-full min-h-screen px-3 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-6 overflow-x-hidden">
         <div className="w-full flex flex-row justify-center items-center gap-3">
           <input
             type="text"

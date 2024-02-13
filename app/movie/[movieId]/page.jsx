@@ -88,7 +88,7 @@ export default function MoviePage({ params }) {
 
   return (
     <>
-      <section className="w-full px-6 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
+      <section className="w-full px-3 lg:px-16 relative h-full min-h-screen flex flex-col justify-start items-center gap-10 lg:gap-16 overflow-x-hidden">
         <span className="w-full h-5/6 absolute z-10 bg-gradient-to-t from-5% from-primeryColor to-transparent"></span>
         <Image
           className="w-full h-5/6 absolute z-0 object-cover object-center lg:object-top opacity-10"
@@ -171,7 +171,7 @@ export default function MoviePage({ params }) {
                 <h3 className="text-textColor/70">{}</h3>
               </div>
 
-              <div className="w-full text-base text-textColor/70 flex flex-row justify-start items-center gap-1.5">
+              <div className="w-full text-base text-textColor/70 flex flex-row flex-wrap justify-start items-center gap-1.5">
                 {movie?.genres?.map((genr, index) => (
                   <h3
                     key={genr.name}
@@ -184,20 +184,20 @@ export default function MoviePage({ params }) {
                 ))}
               </div>
 
-              <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row justify-start items-center gap-6">
-                <div className="flex flex-row justify-start items-center gap-1.5">
+              <div className="w-full text-textColor/70 capitalize drop-shadow-lg flex flex-row flex-wrap justify-start items-center gap-6">
+                <div className="flex flex-row flex-wrap justify-start items-center gap-1.5">
                   Language :
                   <h3 className="text-base capitalize flex flex-row justify-center items-center gap-1.5">
                     {movie?.original_language}
                   </h3>
                 </div>
 
-                <div className="flex flex-row justify-start items-center gap-1.5">
+                <div className="flex flex-row flex-wrap justify-start items-center gap-1.5">
                   spoken languages :
                   {movie?.spoken_languages?.map((lang , index) => (
                     <h3
                       key={lang.name}
-                      className="text-base flex flex-row justify-center items-center gap-1.5"
+                      className="text-base"
                     >
                        {index + Number(1) === movie?.spoken_languages?.length
                       ? lang.name

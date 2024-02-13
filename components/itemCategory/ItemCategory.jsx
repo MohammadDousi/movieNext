@@ -190,7 +190,7 @@ export default function ItemCategory({ data }) {
                   unoptimized
                 />
 
-                <button className="px-8 h-10 bg-accentColor/10 hover:bg-accentColor/70 absolute right-5 bottom-5 rounded-full font-normal text-sm tracking-wide text-textColor/90 capitalize duration-300">
+                <button className="px-5 lg:px-8 h-8 lg:h-10 bg-accentColor/10 hover:bg-accentColor/70 absolute right-5 bottom-5 rounded-full font-normal text-sm tracking-wide text-textColor/90 capitalize duration-300">
                   see more
                 </button>
 
@@ -250,7 +250,7 @@ export default function ItemCategory({ data }) {
                   </div>
 
                   <div className="w-full flex flex-col gap-1.5">
-                    <div className="w-full text-base text-textColor/70 capitalize flex flex-row justify-start items-center gap-1.5">
+                    <div className="w-full text-base text-textColor/70 capitalize flex flex-row flex-wrap justify-start items-center gap-1.5">
                       Geners :
                       {items?.genre_ids?.map((genr, index) => (
                         <h3

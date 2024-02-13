@@ -98,7 +98,7 @@ export default function BoardSlider() {
                 quality={100}
                 loading="lazy"
                 property="true"
-                className="w-full h-full object-contain lg:object-cover object-center lg:object-top duration-300"
+                className="w-full h-full object-cover object-center lg:object-top duration-300"
                 src={
                   window.innerWidth > 430
                     ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}`

@@ -236,9 +236,9 @@ export default function Header() {
         role="dialog"
         className="modal bg-primeryColor/95"
       >
-        <div className="modal-box lg:max-w-4xl flex flex-col lg:flex-row justify-start items-center gap-5 lg:gap-10 p-6 lg:p-10 bg-primeryColorDarker/90 duration-300 overflow-x-hidden lg:overflow-hidden">
+        <div className="modal-box lg:max-w-4xl flex flex-col lg:flex-row justify-start items-center gap-7 lg:gap-10 p-6 lg:p-10 bg-primeryColorDarker/90 duration-300 overflow-x-hidden lg:overflow-hidden">
           <Image
-            src={logo2}
+            src={logo}
             alt="log movie land"
             className="w-1/3 p-2 lg:p-5 object-contain"
           />

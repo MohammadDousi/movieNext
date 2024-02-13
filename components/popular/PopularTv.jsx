@@ -23,7 +23,7 @@ export default function PopularTv() {
     axios
       .request(options)
       .then(function (response) {
-        setOnAir(response.data.results.slice(0, 8));
+        setOnAir(response.data.results.slice(0, 10));
       })
       .catch(function (error) {
         console.error(error);

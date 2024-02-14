@@ -105,13 +105,13 @@ export default function BoardSlider() {
                   className="w-full h-full object-cover object-center lg:object-top duration-300"
                   src={
                     window.innerWidth > 430
-                      ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}`
-                      : `https://image.tmdb.org/t/p/w780${items?.poster_path}`
+                      ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
+                      : `https://image.tmdb.org/t/p/w500${items?.poster_path}`
                   }
                   alt={
                     window.innerWidth > 430
-                      ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}`
-                      : `https://image.tmdb.org/t/p/w780${items?.poster_path}`
+                      ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
+                      : `https://image.tmdb.org/t/p/w500${items?.poster_path}`
                   }
                 />
 

@@ -51,10 +51,9 @@ export default function Header() {
     <>
       <header
         className={
-          // scroll < 100
-          //   ? 
-            "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center lg:gap-20 duration-300 "
-            // : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+          scroll < 100
+            ? "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center lg:gap-20 duration-300 "
+            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
         <Image
@@ -65,7 +64,7 @@ export default function Header() {
           className="w-auto h-1/2 z-10 relative object-contain cursor-pointer"
         />
 
-        {/* <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
+        <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
           <ul className="menu menu-horizontal rounded-box">
             <ul className="dropdown dropdown-hover">
               <li tabIndex={0}>movie</li>
@@ -114,9 +113,9 @@ export default function Header() {
               About us
             </li>
           </ul>
-        </div> */}
+        </div>
 
-        {/* <div
+        <div
           className={
             showMenuMobile
               ? "join join-vertical lg:hidden showMenuMobileOpen"
@@ -182,7 +181,7 @@ export default function Header() {
               about us
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
           <button
@@ -219,9 +218,8 @@ export default function Header() {
             Sign in | Sign up
           </label>
         </div>
-
       </header>
-      {/* <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
+      <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
       <dialog
         id="modalSignInUp"
         role="dialog"
@@ -236,7 +234,7 @@ export default function Header() {
           <SignInUp />
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
-      </dialog> */}
+      </dialog>
     </>
   );
 }

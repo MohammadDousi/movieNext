@@ -53,7 +53,7 @@ export default function Header() {
         className={
           scroll < 100
             ? "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center lg:gap-20 duration-300 "
-            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center lg:gap-20 duration-300"
         }
       >
         <Image
@@ -123,7 +123,7 @@ export default function Header() {
           }
         >
           <div className="collapse collapse-arrow join-item">
-            <input type="checkbox" name="my-accordion-2" />
+            <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">Movie</div>
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
@@ -143,7 +143,7 @@ export default function Header() {
           </div>
 
           <div className="collapse collapse-arrow join-item">
-            <input type="checkbox" name="my-accordion-2" />
+            <input type="radio" name="my-accordion-2" />
             <div className="collapse-title">tv shows</div>
             <div className="collapse-content w-auto h-auto bg-primeryColorDarker/50 rounded-xl">
               <ul className="menu">
@@ -163,7 +163,7 @@ export default function Header() {
           </div>
 
           <div className="collapse">
-            <input type="checkbox" name="my-accordion-2" />
+            <input type="radio" name="my-accordion-2" />
             <div
               onClick={() => showMenuMobileHandler()}
               className="collapse-title"
@@ -173,7 +173,7 @@ export default function Header() {
           </div>
 
           <div className="collapse">
-            <input type="checkbox" name="my-accordion-2" />
+            <input type="radio" name="my-accordion-2" />
             <div
               onClick={() => router.push("https://kaktusprog.ir")}
               className="collapse-title"
@@ -183,7 +183,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="w-1/3 flex flex-row justify-end items-center gap-4">
+        <div className="lg:w-1/3 flex flex-row justify-end items-center gap-4">
           <button
             onClick={() => router.push("/search", { scroll: true })}
             className="btn btn-sm btn-circle !text-textColor !px-0"
@@ -199,7 +199,7 @@ export default function Header() {
           </label>
 
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
-            <input type="checkbox" />
+            <input type="radio" />
 
             <IoMenu
               className="swap-off fill-current"
@@ -218,8 +218,9 @@ export default function Header() {
             Sign in | Sign up
           </label>
         </div>
+
       </header>
-      <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
+      {/* <input type="radio" id="modalSignInUp" className="modal-toggle" />
       <dialog
         id="modalSignInUp"
         role="dialog"
@@ -234,7 +235,7 @@ export default function Header() {
           <SignInUp />
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
-      </dialog>
+      </dialog> */}
     </>
   );
 }

@@ -16,7 +16,7 @@ import "swiper/css/effect-creative";
 export default function ItemTrending({ data, typeLink }) {
   return (
     <Swiper
-      className="!w-full h-full"
+      className="!w-full"
       // spaceBetween={20}
       // speed={1500}
       // freeMode={true}
@@ -87,7 +87,7 @@ export default function ItemTrending({ data, typeLink }) {
           </SwiperSlide>
         ))}
 
-      {!data && (
+      {/* {!data && (
         <div className="w-52 opacity-10 flex flex-col justify-start items-start gap-3">
           <div className="skeleton w-full bg-textColor/30 relative h-72 rounded-xl"></div>
           <div className="w-full px-1 flex flex-col gap-1.5">
@@ -95,7 +95,7 @@ export default function ItemTrending({ data, typeLink }) {
             <div className="skeleton w-1/2 h-3 bg-textColor/30"></div>
           </div>
         </div>
-      )}
+      )} */}
     </Swiper>
   );
 }

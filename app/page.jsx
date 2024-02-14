@@ -27,6 +27,8 @@ export default function Home() {
           />
           <TrendingTv />
         </section>
+
+        
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
             title="trending movie"

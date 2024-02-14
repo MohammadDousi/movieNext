@@ -10,14 +10,13 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 export default function ItemActor({ data }) {
-  const skele = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let uniqueData;
   if (data) {
     uniqueData = [...new Map(data.map((item) => [item.id, item])).values()];
   }
   return (
     <Swiper
-      className="!w-full h-full overflow-x-hidden"
+      className="!w-full"
       // spaceBetween={10}
       // speed={1500}
       // freeMode={true}

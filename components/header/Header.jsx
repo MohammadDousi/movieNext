@@ -17,16 +17,16 @@ export default function Header() {
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScroll(window.scrollY);
-  //     return window.scrollY;
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY);
+      return window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const showMenuMobileHandler = () => {
     setShowMenuMobile(!showMenuMobile);

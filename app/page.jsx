@@ -22,18 +22,18 @@ export default function Home() {
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
-            title="trending tv"
-            href={"/category/trending tv shows"}
-          />
-          <TrendingTv />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
             title="popular movie"
             href={"/category/popular movie"}
           />
           <PopularMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
         </section>
 
         <section className="w-full flex flex-col justify-start items-start gap-5">

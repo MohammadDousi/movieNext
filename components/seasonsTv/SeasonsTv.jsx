@@ -12,7 +12,7 @@ export default function SeasonsTv({ data }) {
   return (
     <div className="w-full">
       <Swiper
-        className="w-full h-full overflow-x-hidden"
+        className="w-full"
         spaceBetween={20}
         speed={1500}
         freeMode={true}

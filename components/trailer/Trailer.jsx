@@ -13,7 +13,7 @@ export default function Trailer({ data }) {
   return (
     <div className="w-full p-5 bg-primeryColorDarker/50 rounded-xl">
       <Swiper
-        className="w-full h-full overflow-x-hidden"
+        className="w-full"
         spaceBetween={20}
         speed={1500}
         freeMode={true}

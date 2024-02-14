@@ -10,8 +10,8 @@ import TrendingActor from "@/components/trendingActor/TrendingActor";
 export default function Home() {
   return (
     <main>
-      <BoardSlider />
-      <section className="w-full h-full px-6 lg:px-16 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
+      {/* <BoardSlider /> */}
+      <section className="w-full h-auto px-6 lg:px-16 flex flex-col justify-start items-start gap-10 lg:gap-16 overflow-x-hidden">
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
             title="trending movie"

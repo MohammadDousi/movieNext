@@ -17,7 +17,7 @@
   }
 
   main {
-    @apply w-full h-full flex flex-col justify-start items-start overflow-x-hidden;
+    @apply w-full h-auto flex flex-col justify-start items-start overflow-x-hidden;
   }
 
   ::-webkit-scrollbar {

@@ -21,11 +21,11 @@ export default function ItemActor({ data }) {
       speed={1500}
       freeMode={true}
       lazy="true"
-      slidesPerView={3.3}
+      slidesPerView={2.8}
       grabCursor={true}
       breakpoints={{
         430: {
-          slidesPerView: 3.3,
+          slidesPerView: 2.8,
           spaceBetween: 10,
         },
         768: {

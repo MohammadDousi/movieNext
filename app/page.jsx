@@ -45,7 +45,7 @@ export default function Home() {
           <TrendingActor />
         </section>
       </section>
-      <ToTop />
+      {/* <ToTop /> */}
     </>
   );
 }

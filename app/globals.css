@@ -9,15 +9,15 @@
   * {
     line-height: unset;
     direction: ltr;
-    @apply p-0 m-0 box-border outline-0 no-underline list-none border-0 border-transparent duration-300;
+    @apply p-0 m-0 box-border outline-0 no-underline list-none border-0 border-transparent;
   }
 
   body {
-    @apply w-full !bg-primeryColor flex flex-col justify-start items-start overflow-x-hidden;
+    @apply w-full h-full !bg-primeryColor;
   }
 
   main {
-    @apply w-full flex flex-col justify-start items-start;
+    @apply w-full h-full flex flex-col justify-start items-start;
   }
 
   ::-webkit-scrollbar {
@@ -33,7 +33,7 @@
   }
 
   .btn {
-    @apply !btn-outline capitalize !px-5 hover:!text-primeryColor !bg-textColor/10 hover:!bg-secondeColor !backdrop-blur-xl hover:!backdrop-blur-0 !rounded-full duration-300;
+    @apply !btn-outline capitalize !px-5 hover:!text-primeryColor !bg-textColor/10 hover:!bg-secondeColor  !rounded-full duration-300;
   }
 
   .btn > svg {

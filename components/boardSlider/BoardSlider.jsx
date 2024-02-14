@@ -6,11 +6,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Autoplay, Pagination, EffectCreative } from "swiper/modules";
+import {
+  Autoplay,
+  Pagination,
+  EffectCreative,
+} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-creative";
 
 export default function BoardSlider() {
   const [data, setData] = useState([]);
@@ -63,19 +66,19 @@ export default function BoardSlider() {
         },
         1024: {
           speed: 1500,
-          effect: "creative",
-          creativeEffect: {
-            prev: {
-              shadow: true,
-              translate: ["-120%", 0, -500],
-            },
-            next: {
-              shadow: true,
-              translate: ["120%", 0, -500],
-            },
-          },
         },
       }}
+      // effect="creative"
+      // creativeEffect={{
+      //   prev: {
+      //     shadow: true,
+      //     translate: ["-100%", 0, -500],
+      //   },
+      //   next: {
+      //     shadow: true,
+      //     translate: ["100%", 0, -500],
+      //   },
+      // }}
       modules={[Autoplay, Pagination, EffectCreative]}
     >
       {data &&
@@ -102,12 +105,12 @@ export default function BoardSlider() {
                 src={
                   window.innerWidth > 430
                     ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
-                    : `https://image.tmdb.org/t/p/w500${items?.poster_path}`
+                    : `https://image.tmdb.org/t/p/w1280${items?.poster_path}`
                 }
                 alt={
                   window.innerWidth > 430
                     ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
-                    : `https://image.tmdb.org/t/p/w500${items?.poster_path}`
+                    : `https://image.tmdb.org/t/p/w1280${items?.poster_path}`
                 }
               />
 

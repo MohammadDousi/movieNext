@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 
-import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import logo2 from "../../public/logo2.png";
 
 import { IoSearch, IoMenu, IoClose } from "react-icons/io5";
 import { PiUserBold } from "react-icons/pi";
@@ -15,7 +13,6 @@ import SignInUp from "../signInUp/SignInUp";
 
 export default function Header() {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
-  const [showSignInUp, setShowSignInUp] = useState(false);
 
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
@@ -234,7 +231,7 @@ export default function Header() {
           <Image
             src={logo}
             alt="log movie land"
-            className="w-1/3 p-2 lg:p-5 object-contain"
+            className="hidden lg:block lg:w-1/3 lg:p-5 object-contain"
           />
           <SignInUp />
         </div>

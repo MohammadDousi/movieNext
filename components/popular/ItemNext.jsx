@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
-import { EffectCreative, FreeMode, Mousewheel } from "swiper/modules";
+import { FreeMode, Mousewheel } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,7 +20,6 @@ export default function ItemNext({ data, typeLink }) {
         speed={1500}
         freeMode={true}
         lazy="true"
-        mousewheel={true}
         slidesPerView={1.2}
         grabCursor={true}
         breakpoints={{
@@ -36,6 +35,7 @@ export default function ItemNext({ data, typeLink }) {
           1024: {
             slidesPerView: 3.6,
             spaceBetween: 20,
+            mousewheel: true,
           },
         }}
         modules={[Mousewheel, FreeMode]}

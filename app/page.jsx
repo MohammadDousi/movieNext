@@ -27,26 +27,215 @@ export default function Home() {
           />
           <TrendingTv />
         </section>
-
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
-            title="popular movie"
-            href={"/category/popular movie"}
+            title="trending movie"
+            href={"/category/trending movie"}
           />
-          <PopularMovie />
+          <TrendingMovie />
         </section>
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
-            title="popular tv"
-            href={"/category/top 250 tv shows"}
+            title="trending tv"
+            href={"/category/trending tv shows"}
           />
-          <PopularTv />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
         </section>
 
         <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="trending people" href="#" />
-          <TrendingActor />
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
+        </section>
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending movie"
+            href={"/category/trending movie"}
+          />
+          <TrendingMovie />
+        </section>
+
+        <section className="w-full flex flex-col justify-start items-start gap-5">
+          <TitleContainer
+            title="trending tv"
+            href={"/category/trending tv shows"}
+          />
+          <TrendingTv />
         </section>
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
@@ -64,7 +253,7 @@ export default function Home() {
           <TrendingTv />
         </section>
 
-        <section className="w-full flex flex-col justify-start items-start gap-5">
+        {/* <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer
             title="popular movie"
             href={"/category/popular movie"}
@@ -83,79 +272,7 @@ export default function Home() {
         <section className="w-full flex flex-col justify-start items-start gap-5">
           <TitleContainer title="trending people" href="#" />
           <TrendingActor />
-        </section>
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="trending movie"
-            href={"/category/trending movie"}
-          />
-          <TrendingMovie />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="trending tv"
-            href={"/category/trending tv shows"}
-          />
-          <TrendingTv />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="popular movie"
-            href={"/category/popular movie"}
-          />
-          <PopularMovie />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="popular tv"
-            href={"/category/top 250 tv shows"}
-          />
-          <PopularTv />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="trending people" href="#" />
-          <TrendingActor />
-        </section>
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="trending movie"
-            href={"/category/trending movie"}
-          />
-          <TrendingMovie />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="trending tv"
-            href={"/category/trending tv shows"}
-          />
-          <TrendingTv />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="popular movie"
-            href={"/category/popular movie"}
-          />
-          <PopularMovie />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer
-            title="popular tv"
-            href={"/category/top 250 tv shows"}
-          />
-          <PopularTv />
-        </section>
-
-        <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="trending people" href="#" />
-          <TrendingActor />
-        </section>
+        </section> */}
       </section>
 
       {/* <ToTop /> */}

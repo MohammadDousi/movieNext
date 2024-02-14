@@ -17,16 +17,16 @@ export default function Header() {
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScroll(window.scrollY);
-  //     return window.scrollY;
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY);
+      return window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const showMenuMobileHandler = () => {
     setShowMenuMobile(!showMenuMobile);
@@ -51,10 +51,10 @@ export default function Header() {
     <>
       <header
         className={
-          // scroll < 100
-          //   ? 
+          scroll < 100
+            ? 
             "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center gap-20 duration-300 "
-            // : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
         <Image

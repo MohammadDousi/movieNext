@@ -38,7 +38,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-lvh lg:h-[41rem]"
+      className="!w-full h-auto lg:h-[41rem]"
       spaceBetween={0}
       speed={600}
       slidesPerView={1}
@@ -93,12 +93,12 @@ export default function BoardSlider() {
 
               <Image
                 unoptimized
-                width={1200}
-                height={1200}
+                width={window.innerWidth > 430 ? 1200 : 400}
+                height={window.innerWidth > 430 ? 1200 : 400}
                 quality={100}
                 loading="lazy"
                 property="true"
-                className="w-full h-full object-cover object-center lg:object-top duration-300"
+                className="w-full h-full object-contain object-center lg:object-top duration-300"
                 src={
                   window.innerWidth > 430
                     ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`

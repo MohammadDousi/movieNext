@@ -65,7 +65,7 @@ export default function Header() {
           className="w-auto h-1/2 z-10 relative object-contain cursor-pointer"
         />
 
-        <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
+        {/* <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
           <ul className="menu menu-horizontal rounded-box">
             <ul className="dropdown dropdown-hover">
               <li tabIndex={0}>movie</li>
@@ -114,9 +114,9 @@ export default function Header() {
               About us
             </li>
           </ul>
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className={
             showMenuMobile
               ? "join join-vertical lg:hidden showMenuMobileOpen"
@@ -182,7 +182,7 @@ export default function Header() {
               about us
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="w-1/3 flex flex-row justify-end items-center gap-4">
           <button
@@ -200,7 +200,6 @@ export default function Header() {
           </label>
 
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
-            {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
 
             <IoMenu
@@ -222,7 +221,7 @@ export default function Header() {
         </div>
 
       </header>
-      <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
+      {/* <input type="checkbox" id="modalSignInUp" className="modal-toggle" />
       <dialog
         id="modalSignInUp"
         role="dialog"
@@ -237,7 +236,7 @@ export default function Header() {
           <SignInUp />
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
-      </dialog>
+      </dialog> */}
     </>
   );
 }

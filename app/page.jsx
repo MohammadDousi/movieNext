@@ -50,7 +50,7 @@ export default function Home() {
         </section>
       </section>
 
-      <ToTop />
+      {/* <ToTop /> */}
     </main>
   );
 }

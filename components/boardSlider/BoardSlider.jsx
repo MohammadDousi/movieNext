@@ -43,44 +43,44 @@ export default function BoardSlider() {
 
       <Swiper
         className="!w-full h-lvh lg:h-[41rem] overflow-x-hidden"
-        spaceBetween={0}
-        speed={600}
+        // spaceBetween={0}
+        // speed={600}
         slidesPerView={1}
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        lazy="true"
-        autoplay={{
-          delay: 6000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-          dynamicBullets: true,
-        }}
-        effect={"creative"}
-        breakpoints={{
-          425: {
-            speed: 600,
-          },
-          768: {
-            speed: 900,
-          },
-          1024: {
-            speed: 1500,
-            creativeEffect: {
-              prev: {
-                shadow: true,
-                translate: ["-120%", 0, -500],
-              },
-              next: {
-                shadow: true,
-                translate: ["120%", 0, -500],
-              },
-            },
-          },
-        }}
-        modules={[Autoplay, Pagination, EffectCreative]}
+        // grabCursor={true}
+        // centeredSlides={true}
+        // loop={true}
+        // lazy="true"
+        // autoplay={{
+        //   delay: 6000,
+        //   disableOnInteraction: false,
+        // }}
+        // pagination={{
+        //   clickable: true,
+        //   dynamicBullets: true,
+        // }}
+        // effect={"creative"}
+        // breakpoints={{
+        //   425: {
+        //     speed: 600,
+        //   },
+        //   768: {
+        //     speed: 900,
+        //   },
+        //   1024: {
+        //     speed: 1500,
+        //     creativeEffect: {
+        //       prev: {
+        //         shadow: true,
+        //         translate: ["-120%", 0, -500],
+        //       },
+        //       next: {
+        //         shadow: true,
+        //         translate: ["120%", 0, -500],
+        //       },
+        //     },
+        //   },
+        // }}
+        // modules={[Autoplay, Pagination, EffectCreative]}
       >
         {data &&
           data.map((items) => (

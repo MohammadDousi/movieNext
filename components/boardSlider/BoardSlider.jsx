@@ -42,7 +42,7 @@ export default function BoardSlider() {
     
 
       <Swiper
-        className="!w-full h-lvh lg:h-[41rem] overflow-x-hidden"
+        className="!w-full h-lvh lg:h-[41rem]"
         // spaceBetween={0}
         // speed={600}
         slidesPerView={1}

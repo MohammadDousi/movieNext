@@ -16,29 +16,29 @@ export default function ItemNext({ data, typeLink }) {
     <>
       <Swiper
         className="!w-full"
-        // spaceBetween={20}
-        // speed={1500}
-        // freeMode={true}
-        // lazy="true"
-        // mousewheel={true}
+        spaceBetween={20}
+        speed={1500}
+        freeMode={true}
+        lazy="true"
+        mousewheel={true}
         slidesPerView={1.2}
-        // grabCursor={true}
-        // breakpoints={{
-        //   430: {
-        //     slidesPerView: 1.2,
-        //     spaceBetween: 20,
-        //     speed: 600,
-        //   },
-        //   768: {
-        //     slidesPerView: 2.2,
-        //     spaceBetween: 20,
-        //   },
-        //   1024: {
-        //     slidesPerView: 3.6,
-        //     spaceBetween: 20,
-        //   },
-        // }}
-        // modules={[Mousewheel, FreeMode]}
+        grabCursor={true}
+        breakpoints={{
+          430: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            speed: 600,
+          },
+          768: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3.6,
+            spaceBetween: 20,
+          },
+        }}
+        modules={[Mousewheel, FreeMode]}
       >
         {data &&
           data.map(

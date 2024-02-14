@@ -76,7 +76,7 @@ export default function BoardSlider() {
           },
         },
       }}
-      // modules={[Autoplay, Pagination, EffectCreative]}
+      modules={[Autoplay, Pagination, EffectCreative]}
     >
       {data &&
         data.map((items) => (

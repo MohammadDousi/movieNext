@@ -1,17 +1,16 @@
 "use client";
 
-// import Link from "next/link";
-// import Image from "next/image";
+import Link from "next/link";
+import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ItemBoarderSlider from "./ItemBoarderSlider";
-// import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-// import { Autoplay, Pagination, EffectCreative } from "swiper/modules";
+import { Autoplay, Pagination, EffectCreative } from "swiper/modules";
 
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/effect-creative";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-creative";
 
 
 
@@ -40,10 +39,9 @@ export default function BoardSlider() {
   }, []);
 
   return (
-    <>
-      {data.length !== 0 && <ItemBoarderSlider data={data} />}
+    
 
-      {/* <Swiper
+      <Swiper
         className="!w-full h-lvh lg:h-[41rem] overflow-x-hidden"
         spaceBetween={0}
         speed={600}
@@ -141,7 +139,6 @@ export default function BoardSlider() {
               </Link>
             </SwiperSlide>
           ))}
-      </Swiper> */}
-    </>
+      </Swiper> 
   );
 }

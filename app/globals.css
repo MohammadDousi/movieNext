@@ -13,11 +13,11 @@
   }
 
   body {
-    @apply w-full h-full !bg-primeryColor flex flex-col justify-center items-start !overflow-x-hidden;
+    @apply w-full !bg-primeryColor flex flex-col justify-start items-start overflow-x-hidden;
   }
 
   main {
-    @apply w-full h-auto flex flex-col justify-start items-start;
+    @apply w-full flex flex-col justify-start items-start;
   }
 
   ::-webkit-scrollbar {

@@ -17,27 +17,27 @@ export default function ItemTrending({ data, typeLink }) {
   return (
     <Swiper
       className="!w-full h-full overflow-x-hidden"
-      // spaceBetween={20}
-      // speed={1500}
-      // freeMode={true}
+      spaceBetween={20}
+      speed={1500}
+      freeMode={true}
       slidesPerView={1.8}
       // lazy="true"
       // grabCursor={true}
-      // modules={[FreeMode]}
-      // breakpoints={{
-      //   425: {
-      //     slidesPerView: 1.8,
-      //     spaceBetween: 20,
-      //   },
-      //   768: {
-      //     slidesPerView: 3.6,
-      //     spaceBetween: 20,
-      //   },
-      //   1024: {
-      //     slidesPerView: 6,
-      //     spaceBetween: 20,
-      //   },
-      // }}
+      modules={[FreeMode]}
+      breakpoints={{
+        425: {
+          slidesPerView: 1.8,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3.6,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      }}
     >
       {data &&
         data.map((items) => (

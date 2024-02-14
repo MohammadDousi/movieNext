@@ -82,8 +82,8 @@ export default function BoardSlider() {
         }}
         modules={[Autoplay, Pagination, EffectCreative]}
       >
-        {trend &&
-          trend.map((items) => (
+        {data &&
+          data.map((items) => (
             <SwiperSlide key={items?.id}>
               <Link
                 href={

@@ -17,27 +17,27 @@ export default function ItemActor({ data }) {
   return (
     <Swiper
       className="!w-full"
-      // spaceBetween={10}
-      // speed={1500}
-      // freeMode={true}
-      // lazy="true"
+      spaceBetween={10}
+      speed={1500}
+      freeMode={true}
+      lazy="true"
       slidesPerView={3.3}
-      // grabCursor={true}
-      // breakpoints={{
-      //   430: {
-      //     slidesPerView: 3.3,
-      //     spaceBetween: 10,
-      //   },
-      //   768: {
-      //     slidesPerView: 6,
-      //     spaceBetween: 20,
-      //   },
-      //   1024: {
-      //     slidesPerView: 10,
-      //     spaceBetween: 20,
-      //   },
-      // }}
-      // modules={[FreeMode]}
+      grabCursor={true}
+      breakpoints={{
+        430: {
+          slidesPerView: 3.3,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 10,
+          spaceBetween: 20,
+        },
+      }}
+      modules={[FreeMode]}
     >
       {uniqueData &&
         uniqueData.map((items) => (

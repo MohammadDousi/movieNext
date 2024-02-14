@@ -13,7 +13,7 @@
   }
 
   body {
-    @apply w-full h-svh !bg-primeryColor flex flex-col justify-start items-start overflow-x-hidden;
+    @apply w-full !bg-primeryColor flex flex-col justify-start items-start overflow-x-hidden;
   }
 
   main {

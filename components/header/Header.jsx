@@ -17,16 +17,16 @@ export default function Header() {
   const [scroll, setScroll] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY);
-      return window.scrollY;
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScroll(window.scrollY);
+  //     return window.scrollY;
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   const showMenuMobileHandler = () => {
     setShowMenuMobile(!showMenuMobile);
@@ -51,19 +51,19 @@ export default function Header() {
     <>
       <header
         className={
-          scroll < 100
-            ? 
+          // scroll < 100
+          //   ? 
             "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-10% from-primeryColor to-transparent flex flex-row justify-between items-center lg:gap-20 duration-300 "
-            : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
+            // : "w-full h-16 lg:h-20 px-6 lg:px-16 fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-primeryColor to-transparent/30 backdrop-blur-2xl flex flex-row justify-between items-center gap-20 duration-300"
         }
       >
-        {/* <Image
+        <Image
           onClick={() => router.push("/", { scroll: true })}
           src={logo}
           alt="logo movieland"
           loading="lazy"
           className="w-auto h-1/2 z-10 relative object-contain cursor-pointer"
-        /> */}
+        />
 
         {/* <div className="hidden w-2/3 h-full lg:flex flex-row justify-start items-center">
           <ul className="menu menu-horizontal rounded-box">
@@ -184,7 +184,7 @@ export default function Header() {
           </div>
         </div> */}
 
-        {/* <div className="w-1/3 flex flex-row justify-end items-center gap-4">
+        <div className="w-1/3 flex flex-row justify-end items-center gap-4">
           <button
             onClick={() => router.push("/search", { scroll: true })}
             className="btn btn-sm btn-circle !text-textColor !px-0"
@@ -218,7 +218,7 @@ export default function Header() {
           >
             Sign in | Sign up
           </label>
-        </div> */}
+        </div>
 
       </header>
       {/* <input type="checkbox" id="modalSignInUp" className="modal-toggle" />

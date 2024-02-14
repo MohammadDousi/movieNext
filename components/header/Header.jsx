@@ -199,7 +199,7 @@ export default function Header() {
           </label>
 
           <label className="lg:hidden btn btn-sm btn-circle !text-textColor !px-0 swap swap-rotate">
-            <input type="radio" />
+            <input type="checkbox" />
 
             <IoMenu
               className="swap-off fill-current"
@@ -220,7 +220,7 @@ export default function Header() {
         </div>
 
       </header>
-      {/* <input type="radio" id="modalSignInUp" className="modal-toggle" />
+      <input type="radio" id="modalSignInUp" className="modal-toggle" />
       <dialog
         id="modalSignInUp"
         role="dialog"
@@ -235,7 +235,7 @@ export default function Header() {
           <SignInUp />
         </div>
         <label className="modal-backdrop" htmlFor="modalSignInUp"></label>
-      </dialog> */}
+      </dialog>
     </>
   );
 }

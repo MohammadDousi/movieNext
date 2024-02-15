@@ -1,38 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-import TitleContainer from "../title/TitleContainer";
 import ItemActor from "./ItemActor";
+import { getActor } from "@/hooks/querys";
 
 export default function TrendingActor() {
-  const [actor, setActor] = useState();
-
-  const options = {
-    method: "GET",
-    url : 'https://api.themoviedb.org/3/trending/person/day?language=en-US',
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
-    },
-  };
-
-  useEffect(() => {
-    axios
-      .request(options)
-      .then(function (response) {
-        setActor(response.data.results.slice(0,10));
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+  const { data, isError, error } = getActor();
 
   return (
-      <section className="w-full">
-        <ItemActor data={actor} />
-      </section>
+    <section className="w-full">
+      {isError && (
+        <h5 className="w-full h-52 text-textColor/70 text-base font-normal tracking-wide capitalize">
+          something went wrong - {error.message}
+        </h5>
+      )}
+      <ItemActor data={data?.data?.results?.slice(0, 10)} />
+    </section>
   );
 }

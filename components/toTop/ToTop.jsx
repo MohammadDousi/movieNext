@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { IoChevronUp } from "react-icons/io5";
 
 export default function ToTop() {
+  const [scroll, setScroll] = useState(0);
+
   const up = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
-  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {

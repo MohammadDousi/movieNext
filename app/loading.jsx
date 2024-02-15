@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <section className="w-full h-screen z-20 flex flex-col justify-center items-center gap-2 overflow-hidden">
+    <section className="w-full z-30 flex flex-col justify-center items-center gap-2 overflow-hidden">
       <p className="w-full text-center text-lg capitalize text-textColor/90 font-medium">
         Receiving information, please wait
       </p>

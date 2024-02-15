@@ -52,7 +52,7 @@ export default function GenresGroup() {
               />
               <label
                 htmlFor="movie"
-                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
               >
                 movies
               </label>
@@ -71,7 +71,7 @@ export default function GenresGroup() {
               />
               <label
                 htmlFor="tv"
-                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
               >
                 tv shows
               </label>
@@ -101,7 +101,7 @@ export default function GenresGroup() {
               />
               <label
                 htmlFor="movie"
-                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
               >
                 movies
               </label>
@@ -120,7 +120,7 @@ export default function GenresGroup() {
               />
               <label
                 htmlFor="tv"
-                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor backdrop-blur-xl hover:backdrop-blur-0 border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
+                className="py-1 px-5 text-textColor/70 capitalize text-xs peer-checked:font-bold peer-checked:text-primeryColorDarker bg-textColor/10 peer-checked:bg-secondeColor border-0 hover:border hover:border-textColor/70 peer-checked:border peer-checked:border-secondeColor rounded-full cursor-pointer duration-300"
               >
                 tv shows
               </label>

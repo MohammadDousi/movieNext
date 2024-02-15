@@ -70,7 +70,7 @@ export default function ItemTrending({ data, typeLink }) {
               </div>
               <div className="w-full flex flex-col gap-1">
                 <h2 className="w-full font-medium text-lg text-left text-textColor/70 tracking-normal capitalize">
-                  {items?.media_type === "movie"
+                  {typeLink === "movie"
                     ? items?.title?.length >= 22 ||
                       items?.original_title?.length >= 22
                       ? `${items?.title?.slice(0, 20)}...` ||

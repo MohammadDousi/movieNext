@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   // Enable the React DevTools profiler
-  // profiler: true,
+  profiler: true,
 
   images: {
     remotePatterns: [

@@ -1,36 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-
-import axios from "axios";
 import ItemTrending from "./ItemTrending";
+import { getTrending } from "@/hooks/querys";
 
 export default function TrendingTv() {
-  const [trend, setTrend] = useState();
-
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      url: "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
-      },
-    };
-    axios
-      .request(options)
-      .then(function (response) {
-        setTrend(response.data.results.slice(0, 15));
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+  const { data, isError, error } = getTrending("tv");
 
   return (
-    <section className="w-full flex flex-row justify-start items-start gap-6 overflow-hidden">
-      <ItemTrending data={trend} typeLink="tv" />
+    <section className="w-full">
+      {isError && (
+        <h5 className="w-full h-72 text-textColor/70 text-base font-normal tracking-wide capitalize">
+          something went wrong - {error.message}
+        </h5>
+      )}
+      <ItemTrending data={data?.data?.results?.slice(0, 15)} typeLink="tv" />
     </section>
   );
 }

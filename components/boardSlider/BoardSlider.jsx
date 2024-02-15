@@ -2,42 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
-import { useState, useEffect } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import {
-  Autoplay,
-  Pagination,
-  EffectCreative,
-} from "swiper/modules";
-
+import { Autoplay, Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { getTrending } from "@/hooks/querys";
+
 export default function BoardSlider() {
-  const [data, setData] = useState([]);
-
-  const options = {
-    method: "GET",
-    url: "https://api.themoviedb.org/3/trending/all/day?language=en-US",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
-    },
-  };
-
-  useEffect(() => {
-    axios
-      .request(options)
-      .then(function (response) {
-        setData(response.data.results.slice(0, 10));
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+  const { data, isError, error } = getTrending("all");
 
   return (
     <Swiper
@@ -81,8 +55,8 @@ export default function BoardSlider() {
       // }}
       modules={[Autoplay, Pagination, EffectCreative]}
     >
-      {data &&
-        data.map((items) => (
+      {data?.data?.results &&
+        data?.data?.results.slice(0, 8).map((items) => (
           <SwiperSlide key={items?.id}>
             <Link
               href={

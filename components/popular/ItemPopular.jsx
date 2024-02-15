@@ -11,7 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/effect-creative";
 import Link from "next/link";
 
-export default function ItemNext({ data, typeLink }) {
+export default function ItemPopular({ data, typeLink }) {
   return (
     <>
       <Swiper
@@ -76,18 +76,17 @@ export default function ItemNext({ data, typeLink }) {
 
                     <div className="w-full px-1 flex flex-col gap-1">
                       <h2 className="w-full font-medium text-lg text-left text-textColor/70 tracking-normal capitalize">
-                        {items?.title?.length >= 30 ||
-                        items?.original_title?.length >= 30 ||
-                        items?.name?.length >= 30 ||
-                        items?.original_name?.length >= 30
-                          ? `${items?.title?.slice(0, 30)}...` ||
-                            `${items?.original_title?.slice(0, 30)}...` ||
-                            `${items?.name?.slice(0, 30)}...` ||
+                        {typeLink === "movie"
+                          ? items?.title?.length >= 30 ||
+                            items?.original_title?.length >= 30
+                            ? `${items?.title?.slice(0, 30)}...` ||
+                              `${items?.original_title?.slice(0, 30)}...`
+                            : items?.title || items?.original_title
+                          : items?.name?.length >= 30 ||
+                            items?.original_name?.length >= 30
+                          ? `${items?.name?.slice(0, 30)}...` ||
                             `${items?.original_name?.slice(0, 30)}...`
-                          : items?.title ||
-                            items?.original_title ||
-                            items?.name ||
-                            items?.original_name}
+                          : items?.name || items?.original_name}
                       </h2>
                     </div>
                   </Link>

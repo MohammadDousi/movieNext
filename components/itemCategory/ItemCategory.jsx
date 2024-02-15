@@ -171,7 +171,7 @@ export default function ItemCategory({ data }) {
                     ? `/movie/${items?.id}`
                     : `/tvShows/${items?.id}`
                 }
-                key={items.id + index}
+                key={index}
                 className="w-full p-5 z-10 relative bg-primeryColorDarker/50 flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start gap-6 rounded-2xl overflow-hidden"
               >
                 <span className="w-full h-full absolute top-0 left-0 -z-10 bg-gradient-to-t from-primeryColorDarker to-transparent/10"></span>

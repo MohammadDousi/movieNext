@@ -9,6 +9,7 @@ import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Loading from "@/app/loading";
 import Pagination from "@/components/pagination/Pagination";
+import { getDataCategory } from "@/hooks/querys";
 
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
@@ -40,7 +41,11 @@ export default function CategoryPage({ params }) {
   useEffect(() => {
     search && setPage(search);
     genres && setGenersId(genres);
+
   }, []);
+
+  // const {data} = getDataCategory(category, search || page, genresId);
+  // console.log(data);
 
   useEffect(() => {
     switch (decodeURIComponent(params.categoryId)) {

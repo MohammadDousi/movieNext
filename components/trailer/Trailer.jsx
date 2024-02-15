@@ -1,7 +1,6 @@
 import React from "react";
 
 import { MediaPlayer, MediaProvider } from "@vidstack/react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Mousewheel } from "swiper/modules";
 

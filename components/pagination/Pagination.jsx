@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Pagination({ page, totalPage, handleClick }) {
-
   return (
     <div className="join flex gap-2">
       <button
@@ -14,10 +13,10 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "join-item btn btn-sm lg:btn-md !btn-circle "
         }
       >
-        {totalPage - totalPage + 1}
+        {totalPage && totalPage - totalPage + 1}
       </button>
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(totalPage - totalPage + 2);
         }}
         className={
@@ -26,10 +25,10 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "join-item btn btn-sm lg:btn-md !btn-circle "
         }
       >
-        {totalPage - totalPage + 2}
+        {totalPage && totalPage - totalPage + 2}
       </button>
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(totalPage - totalPage + 3);
         }}
         className={
@@ -38,7 +37,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "join-item btn btn-sm lg:btn-md !btn-circle "
         }
       >
-        {totalPage - totalPage + 3}
+        {totalPage && totalPage - totalPage + 3}
       </button>
 
       <button className={page >= 6 ? "join-item btn-disabled px-1" : "hidden"}>
@@ -46,7 +45,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(Number(page) - Number(2));
         }}
         className={
@@ -55,22 +54,22 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "hidden"
         }
       >
-        {Number(page) - Number(2)}
+        {page && Number(page) - Number(2)}
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(Number(page) - Number(1));
         }}
         className={
           page >= 5 ? "join-item btn btn-sm lg:btn-md !btn-circle " : "hidden"
         }
       >
-        {Number(page) - Number(1)}
+        {page && Number(page) - Number(1)}
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(page);
         }}
         className={
@@ -83,7 +82,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(Number(page) + Number(1));
         }}
         className={
@@ -92,11 +91,15 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "hidden"
         }
       >
-        {page >= 3 && page < totalPage && Number(page) + Number(1)}
+        {totalPage &&
+          page &&
+          page >= 3 &&
+          page < totalPage &&
+          Number(page) + Number(1)}
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(Number(page) + Number(2));
         }}
         className={
@@ -105,7 +108,11 @@ export default function Pagination({ page, totalPage, handleClick }) {
             : "hidden"
         }
       >
-        {page >= 3 && page < totalPage && Number(page) + Number(2)}
+        {totalPage &&
+          page &&
+          page >= 3 &&
+          page < totalPage &&
+          Number(page) + Number(2)}
       </button>
 
       <button
@@ -119,17 +126,16 @@ export default function Pagination({ page, totalPage, handleClick }) {
       </button>
 
       <button
-        onClick={(e) => {
+        onClick={() => {
           handleClick(Number(totalPage) - Number(1));
         }}
-        // value={Number(totalPage) - Number(1)}
         className={
           Number(page) >= Number(totalPage) - Number(4)
             ? "hidden"
             : "join-item btn btn-sm lg:btn-md !btn-circle "
         }
       >
-        {Number(totalPage) - Number(1)}
+        {totalPage && totalPage - 1}
       </button>
 
       <button

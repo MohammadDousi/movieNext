@@ -2,15 +2,15 @@ import React from "react";
 
 export default function Pagination({ page, totalPage, handleClick }) {
   return (
-    <div className="join flex gap-2">
+    <div className="join w-full flex justify-center items-center gap-2">
       <button
         onClick={() => {
           handleClick(totalPage - totalPage + 1);
         }}
         className={
           page == totalPage - totalPage + 1
-            ? "join-item btn btn-sm lg:btn-md !btn-circle  btn-active btn-primary"
-            : "join-item btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item btn btn-sm lg:btn-md btn-circle btn-active btn-primary"
+            : "join-item btn btn-sm lg:btn-md btn-circle !px-0"
         }
       >
         {totalPage && totalPage - totalPage + 1}
@@ -21,8 +21,8 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page == totalPage - totalPage + 2
-            ? "join-item btn btn-sm lg:btn-md !btn-circle  btn-active btn-primary"
-            : "join-item btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item btn btn-sm lg:btn-md btn-circle !px-0 btn-active btn-primary"
+            : "join-item btn btn-sm lg:btn-md btn-circle !px-0"
         }
       >
         {totalPage && totalPage - totalPage + 2}
@@ -33,8 +33,8 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page == totalPage - totalPage + 3
-            ? "join-item btn btn-sm lg:btn-md !btn-circle  btn-active btn-primary"
-            : "join-item btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item btn btn-sm lg:btn-md btn-circle !px-0 btn-active btn-primary"
+            : "join-item btn btn-sm lg:btn-md btn-circle !px-0"
         }
       >
         {totalPage && totalPage - totalPage + 3}
@@ -50,7 +50,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page >= 6
-            ? "join-item hidden lg:flex btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle !px-0"
             : "hidden"
         }
       >
@@ -62,7 +62,9 @@ export default function Pagination({ page, totalPage, handleClick }) {
           handleClick(Number(page) - Number(1));
         }}
         className={
-          page >= 5 ? "join-item btn btn-sm lg:btn-md !btn-circle " : "hidden"
+          page >= 5
+            ? "join-item btn btn-sm lg:btn-md btn-circle !px-0"
+            : "hidden"
         }
       >
         {page && Number(page) - Number(1)}
@@ -74,7 +76,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page >= 4
-            ? "join-item btn btn-sm lg:btn-md !btn-circle btn-active btn-primary"
+            ? "join-item btn btn-sm lg:btn-md btn-circle !px-0 btn-active btn-primary"
             : "hidden"
         }
       >
@@ -87,7 +89,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page >= 3 && page < totalPage
-            ? "join-item btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item btn btn-sm lg:btn-md btn-circle !px-0"
             : "hidden"
         }
       >
@@ -104,7 +106,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         }}
         className={
           page >= 3 && page < totalPage - 1
-            ? "join-item hidden lg:flex btn btn-sm lg:btn-md !btn-circle "
+            ? "join-item hidden lg:flex btn btn-sm lg:btn-md btn-circle !px-0"
             : "hidden"
         }
       >
@@ -132,7 +134,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         className={
           Number(page) >= Number(totalPage) - Number(4)
             ? "hidden"
-            : "join-item btn btn-sm lg:btn-md !btn-circle "
+            : "join-item btn btn-sm lg:btn-md btn-circle !px-0"
         }
       >
         {totalPage && totalPage - 1}
@@ -145,7 +147,7 @@ export default function Pagination({ page, totalPage, handleClick }) {
         className={
           Number(page) >= Number(totalPage) - Number(4)
             ? "hidden"
-            : "join-item btn btn-sm lg:btn-md !btn-circle "
+            : "join-item btn btn-sm lg:btn-md btn-circle !px-0"
         }
       >
         {totalPage}

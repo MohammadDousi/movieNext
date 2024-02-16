@@ -138,14 +138,10 @@ const getTrialerItem = (queryKey, id) => {
 //
 //
 // get item for movie and tv shows with id item and query key is movie or tv
-const getDataCategory = (category, page, genersId) => {
+const getDataSearch = (search, page) => {
   const options = {
     method: "GET",
-    url: 
-    // genersId
-    //   ? `https://api.themoviedb.org/3/${category}?language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genersId}`
-      // : 
-      `https://api.themoviedb.org/3/${category}?language=en-US&page=${page}`,
+    url: `https://api.themoviedb.org/3/search/multi?query=${search}&language=en-US&page=${page}`,
     headers: {
       accept: "application/json",
       Authorization:
@@ -156,11 +152,11 @@ const getDataCategory = (category, page, genersId) => {
   const fetchData = () => axios.request(options);
 
   return useQuery({
-    queryKey: ["category", page, genersId],
+    queryKey: ["search", search, page],
     queryFn: fetchData,
-    staleTime: 2 * (60 * 1000),
-    cacheTime: 2.1 * (60 * 1000),
-    refetchOnMount: false,
+    // staleTime: 2 * (60 * 1000),
+    // cacheTime: 2.1 * (60 * 1000),
+    // refetchOnMount: false,
   });
 };
 
@@ -171,5 +167,5 @@ export {
   getSingleItem,
   getCastItem,
   getTrialerItem,
-  getDataCategory,
+  getDataSearch,
 };

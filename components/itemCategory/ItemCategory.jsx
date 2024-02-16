@@ -162,7 +162,7 @@ export default function ItemCategory({ data }) {
   return (
     <>
       {data &&
-        data.map(
+        data?.map(
           (items, index) =>
             items.vote_average?.toFixed(1) != 0 && (
               <Link

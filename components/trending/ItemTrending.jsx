@@ -1,7 +1,3 @@
-"use client";
-
-import React from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,7 +36,7 @@ export default function ItemTrending({ data, typeLink }) {
       }}
     >
       {data &&
-        data.map((items) => (
+        data?.map((items) => (
           <SwiperSlide key={items?.id}>
             <Link
               href={

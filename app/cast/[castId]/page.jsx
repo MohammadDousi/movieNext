@@ -34,7 +34,7 @@ export default function CastPage({ params }) {
     error: errorTvCast,
   } = getSingleTvCastItem(params.castId);
 
-  console.log(dataTvCast);
+  console.log(dataMovieCast?.data?.cast.length);
 
   return (
     <>
@@ -50,29 +50,30 @@ export default function CastPage({ params }) {
         </div>
 
         <section className="w-full h-full lg:h-full min-h-screen z-10 relative flex flex-col lg:flex-row justify-start lg:justify-start items-start gap-10">
-          <Image
-            width={100}
-            height={100}
-            quality={100}
-            loading="lazy"
-            unoptimized
-            className={
-              dataCast?.data?.profile_path != null || ""
-                ? "w-64 h-80 object-cover object-top rounded-full p-2 ring-1 ring-textColor/10"
-                : "w-64 h-80 p-5 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10"
-            }
-            src={
-              dataCast?.data?.profile_path != null || ""
-                ? `https://image.tmdb.org/t/p/original${dataCast?.data?.profile_path}`
-                : logo
-            }
-            alt={
-              dataCast?.data?.profile_path != null || ""
-                ? `https://image.tmdb.org/t/p/original${dataCast?.data?.profile_path}`
-                : logo
-            }
-          />
-
+          <div className="w-full lg:w-auto flex justify-center items-center">
+            <Image
+              width={100}
+              height={100}
+              quality={100}
+              loading="lazy"
+              unoptimized
+              className={
+                dataCast?.data?.profile_path != null || ""
+                  ? "w-48 lg:w-64 h-64 lg:h-80 object-cover object-top rounded-full p-2 ring-1 ring-textColor/10"
+                  : "w-48 lg:w-64 h-64 lg:h-80 p-5 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10"
+              }
+              src={
+                dataCast?.data?.profile_path != null || ""
+                  ? `https://image.tmdb.org/t/p/original${dataCast?.data?.profile_path}`
+                  : logo
+              }
+              alt={
+                dataCast?.data?.profile_path != null || ""
+                  ? `https://image.tmdb.org/t/p/original${dataCast?.data?.profile_path}`
+                  : logo
+              }
+            />
+          </div>
           <div className="w-full flex flex-col justify-start items-start gap-6">
             <div className="w-full lg:w-auto flex flex-row flex-wrap justify-center lg:justify-start items-center gap-2 lg:gap-6">
               <h3 className="text-base text-textColor/70 drop-shadow-lg flex flex-row justify-center items-center gap-1.5 capitalize">
@@ -138,27 +139,6 @@ export default function CastPage({ params }) {
             <SeasonsTv data={dataTvCast?.data?.crew} typeLink="tv" />
           </section>
         )}
-
-        {/* <section className="w-full z-10 flex flex-col gap-5">
-          <TitleContainer title="trailer" />
-
-          {isErrorTrialer && (
-            <h5 className="w-full h-52 text-textColor/70 text-base font-normal tracking-wide capitalize">
-              something went wrong - {errorTrialer.message}
-            </h5>
-          )}
-          <Trailer data={dataTrialer?.data?.results} />
-        </section>
-
-        <section className="w-full z-10 flex flex-col gap-5">
-          <TitleContainer title="Top Billed Cast" />
-          {isErrorCast && (
-            <h5 className="w-full h-52 text-textColor/70 text-base font-normal tracking-wide capitalize">
-              something went wrong - {errorCast.message}
-            </h5>
-          )}
-          <ItemActor data={dataCast?.data?.cast} />
-        </section> */}
       </section>
       <ToTop />
     </>

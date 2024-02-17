@@ -15,7 +15,7 @@ export default function BoardSlider() {
 
   return (
     <Swiper
-      className="!w-full h-screen lg:h-[41rem]"
+      className="!w-full h-screen lg:h-[40rem]"
       spaceBetween={0}
       speed={600}
       slidesPerView={1}
@@ -78,13 +78,13 @@ export default function BoardSlider() {
                 className="w-full h-full object-cover object-center lg:object-top duration-300"
                 src={
                   window.innerWidth > 430
-                    ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
-                    : `https://image.tmdb.org/t/p/w1280${items?.poster_path}`
+                    ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}`
+                    : `https://image.tmdb.org/t/p/original${items?.poster_path}`
                 }
                 alt={
                   window.innerWidth > 430
-                    ? `https://image.tmdb.org/t/p/w1280${items?.backdrop_path}`
-                    : `https://image.tmdb.org/t/p/w1280${items?.poster_path}`
+                    ? `https://image.tmdb.org/t/p/original${items?.backdrop_path}`
+                    : `https://image.tmdb.org/t/p/original${items?.poster_path}`
                 }
               />
 

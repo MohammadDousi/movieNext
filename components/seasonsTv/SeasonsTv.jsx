@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
 export default function SeasonsTv({ data, typeLink }) {
+  const [countItem, setCountItem] = useState(10);
   return (
     <div className="w-full">
       <Swiper
@@ -20,6 +23,7 @@ export default function SeasonsTv({ data, typeLink }) {
         slidesPerView={1.8}
         lazy="true"
         grabCursor={true}
+        onActiveIndexChange={(s) => s.isEnd && setCountItem(countItem + 10)}
         breakpoints={{
           430: {
             slidesPerView: 1.8,
@@ -38,7 +42,7 @@ export default function SeasonsTv({ data, typeLink }) {
         modules={[Mousewheel, FreeMode]}
       >
         {data &&
-          data.map((items, index) => (
+          data?.slice(0, countItem).map((items, index) => (
             <SwiperSlide key={items?.id + index}>
               <Link
                 href={
@@ -85,6 +89,8 @@ export default function SeasonsTv({ data, typeLink }) {
               </Link>
             </SwiperSlide>
           ))}
+
+        {}
       </Swiper>
     </div>
   );

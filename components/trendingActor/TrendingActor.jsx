@@ -13,7 +13,7 @@ export default function TrendingActor() {
           something went wrong - {error.message}
         </h5>
       )}
-      <ItemActor data={data?.data?.results?.slice(0, 10)} />
+      <ItemActor data={data?.data?.results} />
     </section>
   );
 }

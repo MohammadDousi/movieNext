@@ -41,7 +41,7 @@ export default function Home() {
           <PopularTv />
         </section>
         <section className="w-full flex flex-col justify-start items-start gap-5">
-          <TitleContainer title="trending people" href="#" />
+          <TitleContainer title="trending people" />
           <TrendingActor />
         </section>
       </section>

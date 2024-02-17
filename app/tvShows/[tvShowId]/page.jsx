@@ -13,6 +13,7 @@ import Trailer from "@/components/trailer/Trailer";
 import SeasonsTv from "@/components/seasonsTv/SeasonsTv";
 import ToTop from "@/components/toTop/ToTop";
 import { getCastItem, getSingleItem, getTrialerItem } from "@/hooks/querys";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
 export default function TvShowsPage({ params }) {
   const [cast, setCast] = useState();
@@ -57,14 +58,17 @@ export default function TvShowsPage({ params }) {
           unoptimized
         />
 
-        <div className="breadcrumbs w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30 text-base text-textColor/50 *:capitalize">
-          <ul>
-            <li>
-              <Link href={`/`}>Home</Link>
-            </li>
-            <li>dataTv .data?Shows</li>
-            <li>{dataTv?.data?.title || dataTv?.data?.original_name}</li>
-          </ul>
+        <div className="w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24">
+          <Breadcrumbs
+            data={[
+              { address: "home", link: "/" },
+              { address: "tv shows", link: "" },
+              {
+                address: dataTv?.data?.title || dataTv?.data?.original_name,
+                link: "",
+              },
+            ]}
+          />
         </div>
 
         <section className="w-full h-full lg:h-screen z-10 relative lg:pt-24 flex flex-col lg:flex-row justify-start lg:justify-center items-center gap-10">
@@ -120,7 +124,7 @@ export default function TvShowsPage({ params }) {
                 {dataTv?.data?.title || dataTv?.data?.original_name}
               </h1>
 
-              <p className="w-full text-lg text-textColor/70 drop-shadow-lg">
+              <p className="w-full text-lg text-textColor/50 drop-shadow-lg">
                 <span className="font-bold text-xl text-accentColor/50 italic capitalize ">
                   overview :{" "}
                 </span>
@@ -196,7 +200,7 @@ export default function TvShowsPage({ params }) {
 
         <section className="w-full z-10 flex flex-col gap-5">
           <TitleContainer title="seasons" />
-          <SeasonsTv data={dataTv?.data?.seasons} />
+          <SeasonsTv data={dataTv?.data?.seasons} typeLink="tv" />
         </section>
 
         <section className="w-full z-10 flex flex-col gap-5">
@@ -211,13 +215,23 @@ export default function TvShowsPage({ params }) {
         </section>
 
         <section className="w-full z-10 flex flex-col gap-5">
-          <TitleContainer title="Top Billed Cast" />
+          <TitleContainer title="Top Cast" />
           {isErrorCast && (
             <h5 className="w-full h-52 text-textColor/70 text-base font-normal tracking-wide capitalize">
               something went wrong - {errorCast.message}
             </h5>
           )}
           <ItemActor data={dataCast?.data?.cast} />
+        </section>
+
+        <section className="w-full z-10 flex flex-col gap-5">
+          <TitleContainer title="Behind the scenes of the movie" />
+          {isErrorCast && (
+            <h5 className="w-full h-52 text-textColor/70 text-base font-normal tracking-wide capitalize">
+              something went wrong - {errorCast.message}
+            </h5>
+          )}
+          <ItemActor data={dataCast?.data?.crew} />
         </section>
       </section>
       <ToTop />

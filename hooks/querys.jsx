@@ -137,7 +137,7 @@ const getTrialerItem = (queryKey, id) => {
 
 //
 //
-// get item for movie and tv shows with id item and query key is movie or tv
+// get data search
 const getDataSearch = (search, page) => {
   const options = {
     method: "GET",
@@ -154,9 +154,74 @@ const getDataSearch = (search, page) => {
   return useQuery({
     queryKey: ["search", search, page],
     queryFn: fetchData,
-    // staleTime: 2 * (60 * 1000),
-    // cacheTime: 2.1 * (60 * 1000),
-    // refetchOnMount: false,
+    refetchOnMount: false,
+  });
+};
+
+//
+//
+// get single item pepole , movie pepole , tv pepole
+const getSingleCastItem = (id) => {
+  const options = {
+    method: "GET",
+    url: `https://api.themoviedb.org/3/person/${id}?language=en-US`,
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
+    },
+  };
+
+  const fetchData = () => axios.request(options);
+
+  return useQuery({
+    queryKey: ["singleCast", id],
+    queryFn: fetchData,
+    staleTime: 2 * (60 * 1000),
+    cacheTime: 2.1 * (60 * 1000),
+    refetchOnMount: false,
+  });
+};
+const getSingleMovieCastItem = (id) => {
+  const options = {
+    method: "GET",
+    url: `https://api.themoviedb.org/3/person/${id}/movie_credits?language=en-US`,
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
+    },
+  };
+
+  const fetchData = () => axios.request(options);
+
+  return useQuery({
+    queryKey: ["singleMovieCast", id],
+    queryFn: fetchData,
+    staleTime: 2 * (60 * 1000),
+    cacheTime: 2.1 * (60 * 1000),
+    refetchOnMount: false,
+  });
+};
+const getSingleTvCastItem = (id) => {
+  const options = {
+    method: "GET",
+    url: `https://api.themoviedb.org/3/person/${id}/tv_credits?language=en-US`,
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTRiM2QzNDRiMDAxOTNhMWYxMzEyOWZkNDIzNzdlZSIsInN1YiI6IjY1YjRkZGY2MmZhZjRkMDE3Y2RjMjgzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ldhZGWiYUrMsECw_f-hTacesZEoyzMJEz7njNTnsikg",
+    },
+  };
+
+  const fetchData = () => axios.request(options);
+
+  return useQuery({
+    queryKey: ["singleTvCast", id],
+    queryFn: fetchData,
+    staleTime: 2 * (60 * 1000),
+    cacheTime: 2.1 * (60 * 1000),
+    refetchOnMount: false,
   });
 };
 
@@ -168,4 +233,7 @@ export {
   getCastItem,
   getTrialerItem,
   getDataSearch,
+  getSingleCastItem,
+  getSingleMovieCastItem,
+  getSingleTvCastItem,
 };

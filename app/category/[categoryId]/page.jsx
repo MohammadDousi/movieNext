@@ -9,6 +9,7 @@ import ToTop from "@/components/toTop/ToTop";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Loading from "@/app/loading";
 import Pagination from "@/components/pagination/Pagination";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
 export default function CategoryPage({ params }) {
   const [movie, setMovie] = useState();
@@ -40,7 +41,6 @@ export default function CategoryPage({ params }) {
   useEffect(() => {
     search && setPage(search);
     genres && setGenersId(genres);
-
   }, []);
 
   useEffect(() => {
@@ -167,15 +167,13 @@ export default function CategoryPage({ params }) {
 
   return (
     <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-5 overflow-x-hidden">
-      <div className="breadcrumbs w-full z-30 text-base text-textColor/50 *:capitalize">
-        <ul>
-          <li>
-            <Link href={`/`}>Home</Link>
-          </li>
-          <li>category</li>
-          <li>{decodeURIComponent(params.categoryId)}</li>
-        </ul>
-      </div>
+      <Breadcrumbs
+        data={[
+          { address: "home", link: "/" },
+          { address: "category", link: "" },
+          { address: decodeURIComponent(params.categoryId), link: "" },
+        ]}
+      />
 
       <section className="w-full flex flex-col-reverse lg:flex-row justify-start items-start gap-5 duration-300">
         <section className="w-full flex flex-col justify-start items-center gap-7">

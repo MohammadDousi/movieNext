@@ -8,6 +8,7 @@ import { FreeMode } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import Link from "next/link";
 
 export default function ItemActor({ data }) {
   let uniqueData;
@@ -42,8 +43,9 @@ export default function ItemActor({ data }) {
       {uniqueData &&
         uniqueData.map((items) => (
           <SwiperSlide key={items?.id}>
-            <div
+            <Link
               key={items.id}
+              href={`/cast/${items.id}`}
               className="h-56 bg-primeryColorDarker/50 p-3 rounded-xl flex flex-col justify-start items-start gap-3 select-none overflow-hidden"
             >
               <Image
@@ -74,7 +76,7 @@ export default function ItemActor({ data }) {
                   ? `${items?.name?.slice(0, 15)}...`
                   : items?.name}
               </h2>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
 

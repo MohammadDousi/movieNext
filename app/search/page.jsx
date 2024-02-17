@@ -8,6 +8,7 @@ import Pagination from "@/components/pagination/Pagination";
 import ToTop from "@/components/toTop/ToTop";
 
 import { getDataSearch } from "@/hooks/querys";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 
 export default function Search() {
   const [textSearch, setTextSearch] = useState("");
@@ -27,7 +28,16 @@ export default function Search() {
 
   return (
     <>
-      <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-24 lg:pt-28 flex flex-col justify-start items-start gap-6 overflow-x-hidden">
+      <section className="w-full h-full min-h-screen px-6 lg:px-16 pt-20 lg:pt-24 flex flex-col justify-start items-start gap-6 overflow-x-hidden">
+        <div className="w-full">
+          <Breadcrumbs
+            data={[
+              { address: "home", link: "/" },
+              { address: "search", link: "" },
+            ]}
+          />
+        </div>
+
         <div className="w-full flex flex-row justify-center items-center gap-3">
           <input
             type="text"

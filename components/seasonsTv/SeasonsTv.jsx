@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Mousewheel } from "swiper/modules";
@@ -8,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-export default function SeasonsTv({ data }) {
+export default function SeasonsTv({ data, typeLink }) {
   return (
     <div className="w-full">
       <Swiper
@@ -17,6 +18,7 @@ export default function SeasonsTv({ data }) {
         speed={1500}
         freeMode={true}
         slidesPerView={1.8}
+        lazy="true"
         grabCursor={true}
         breakpoints={{
           430: {
@@ -36,10 +38,14 @@ export default function SeasonsTv({ data }) {
         modules={[Mousewheel, FreeMode]}
       >
         {data &&
-          data.map((items) => (
-            <SwiperSlide key={items?.id}>
-              <div
-                key={items?.id}
+          data.map((items, index) => (
+            <SwiperSlide key={items?.id + index}>
+              <Link
+                href={
+                  typeLink === "movie"
+                    ? `/movie/${items?.id}`
+                    : `/tvShows/${items?.id}`
+                }
                 className="w-full flex flex-col justify-start items-start gap-3 select-none rounded-xl overflow-hidden"
               >
                 <div className="w-full relative h-72 rounded-xl overflow-hidden">
@@ -61,17 +67,22 @@ export default function SeasonsTv({ data }) {
 
                 <div className="w-full pb-5 flex flex-col gap-1">
                   <h2 className="w-full font-medium text-sm text-left text-textColor/70 tracking-normal capitalize">
-                    {items?.name?.length >= 22
+                    {typeLink === "movie"
+                      ? items?.title?.length >= 22
+                        ? `${items?.title?.slice(0, 20)}...`
+                        : items?.title
+                      : items?.name?.length >= 22
                       ? `${items?.name?.slice(0, 20)}...`
                       : items?.name}
                   </h2>
 
                   <h2 className="w-full font-medium text-sm text-left text-textColor/30 tracking-normal capitalize">
-                    season : {items?.season_number} episode :{" "}
-                    {items?.episode_count}
+                    {items?.season_number &&
+                      `season : ${items?.season_number} episode : 
+                      ${items?.episode_count}`}
                   </h2>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
       </Swiper>

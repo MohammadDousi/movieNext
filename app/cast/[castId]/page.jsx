@@ -49,18 +49,17 @@ export default function CastPage({ params }) {
           />
         </div>
 
-        <section className="w-full h-full lg:h-full min-h-screen z-10 relative flex flex-col lg:flex-row justify-start lg:justify-start items-start gap-10">
+        <section className="w-full h-full lg:h-full z-10 relative flex flex-col lg:flex-row justify-start lg:justify-start items-start gap-10">
           <div className="w-full lg:w-auto flex justify-center items-center">
             <Image
               width={100}
               height={100}
               quality={100}
-              loading="lazy"
               unoptimized
               className={
                 dataCast?.data?.profile_path != null || ""
                   ? "w-48 lg:w-64 h-64 lg:h-80 object-cover object-top rounded-full p-2 ring-1 ring-textColor/10"
-                  : "w-48 lg:w-64 h-64 lg:h-80 p-5 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10"
+                  : "w-48 lg:w-64 h-64 lg:h-80 p-14 object-contain object-center rounded-full saturate-0 opacity-50 ring-1 ring-textColor/10"
               }
               src={
                 dataCast?.data?.profile_path != null || ""

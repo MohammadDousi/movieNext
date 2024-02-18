@@ -50,7 +50,7 @@ export default function MoviePage({ params }) {
           unoptimized
         />
 
-        <div className="w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24">
+        <div className="w-full lg:absolute lg:top-0 lg:left-0 lg:ml-16 mt-20 lg:mt-24 z-30">
           <Breadcrumbs
             data={[
               { address: "home", link: "/" },
